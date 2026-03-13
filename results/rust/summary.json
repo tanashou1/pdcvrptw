@@ -1,0 +1,74 @@
+{
+  "solutions": [
+    {
+      "instance": "instance_01",
+      "initial_objective": 900,
+      "best_objective": 395,
+      "route_count": 11,
+      "feasible": true
+    },
+    {
+      "instance": "instance_02",
+      "initial_objective": 1049,
+      "best_objective": 505,
+      "route_count": 11,
+      "feasible": true
+    },
+    {
+      "instance": "instance_03",
+      "initial_objective": 871,
+      "best_objective": 491,
+      "route_count": 10,
+      "feasible": true
+    },
+    {
+      "instance": "instance_04",
+      "initial_objective": 939,
+      "best_objective": 445,
+      "route_count": 11,
+      "feasible": true
+    },
+    {
+      "instance": "instance_05",
+      "initial_objective": 1548,
+      "best_objective": 601,
+      "route_count": 10,
+      "feasible": true
+    },
+    {
+      "instance": "instance_06",
+      "initial_objective": 1013,
+      "best_objective": 445,
+      "route_count": 11,
+      "feasible": true
+    },
+    {
+      "instance": "instance_07",
+      "initial_objective": 978,
+      "best_objective": 486,
+      "route_count": 10,
+      "feasible": true
+    },
+    {
+      "instance": "instance_08",
+      "initial_objective": 684,
+      "best_objective": 401,
+      "route_count": 10,
+      "feasible": true
+    },
+    {
+      "instance": "instance_09",
+      "initial_objective": 1212,
+      "best_objective": 563,
+      "route_count": 11,
+      "feasible": true
+    },
+    {
+      "instance": "instance_10",
+      "initial_objective": 795,
+      "best_objective": 431,
+      "route_count": 10,
+      "feasible": true
+    }
+  ]
+}

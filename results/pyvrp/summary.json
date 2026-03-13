@@ -1,0 +1,74 @@
+{
+  "solutions": [
+    {
+      "instance": "instance_01",
+      "objective": 357,
+      "route_count": 11,
+      "feasible": true,
+      "runtime_seconds": 2.511
+    },
+    {
+      "instance": "instance_02",
+      "objective": 470,
+      "route_count": 11,
+      "feasible": true,
+      "runtime_seconds": 2.517
+    },
+    {
+      "instance": "instance_03",
+      "objective": 460,
+      "route_count": 10,
+      "feasible": true,
+      "runtime_seconds": 2.514
+    },
+    {
+      "instance": "instance_04",
+      "objective": 395,
+      "route_count": 11,
+      "feasible": true,
+      "runtime_seconds": 2.511
+    },
+    {
+      "instance": "instance_05",
+      "objective": 553,
+      "route_count": 10,
+      "feasible": true,
+      "runtime_seconds": 2.51
+    },
+    {
+      "instance": "instance_06",
+      "objective": 414,
+      "route_count": 11,
+      "feasible": true,
+      "runtime_seconds": 2.515
+    },
+    {
+      "instance": "instance_07",
+      "objective": 410,
+      "route_count": 11,
+      "feasible": true,
+      "runtime_seconds": 2.513
+    },
+    {
+      "instance": "instance_08",
+      "objective": 320,
+      "route_count": 10,
+      "feasible": true,
+      "runtime_seconds": 2.509
+    },
+    {
+      "instance": "instance_09",
+      "objective": 443,
+      "route_count": 10,
+      "feasible": true,
+      "runtime_seconds": 2.51
+    },
+    {
+      "instance": "instance_10",
+      "objective": 402,
+      "route_count": 10,
+      "feasible": true,
+      "runtime_seconds": 2.51
+    }
+  ]
+}

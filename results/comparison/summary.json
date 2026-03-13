@@ -1,0 +1,112 @@
+{
+  "records": [
+    {
+      "instance": "instance_01",
+      "pyvrp_objective": 357,
+      "rust_objective": 395,
+      "gap_pct": 10.644257703081232,
+      "pyvrp_routes": 11,
+      "rust_routes": 11,
+      "pyvrp_feasible": true,
+      "rust_feasible": true
+    },
+    {
+      "instance": "instance_02",
+      "pyvrp_objective": 470,
+      "rust_objective": 505,
+      "gap_pct": 7.446808510638298,
+      "pyvrp_routes": 11,
+      "rust_routes": 11,
+      "pyvrp_feasible": true,
+      "rust_feasible": true
+    },
+    {
+      "instance": "instance_03",
+      "pyvrp_objective": 460,
+      "rust_objective": 491,
+      "gap_pct": 6.739130434782608,
+      "pyvrp_routes": 10,
+      "rust_routes": 10,
+      "pyvrp_feasible": true,
+      "rust_feasible": true
+    },
+    {
+      "instance": "instance_04",
+      "pyvrp_objective": 395,
+      "rust_objective": 445,
+      "gap_pct": 12.658227848101266,
+      "pyvrp_routes": 11,
+      "rust_routes": 11,
+      "pyvrp_feasible": true,
+      "rust_feasible": true
+    },
+    {
+      "instance": "instance_05",
+      "pyvrp_objective": 553,
+      "rust_objective": 601,
+      "gap_pct": 8.679927667269439,
+      "pyvrp_routes": 10,
+      "rust_routes": 10,
+      "pyvrp_feasible": true,
+      "rust_feasible": true
+    },
+    {
+      "instance": "instance_06",
+      "pyvrp_objective": 414,
+      "rust_objective": 445,
+      "gap_pct": 7.487922705314009,
+      "pyvrp_routes": 11,
+      "rust_routes": 11,
+      "pyvrp_feasible": true,
+      "rust_feasible": true
+    },
+    {
+      "instance": "instance_07",
+      "pyvrp_objective": 410,
+      "rust_objective": 486,
+      "gap_pct": 18.536585365853657,
+      "pyvrp_routes": 11,
+      "rust_routes": 10,
+      "pyvrp_feasible": true,
+      "rust_feasible": true
+    },
+    {
+      "instance": "instance_08",
+      "pyvrp_objective": 320,
+      "rust_objective": 401,
+      "gap_pct": 25.3125,
+      "pyvrp_routes": 10,
+      "rust_routes": 10,
+      "pyvrp_feasible": true,
+      "rust_feasible": true
+    },
+    {
+      "instance": "instance_09",
+      "pyvrp_objective": 443,
+      "rust_objective": 563,
+      "gap_pct": 27.088036117381492,
+      "pyvrp_routes": 10,
+      "rust_routes": 11,
+      "pyvrp_feasible": true,
+      "rust_feasible": true
+    },
+    {
+      "instance": "instance_10",
+      "pyvrp_objective": 402,
+      "rust_objective": 431,
+      "gap_pct": 7.213930348258707,
+      "pyvrp_routes": 10,
+      "rust_routes": 10,
+      "pyvrp_feasible": true,
+      "rust_feasible": true
+    }
+  ],
+  "aggregate": {
+    "instance_count": 10,
+    "pyvrp_feasible_count": 10,
+    "rust_feasible_count": 10,
+    "average_gap_pct": 13.180732670068071,
+    "best_gap_pct": 6.739130434782608,
+    "worst_gap_pct": 27.088036117381492
+  }
+}

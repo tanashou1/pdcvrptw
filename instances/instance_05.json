@@ -1,0 +1,1680 @@
+{
+  "name": "instance_05",
+  "seed": 2026031305,
+  "planning_horizon": {
+    "start": 480,
+    "end": 1080
+  },
+  "capacity": 6,
+  "vehicles_per_depot": {
+    "D0": 6,
+    "D1": 6,
+    "D2": 6
+  },
+  "depots": [
+    {
+      "id": "D0",
+      "x": 15,
+      "y": 15,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      }
+    },
+    {
+      "id": "D1",
+      "x": 85,
+      "y": 15,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      }
+    },
+    {
+      "id": "D2",
+      "x": 50,
+      "y": 85,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      }
+    }
+  ],
+  "location_catalog": [
+    {
+      "id": "L00",
+      "x": 24,
+      "y": 10,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L01",
+      "x": 100,
+      "y": 13,
+      "home_depot_id": "D1"
+    },
+    {
+      "id": "L02",
+      "x": 23,
+      "y": 89,
+      "home_depot_id": "D2"
+    },
+    {
+      "id": "L03",
+      "x": 8,
+      "y": 4,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L04",
+      "x": 72,
+      "y": 0,
+      "home_depot_id": "D1"
+    },
+    {
+      "id": "L05",
+      "x": 63,
+      "y": 100,
+      "home_depot_id": "D2"
+    },
+    {
+      "id": "L06",
+      "x": 23,
+      "y": 0,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L07",
+      "x": 100,
+      "y": 35,
+      "home_depot_id": "D1"
+    },
+    {
+      "id": "L08",
+      "x": 64,
+      "y": 77,
+      "home_depot_id": "D2"
+    },
+    {
+      "id": "L09",
+      "x": 21,
+      "y": 17,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L10",
+      "x": 53,
+      "y": 19,
+      "home_depot_id": "D1"
+    },
+    {
+      "id": "L11",
+      "x": 35,
+      "y": 57,
+      "home_depot_id": "D2"
+    },
+    {
+      "id": "L12",
+      "x": 16,
+      "y": 30,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L13",
+      "x": 76,
+      "y": 16,
+      "home_depot_id": "D1"
+    },
+    {
+      "id": "L14",
+      "x": 72,
+      "y": 57,
+      "home_depot_id": "D2"
+    },
+    {
+      "id": "L15",
+      "x": 21,
+      "y": 31,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L16",
+      "x": 90,
+      "y": 4,
+      "home_depot_id": "D1"
+    },
+    {
+      "id": "L17",
+      "x": 68,
+      "y": 85,
+      "home_depot_id": "D2"
+    },
+    {
+      "id": "L18",
+      "x": 1,
+      "y": 17,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L19",
+      "x": 83,
+      "y": 11,
+      "home_depot_id": "D1"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "P000",
+      "request_id": "R000",
+      "kind": "pickup",
+      "x": 23,
+      "y": 89,
+      "demand": 1,
+      "service_duration": 8,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L02",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D000",
+      "request_id": "R000",
+      "kind": "delivery",
+      "x": 23,
+      "y": 89,
+      "demand": -1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L02",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P001",
+      "request_id": "R001",
+      "kind": "pickup",
+      "x": 83,
+      "y": 11,
+      "demand": 1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L19",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D001",
+      "request_id": "R001",
+      "kind": "delivery",
+      "x": 76,
+      "y": 16,
+      "demand": -1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L13",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P002",
+      "request_id": "R002",
+      "kind": "pickup",
+      "x": 21,
+      "y": 31,
+      "demand": 1,
+      "service_duration": 7,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L15",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D002",
+      "request_id": "R002",
+      "kind": "delivery",
+      "x": 24,
+      "y": 10,
+      "demand": -1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L00",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "P003",
+      "request_id": "R003",
+      "kind": "pickup",
+      "x": 1,
+      "y": 17,
+      "demand": 1,
+      "service_duration": 5,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L18",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "D003",
+      "request_id": "R003",
+      "kind": "delivery",
+      "x": 53,
+      "y": 19,
+      "demand": -1,
+      "service_duration": 5,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L10",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P004",
+      "request_id": "R004",
+      "kind": "pickup",
+      "x": 68,
+      "y": 85,
+      "demand": 1,
+      "service_duration": 7,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L17",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D004",
+      "request_id": "R004",
+      "kind": "delivery",
+      "x": 23,
+      "y": 89,
+      "demand": -1,
+      "service_duration": 8,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L02",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "P005",
+      "request_id": "R005",
+      "kind": "pickup",
+      "x": 63,
+      "y": 100,
+      "demand": 1,
+      "service_duration": 5,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L05",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D005",
+      "request_id": "R005",
+      "kind": "delivery",
+      "x": 63,
+      "y": 100,
+      "demand": -1,
+      "service_duration": 5,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L05",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P006",
+      "request_id": "R006",
+      "kind": "pickup",
+      "x": 21,
+      "y": 17,
+      "demand": 1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D006",
+      "request_id": "R006",
+      "kind": "delivery",
+      "x": 23,
+      "y": 0,
+      "demand": -1,
+      "service_duration": 12,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L06",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "P007",
+      "request_id": "R007",
+      "kind": "pickup",
+      "x": 64,
+      "y": 77,
+      "demand": 1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L08",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D007",
+      "request_id": "R007",
+      "kind": "delivery",
+      "x": 64,
+      "y": 77,
+      "demand": -1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L08",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P008",
+      "request_id": "R008",
+      "kind": "pickup",
+      "x": 24,
+      "y": 10,
+      "demand": 1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L00",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "D008",
+      "request_id": "R008",
+      "kind": "delivery",
+      "x": 21,
+      "y": 17,
+      "demand": -1,
+      "service_duration": 6,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "P009",
+      "request_id": "R009",
+      "kind": "pickup",
+      "x": 1,
+      "y": 17,
+      "demand": 1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L18",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D009",
+      "request_id": "R009",
+      "kind": "delivery",
+      "x": 21,
+      "y": 17,
+      "demand": -1,
+      "service_duration": 8,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "P010",
+      "request_id": "R010",
+      "kind": "pickup",
+      "x": 72,
+      "y": 57,
+      "demand": 1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L14",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D010",
+      "request_id": "R010",
+      "kind": "delivery",
+      "x": 35,
+      "y": 57,
+      "demand": -1,
+      "service_duration": 8,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L11",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P011",
+      "request_id": "R011",
+      "kind": "pickup",
+      "x": 21,
+      "y": 17,
+      "demand": 1,
+      "service_duration": 5,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "D011",
+      "request_id": "R011",
+      "kind": "delivery",
+      "x": 21,
+      "y": 17,
+      "demand": -1,
+      "service_duration": 7,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L09",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "P012",
+      "request_id": "R012",
+      "kind": "pickup",
+      "x": 64,
+      "y": 77,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L08",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "D012",
+      "request_id": "R012",
+      "kind": "delivery",
+      "x": 23,
+      "y": 89,
+      "demand": -1,
+      "service_duration": 5,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L02",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "P013",
+      "request_id": "R013",
+      "kind": "pickup",
+      "x": 16,
+      "y": 30,
+      "demand": 1,
+      "service_duration": 8,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L12",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D013",
+      "request_id": "R013",
+      "kind": "delivery",
+      "x": 72,
+      "y": 57,
+      "demand": -1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L14",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P014",
+      "request_id": "R014",
+      "kind": "pickup",
+      "x": 24,
+      "y": 10,
+      "demand": 1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L00",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D014",
+      "request_id": "R014",
+      "kind": "delivery",
+      "x": 21,
+      "y": 17,
+      "demand": -1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P015",
+      "request_id": "R015",
+      "kind": "pickup",
+      "x": 21,
+      "y": 17,
+      "demand": 1,
+      "service_duration": 7,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D015",
+      "request_id": "R015",
+      "kind": "delivery",
+      "x": 21,
+      "y": 31,
+      "demand": -1,
+      "service_duration": 10,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L15",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P016",
+      "request_id": "R016",
+      "kind": "pickup",
+      "x": 72,
+      "y": 57,
+      "demand": 1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L14",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D016",
+      "request_id": "R016",
+      "kind": "delivery",
+      "x": 64,
+      "y": 77,
+      "demand": -1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L08",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P017",
+      "request_id": "R017",
+      "kind": "pickup",
+      "x": 35,
+      "y": 57,
+      "demand": 1,
+      "service_duration": 6,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L11",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "D017",
+      "request_id": "R017",
+      "kind": "delivery",
+      "x": 72,
+      "y": 57,
+      "demand": -1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L14",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P018",
+      "request_id": "R018",
+      "kind": "pickup",
+      "x": 64,
+      "y": 77,
+      "demand": 1,
+      "service_duration": 5,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L08",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "D018",
+      "request_id": "R018",
+      "kind": "delivery",
+      "x": 64,
+      "y": 77,
+      "demand": -1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L08",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P019",
+      "request_id": "R019",
+      "kind": "pickup",
+      "x": 35,
+      "y": 57,
+      "demand": 1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L11",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D019",
+      "request_id": "R019",
+      "kind": "delivery",
+      "x": 23,
+      "y": 0,
+      "demand": -1,
+      "service_duration": 10,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L06",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P020",
+      "request_id": "R020",
+      "kind": "pickup",
+      "x": 53,
+      "y": 19,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L10",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D020",
+      "request_id": "R020",
+      "kind": "delivery",
+      "x": 68,
+      "y": 85,
+      "demand": -1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L17",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P021",
+      "request_id": "R021",
+      "kind": "pickup",
+      "x": 100,
+      "y": 35,
+      "demand": 1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L07",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D021",
+      "request_id": "R021",
+      "kind": "delivery",
+      "x": 72,
+      "y": 0,
+      "demand": -1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L04",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P022",
+      "request_id": "R022",
+      "kind": "pickup",
+      "x": 24,
+      "y": 10,
+      "demand": 1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L00",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D022",
+      "request_id": "R022",
+      "kind": "delivery",
+      "x": 16,
+      "y": 30,
+      "demand": -1,
+      "service_duration": 7,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L12",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "P023",
+      "request_id": "R023",
+      "kind": "pickup",
+      "x": 76,
+      "y": 16,
+      "demand": 1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L13",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D023",
+      "request_id": "R023",
+      "kind": "delivery",
+      "x": 100,
+      "y": 13,
+      "demand": -1,
+      "service_duration": 12,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L01",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "P024",
+      "request_id": "R024",
+      "kind": "pickup",
+      "x": 76,
+      "y": 16,
+      "demand": 1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L13",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "D024",
+      "request_id": "R024",
+      "kind": "delivery",
+      "x": 83,
+      "y": 11,
+      "demand": -1,
+      "service_duration": 7,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L19",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P025",
+      "request_id": "R025",
+      "kind": "pickup",
+      "x": 23,
+      "y": 89,
+      "demand": 1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L02",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D025",
+      "request_id": "R025",
+      "kind": "delivery",
+      "x": 63,
+      "y": 100,
+      "demand": -1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L05",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P026",
+      "request_id": "R026",
+      "kind": "pickup",
+      "x": 21,
+      "y": 17,
+      "demand": 1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D026",
+      "request_id": "R026",
+      "kind": "delivery",
+      "x": 24,
+      "y": 10,
+      "demand": -1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L00",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P027",
+      "request_id": "R027",
+      "kind": "pickup",
+      "x": 100,
+      "y": 13,
+      "demand": 1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L01",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D027",
+      "request_id": "R027",
+      "kind": "delivery",
+      "x": 83,
+      "y": 11,
+      "demand": -1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L19",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P028",
+      "request_id": "R028",
+      "kind": "pickup",
+      "x": 1,
+      "y": 17,
+      "demand": 1,
+      "service_duration": 11,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L18",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "D028",
+      "request_id": "R028",
+      "kind": "delivery",
+      "x": 21,
+      "y": 17,
+      "demand": -1,
+      "service_duration": 5,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "P029",
+      "request_id": "R029",
+      "kind": "pickup",
+      "x": 8,
+      "y": 4,
+      "demand": 1,
+      "service_duration": 5,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L03",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "D029",
+      "request_id": "R029",
+      "kind": "delivery",
+      "x": 21,
+      "y": 17,
+      "demand": -1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P030",
+      "request_id": "R030",
+      "kind": "pickup",
+      "x": 100,
+      "y": 35,
+      "demand": 1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L07",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D030",
+      "request_id": "R030",
+      "kind": "delivery",
+      "x": 100,
+      "y": 13,
+      "demand": -1,
+      "service_duration": 7,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L01",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P031",
+      "request_id": "R031",
+      "kind": "pickup",
+      "x": 63,
+      "y": 100,
+      "demand": 1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L05",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "D031",
+      "request_id": "R031",
+      "kind": "delivery",
+      "x": 35,
+      "y": 57,
+      "demand": -1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L11",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "P032",
+      "request_id": "R032",
+      "kind": "pickup",
+      "x": 72,
+      "y": 0,
+      "demand": 1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L04",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D032",
+      "request_id": "R032",
+      "kind": "delivery",
+      "x": 100,
+      "y": 35,
+      "demand": -1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L07",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P033",
+      "request_id": "R033",
+      "kind": "pickup",
+      "x": 23,
+      "y": 89,
+      "demand": 1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L02",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D033",
+      "request_id": "R033",
+      "kind": "delivery",
+      "x": 35,
+      "y": 57,
+      "demand": -1,
+      "service_duration": 8,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L11",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "P034",
+      "request_id": "R034",
+      "kind": "pickup",
+      "x": 63,
+      "y": 100,
+      "demand": 1,
+      "service_duration": 8,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L05",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D034",
+      "request_id": "R034",
+      "kind": "delivery",
+      "x": 21,
+      "y": 17,
+      "demand": -1,
+      "service_duration": 8,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P035",
+      "request_id": "R035",
+      "kind": "pickup",
+      "x": 23,
+      "y": 0,
+      "demand": 1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L06",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D035",
+      "request_id": "R035",
+      "kind": "delivery",
+      "x": 23,
+      "y": 0,
+      "demand": -1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L06",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P036",
+      "request_id": "R036",
+      "kind": "pickup",
+      "x": 63,
+      "y": 100,
+      "demand": 1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L05",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D036",
+      "request_id": "R036",
+      "kind": "delivery",
+      "x": 72,
+      "y": 57,
+      "demand": -1,
+      "service_duration": 8,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L14",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P037",
+      "request_id": "R037",
+      "kind": "pickup",
+      "x": 100,
+      "y": 35,
+      "demand": 1,
+      "service_duration": 6,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L07",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "D037",
+      "request_id": "R037",
+      "kind": "delivery",
+      "x": 90,
+      "y": 4,
+      "demand": -1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L16",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "P038",
+      "request_id": "R038",
+      "kind": "pickup",
+      "x": 35,
+      "y": 57,
+      "demand": 1,
+      "service_duration": 5,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L11",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D038",
+      "request_id": "R038",
+      "kind": "delivery",
+      "x": 8,
+      "y": 4,
+      "demand": -1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L03",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P039",
+      "request_id": "R039",
+      "kind": "pickup",
+      "x": 100,
+      "y": 13,
+      "demand": 1,
+      "service_duration": 8,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L01",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "D039",
+      "request_id": "R039",
+      "kind": "delivery",
+      "x": 100,
+      "y": 35,
+      "demand": -1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L07",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P040",
+      "request_id": "R040",
+      "kind": "pickup",
+      "x": 8,
+      "y": 4,
+      "demand": 1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L03",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D040",
+      "request_id": "R040",
+      "kind": "delivery",
+      "x": 23,
+      "y": 0,
+      "demand": -1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L06",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P041",
+      "request_id": "R041",
+      "kind": "pickup",
+      "x": 23,
+      "y": 89,
+      "demand": 1,
+      "service_duration": 7,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L02",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "D041",
+      "request_id": "R041",
+      "kind": "delivery",
+      "x": 23,
+      "y": 89,
+      "demand": -1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L02",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P042",
+      "request_id": "R042",
+      "kind": "pickup",
+      "x": 1,
+      "y": 17,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L18",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "D042",
+      "request_id": "R042",
+      "kind": "delivery",
+      "x": 8,
+      "y": 4,
+      "demand": -1,
+      "service_duration": 7,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L03",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P043",
+      "request_id": "R043",
+      "kind": "pickup",
+      "x": 21,
+      "y": 17,
+      "demand": 1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D043",
+      "request_id": "R043",
+      "kind": "delivery",
+      "x": 21,
+      "y": 17,
+      "demand": -1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L09",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P044",
+      "request_id": "R044",
+      "kind": "pickup",
+      "x": 24,
+      "y": 10,
+      "demand": 1,
+      "service_duration": 11,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L00",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "D044",
+      "request_id": "R044",
+      "kind": "delivery",
+      "x": 8,
+      "y": 4,
+      "demand": -1,
+      "service_duration": 12,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L03",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P045",
+      "request_id": "R045",
+      "kind": "pickup",
+      "x": 24,
+      "y": 10,
+      "demand": 1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L00",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D045",
+      "request_id": "R045",
+      "kind": "delivery",
+      "x": 21,
+      "y": 31,
+      "demand": -1,
+      "service_duration": 6,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L15",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P046",
+      "request_id": "R046",
+      "kind": "pickup",
+      "x": 53,
+      "y": 19,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L10",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "D046",
+      "request_id": "R046",
+      "kind": "delivery",
+      "x": 90,
+      "y": 4,
+      "demand": -1,
+      "service_duration": 7,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L16",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P047",
+      "request_id": "R047",
+      "kind": "pickup",
+      "x": 53,
+      "y": 19,
+      "demand": 1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L10",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D047",
+      "request_id": "R047",
+      "kind": "delivery",
+      "x": 72,
+      "y": 57,
+      "demand": -1,
+      "service_duration": 9,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L14",
+      "time_window_label": "none"
+    },
+    {
+      "id": "P048",
+      "request_id": "R048",
+      "kind": "pickup",
+      "x": 68,
+      "y": 85,
+      "demand": 1,
+      "service_duration": 5,
+      "tw": {
+        "start": 480,
+        "end": 780
+      },
+      "location_id": "L17",
+      "time_window_label": "morning"
+    },
+    {
+      "id": "D048",
+      "request_id": "R048",
+      "kind": "delivery",
+      "x": 76,
+      "y": 16,
+      "demand": -1,
+      "service_duration": 5,
+      "tw": {
+        "start": 780,
+        "end": 1080
+      },
+      "location_id": "L13",
+      "time_window_label": "afternoon"
+    },
+    {
+      "id": "P049",
+      "request_id": "R049",
+      "kind": "pickup",
+      "x": 21,
+      "y": 31,
+      "demand": 1,
+      "service_duration": 8,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L15",
+      "time_window_label": "none"
+    },
+    {
+      "id": "D049",
+      "request_id": "R049",
+      "kind": "delivery",
+      "x": 23,
+      "y": 0,
+      "demand": -1,
+      "service_duration": 7,
+      "tw": {
+        "start": 480,
+        "end": 1080
+      },
+      "location_id": "L06",
+      "time_window_label": "none"
+    }
+  ],
+  "metadata": {
+    "request_count": 50,
+    "node_count": 100,
+    "location_count": 20,
+    "vehicle_count": 18,
+    "variant": "multi_depot_signed_demand_pdcvrptw",
+    "distance_metric": "euclidean_int_half_up",
+    "time_window_distribution": {
+      "none": 69,
+      "morning": 14,
+      "afternoon": 17
+    }
+  }
+}
