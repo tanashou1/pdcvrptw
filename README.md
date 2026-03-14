@@ -124,6 +124,7 @@ python scripts/solve_with_pyvrp.py
 - 貪欲法による初期解構築
 - ALNS による改善
 - Li-Lim では request pair 単位の destroy / repair を使用
+- 訪問ノード数が 20 以下のルートは、subset × last の exact DP で順序を定期的に polish
 
 ## 出力
 

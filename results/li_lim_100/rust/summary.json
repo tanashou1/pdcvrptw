@@ -136,7 +136,7 @@
     {
       "instance": "lr103",
       "initial_objective": 2124.97,
-      "best_objective": 1325.58,
+      "best_objective": 1325.12,
       "route_count": 13,
       "feasible": true
     },
@@ -178,7 +178,7 @@
     {
       "instance": "lr109",
       "initial_objective": 2124.29,
-      "best_objective": 1281.95,
+      "best_objective": 1281.73,
       "route_count": 13,
       "feasible": true
     },
@@ -192,14 +192,14 @@
     {
       "instance": "lr111",
       "initial_objective": 1995.1,
-      "best_objective": 1202.45,
+      "best_objective": 1192.44,
       "route_count": 12,
       "feasible": true
     },
     {
       "instance": "lr112",
       "initial_objective": 2075.52,
-      "best_objective": 1222.13,
+      "best_objective": 1199.1,
       "route_count": 11,
       "feasible": true
     },
@@ -297,7 +297,7 @@
     {
       "instance": "lrc103",
       "initial_objective": 2293.99,
-      "best_objective": 1633.35,
+      "best_objective": 1627.67,
       "route_count": 13,
       "feasible": true
     },
@@ -311,7 +311,7 @@
     {
       "instance": "lrc105",
       "initial_objective": 2331.03,
-      "best_objective": 1705.65,
+      "best_objective": 1701.79,
       "route_count": 14,
       "feasible": true
     },
@@ -325,7 +325,7 @@
     {
       "instance": "lrc107",
       "initial_objective": 2486.96,
-      "best_objective": 1452.33,
+      "best_objective": 1447.54,
       "route_count": 13,
       "feasible": true
     },
@@ -367,14 +367,14 @@
     {
       "instance": "lrc205",
       "initial_objective": 3556.38,
-      "best_objective": 1402.29,
+      "best_objective": 1395.05,
       "route_count": 5,
       "feasible": true
     },
     {
       "instance": "lrc206",
       "initial_objective": 3143.84,
-      "best_objective": 1369.31,
+      "best_objective": 1368.17,
       "route_count": 4,
       "feasible": true
     },
