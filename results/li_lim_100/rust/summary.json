@@ -2,64 +2,64 @@
   "solutions": [
     {
       "instance": "lc101",
-      "initial_objective": 828.94,
+      "initial_objective": 1547.59,
       "best_objective": 828.94,
       "route_count": 10,
       "feasible": true
     },
     {
       "instance": "lc102",
-      "initial_objective": 858.69,
+      "initial_objective": 2174.72,
       "best_objective": 828.94,
       "route_count": 10,
       "feasible": true
     },
     {
       "instance": "lc103",
-      "initial_objective": 986.5,
+      "initial_objective": 2228.61,
       "best_objective": 827.86,
       "route_count": 10,
       "feasible": true
     },
     {
       "instance": "lc104",
-      "initial_objective": 1711.01,
-      "best_objective": 819.45,
+      "initial_objective": 2196.0,
+      "best_objective": 859.36,
       "route_count": 10,
       "feasible": true
     },
     {
       "instance": "lc105",
-      "initial_objective": 828.94,
+      "initial_objective": 1473.67,
       "best_objective": 828.94,
       "route_count": 10,
       "feasible": true
     },
     {
       "instance": "lc106",
-      "initial_objective": 1248.6,
+      "initial_objective": 2300.86,
       "best_objective": 828.94,
       "route_count": 10,
       "feasible": true
     },
     {
       "instance": "lc107",
-      "initial_objective": 971.74,
+      "initial_objective": 2366.92,
       "best_objective": 828.94,
       "route_count": 10,
       "feasible": true
     },
     {
       "instance": "lc108",
-      "initial_objective": 1596.35,
+      "initial_objective": 2890.04,
       "best_objective": 826.44,
       "route_count": 10,
       "feasible": true
     },
     {
       "instance": "lc109",
-      "initial_objective": 1748.93,
-      "best_objective": 866.86,
+      "initial_objective": 2645.72,
+      "best_objective": 890.99,
       "route_count": 10,
       "feasible": true
     },
@@ -72,323 +72,323 @@
     },
     {
       "instance": "lc202",
-      "initial_objective": 818.0,
+      "initial_objective": 1795.32,
       "best_objective": 591.56,
       "route_count": 3,
       "feasible": true
     },
     {
       "instance": "lc203",
-      "initial_objective": 1263.88,
-      "best_objective": 642.26,
+      "initial_objective": 1582.89,
+      "best_objective": 659.79,
       "route_count": 3,
       "feasible": true
     },
     {
       "instance": "lc204",
-      "initial_objective": 1159.89,
-      "best_objective": 744.07,
-      "route_count": 4,
+      "initial_objective": 1955.96,
+      "best_objective": 673.72,
+      "route_count": 3,
       "feasible": true
     },
     {
       "instance": "lc205",
-      "initial_objective": 593.89,
+      "initial_objective": 2595.31,
       "best_objective": 588.88,
       "route_count": 3,
       "feasible": true
     },
     {
       "instance": "lc206",
-      "initial_objective": 594.54,
+      "initial_objective": 2488.95,
       "best_objective": 588.49,
       "route_count": 3,
       "feasible": true
     },
     {
       "instance": "lc207",
-      "initial_objective": 985.29,
+      "initial_objective": 2378.19,
       "best_objective": 588.29,
       "route_count": 3,
       "feasible": true
     },
     {
       "instance": "lc208",
-      "initial_objective": 590.49,
-      "best_objective": 588.32,
+      "initial_objective": 2134.6,
+      "best_objective": 591.62,
       "route_count": 3,
       "feasible": true
     },
     {
       "instance": "lr101",
-      "initial_objective": 1698.72,
-      "best_objective": 1698.72,
-      "route_count": 20,
+      "initial_objective": 1762.14,
+      "best_objective": 1650.8,
+      "route_count": 19,
       "feasible": true
     },
     {
       "instance": "lr102",
-      "initial_objective": 1591.75,
-      "best_objective": 1510.82,
-      "route_count": 17,
+      "initial_objective": 1994.31,
+      "best_objective": 1623.73,
+      "route_count": 18,
       "feasible": true
     },
     {
       "instance": "lr103",
-      "initial_objective": 1388.12,
-      "best_objective": 1293.14,
+      "initial_objective": 2124.97,
+      "best_objective": 1325.58,
       "route_count": 13,
       "feasible": true
     },
     {
       "instance": "lr104",
-      "initial_objective": 1520.4,
-      "best_objective": 1095.72,
+      "initial_objective": 1939.09,
+      "best_objective": 1176.15,
       "route_count": 11,
       "feasible": true
     },
     {
       "instance": "lr105",
-      "initial_objective": 1716.94,
+      "initial_objective": 1818.46,
       "best_objective": 1377.11,
       "route_count": 14,
       "feasible": true
     },
     {
       "instance": "lr106",
-      "initial_objective": 1585.94,
-      "best_objective": 1289.33,
-      "route_count": 13,
+      "initial_objective": 1694.94,
+      "best_objective": 1347.77,
+      "route_count": 14,
       "feasible": true
     },
     {
       "instance": "lr107",
-      "initial_objective": 1593.81,
-      "best_objective": 1291.99,
-      "route_count": 12,
+      "initial_objective": 2056.67,
+      "best_objective": 1138.56,
+      "route_count": 11,
       "feasible": true
     },
     {
       "instance": "lr108",
-      "initial_objective": 1924.51,
-      "best_objective": 968.97,
-      "route_count": 9,
+      "initial_objective": 2185.29,
+      "best_objective": 1029.0,
+      "route_count": 10,
       "feasible": true
     },
     {
       "instance": "lr109",
-      "initial_objective": 1907.98,
-      "best_objective": 1367.35,
+      "initial_objective": 2124.29,
+      "best_objective": 1281.95,
       "route_count": 13,
       "feasible": true
     },
     {
       "instance": "lr110",
-      "initial_objective": 1727.49,
-      "best_objective": 1257.13,
-      "route_count": 12,
-      "feasible": true
-    },
-    {
-      "instance": "lr111",
-      "initial_objective": 1542.86,
-      "best_objective": 1261.27,
+      "initial_objective": 1953.68,
+      "best_objective": 1288.09,
       "route_count": 13,
       "feasible": true
     },
     {
-      "instance": "lr112",
-      "initial_objective": 1799.93,
-      "best_objective": 1172.96,
+      "instance": "lr111",
+      "initial_objective": 1995.1,
+      "best_objective": 1202.45,
       "route_count": 12,
       "feasible": true
     },
     {
+      "instance": "lr112",
+      "initial_objective": 2075.52,
+      "best_objective": 1222.13,
+      "route_count": 11,
+      "feasible": true
+    },
+    {
       "instance": "lr201",
-      "initial_objective": 1462.13,
-      "best_objective": 1382.4,
-      "route_count": 7,
+      "initial_objective": 2422.59,
+      "best_objective": 1279.9,
+      "route_count": 4,
       "feasible": true
     },
     {
       "instance": "lr202",
-      "initial_objective": 1597.06,
-      "best_objective": 1267.65,
+      "initial_objective": 2013.56,
+      "best_objective": 1327.02,
       "route_count": 4,
       "feasible": true
     },
     {
       "instance": "lr203",
-      "initial_objective": 1322.64,
-      "best_objective": 1123.38,
+      "initial_objective": 1804.2,
+      "best_objective": 1202.0,
       "route_count": 4,
       "feasible": true
     },
     {
       "instance": "lr204",
-      "initial_objective": 1276.88,
-      "best_objective": 1002.62,
+      "initial_objective": 1443.67,
+      "best_objective": 963.21,
       "route_count": 3,
       "feasible": true
     },
     {
       "instance": "lr205",
-      "initial_objective": 1736.51,
-      "best_objective": 1205.03,
-      "route_count": 5,
-      "feasible": true
-    },
-    {
-      "instance": "lr206",
-      "initial_objective": 1814.83,
-      "best_objective": 1250.65,
-      "route_count": 5,
-      "feasible": true
-    },
-    {
-      "instance": "lr207",
-      "initial_objective": 1594.09,
-      "best_objective": 1106.6,
+      "initial_objective": 1930.89,
+      "best_objective": 1133.77,
       "route_count": 4,
       "feasible": true
     },
     {
-      "instance": "lr208",
-      "initial_objective": 1092.15,
-      "best_objective": 797.99,
+      "instance": "lr206",
+      "initial_objective": 1739.04,
+      "best_objective": 965.9,
       "route_count": 3,
       "feasible": true
     },
     {
+      "instance": "lr207",
+      "initial_objective": 1855.91,
+      "best_objective": 1165.67,
+      "route_count": 3,
+      "feasible": true
+    },
+    {
+      "instance": "lr208",
+      "initial_objective": 1283.29,
+      "best_objective": 734.85,
+      "route_count": 2,
+      "feasible": true
+    },
+    {
       "instance": "lr209",
-      "initial_objective": 1506.47,
-      "best_objective": 1100.32,
+      "initial_objective": 1941.6,
+      "best_objective": 1023.12,
       "route_count": 4,
       "feasible": true
     },
     {
       "instance": "lr210",
-      "initial_objective": 1188.54,
-      "best_objective": 1038.63,
-      "route_count": 4,
+      "initial_objective": 2016.71,
+      "best_objective": 1013.2,
+      "route_count": 3,
       "feasible": true
     },
     {
       "instance": "lr211",
-      "initial_objective": 1404.79,
-      "best_objective": 1021.44,
-      "route_count": 4,
+      "initial_objective": 1329.02,
+      "best_objective": 1002.85,
+      "route_count": 3,
       "feasible": true
     },
     {
       "instance": "lrc101",
-      "initial_objective": 1988.07,
-      "best_objective": 1807.84,
+      "initial_objective": 1986.28,
+      "best_objective": 1853.73,
       "route_count": 17,
       "feasible": true
     },
     {
       "instance": "lrc102",
-      "initial_objective": 1715.79,
-      "best_objective": 1619.4,
-      "route_count": 13,
+      "initial_objective": 2166.43,
+      "best_objective": 1627.97,
+      "route_count": 14,
       "feasible": true
     },
     {
       "instance": "lrc103",
-      "initial_objective": 1688.71,
-      "best_objective": 1351.31,
-      "route_count": 12,
+      "initial_objective": 2293.99,
+      "best_objective": 1633.35,
+      "route_count": 13,
       "feasible": true
     },
     {
       "instance": "lrc104",
-      "initial_objective": 2237.26,
-      "best_objective": 1252.98,
+      "initial_objective": 2415.92,
+      "best_objective": 1235.61,
       "route_count": 11,
       "feasible": true
     },
     {
       "instance": "lrc105",
-      "initial_objective": 2245.22,
-      "best_objective": 1649.88,
+      "initial_objective": 2331.03,
+      "best_objective": 1705.65,
       "route_count": 14,
       "feasible": true
     },
     {
       "instance": "lrc106",
-      "initial_objective": 2216.09,
-      "best_objective": 1580.43,
+      "initial_objective": 2146.13,
+      "best_objective": 1585.55,
       "route_count": 14,
       "feasible": true
     },
     {
       "instance": "lrc107",
-      "initial_objective": 2091.34,
-      "best_objective": 1410.99,
+      "initial_objective": 2486.96,
+      "best_objective": 1452.33,
       "route_count": 13,
       "feasible": true
     },
     {
       "instance": "lrc108",
-      "initial_objective": 2582.21,
-      "best_objective": 1372.63,
-      "route_count": 12,
+      "initial_objective": 2564.21,
+      "best_objective": 1362.68,
+      "route_count": 11,
       "feasible": true
     },
     {
       "instance": "lrc201",
-      "initial_objective": 2119.23,
-      "best_objective": 1585.66,
-      "route_count": 7,
-      "feasible": true
-    },
-    {
-      "instance": "lrc202",
-      "initial_objective": 2389.95,
-      "best_objective": 1483.96,
+      "initial_objective": 3586.14,
+      "best_objective": 1700.1,
       "route_count": 5,
       "feasible": true
     },
     {
+      "instance": "lrc202",
+      "initial_objective": 3022.33,
+      "best_objective": 1735.99,
+      "route_count": 4,
+      "feasible": true
+    },
+    {
       "instance": "lrc203",
-      "initial_objective": 1681.2,
-      "best_objective": 1251.95,
+      "initial_objective": 2165.03,
+      "best_objective": 1162.21,
       "route_count": 4,
       "feasible": true
     },
     {
       "instance": "lrc204",
-      "initial_objective": 1679.32,
-      "best_objective": 886.91,
+      "initial_objective": 1859.89,
+      "best_objective": 887.32,
       "route_count": 4,
       "feasible": true
     },
     {
       "instance": "lrc205",
-      "initial_objective": 2257.74,
-      "best_objective": 1393.39,
-      "route_count": 6,
-      "feasible": true
-    },
-    {
-      "instance": "lrc206",
-      "initial_objective": 2059.93,
-      "best_objective": 1230.3,
+      "initial_objective": 3556.38,
+      "best_objective": 1402.29,
       "route_count": 5,
       "feasible": true
     },
     {
+      "instance": "lrc206",
+      "initial_objective": 3143.84,
+      "best_objective": 1369.31,
+      "route_count": 4,
+      "feasible": true
+    },
+    {
       "instance": "lrc207",
-      "initial_objective": 1950.71,
-      "best_objective": 1281.22,
+      "initial_objective": 2922.8,
+      "best_objective": 1236.14,
       "route_count": 4,
       "feasible": true
     },
     {
       "instance": "lrc208",
-      "initial_objective": 1947.49,
-      "best_objective": 1110.5,
+      "initial_objective": 2069.34,
+      "best_objective": 1049.83,
       "route_count": 4,
       "feasible": true
     }

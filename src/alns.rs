@@ -4,7 +4,9 @@ use rand::rngs::StdRng;
 use rand::{Rng, SeedableRng};
 use serde::Serialize;
 
-use crate::construction::{build_initial_solution, repair_nodes};
+use crate::construction::{
+    build_initial_solution, compact_routes, repair_nodes_with_options, RepairOptions,
+};
 use crate::distance::DistanceMatrix;
 use crate::evaluate::evaluate_solution;
 use crate::instance::{Instance, RequestPair};
@@ -34,11 +36,12 @@ enum DestroyOperator {
     Random,
     Worst,
     Shaw,
+    RouteReduction,
 }
 
 impl DestroyOperator {
-    fn all() -> [Self; 3] {
-        [Self::Random, Self::Worst, Self::Shaw]
+    fn all() -> [Self; 4] {
+        [Self::Random, Self::Worst, Self::Shaw, Self::RouteReduction]
     }
 
     fn name(self) -> &'static str {
@@ -46,8 +49,15 @@ impl DestroyOperator {
             Self::Random => "random_removal",
             Self::Worst => "worst_removal",
             Self::Shaw => "shaw_removal",
+            Self::RouteReduction => "route_reduction",
         }
     }
+}
+
+#[derive(Debug, Clone)]
+struct DestroyOutcome {
+    removed_nodes: Vec<usize>,
+    allow_new_routes: bool,
 }
 
 pub fn solve(
@@ -76,7 +86,7 @@ pub fn solve(
         let mut candidate_solution = current_solution.clone();
         let unit_count = removal_unit_count(instance, &candidate_solution);
         let remove_count = removal_count(unit_count, &mut rng);
-        let removed_nodes = apply_destroy(
+        let destroy_outcome = apply_destroy(
             instance,
             matrix,
             &mut candidate_solution,
@@ -85,13 +95,25 @@ pub fn solve(
             &mut rng,
         );
 
-        if removed_nodes.is_empty() {
+        if destroy_outcome.removed_nodes.is_empty() {
             continue;
         }
 
-        if !repair_nodes(instance, matrix, &mut candidate_solution, &removed_nodes) {
+        if !repair_nodes_with_options(
+            instance,
+            matrix,
+            &mut candidate_solution,
+            &destroy_outcome.removed_nodes,
+            RepairOptions {
+                allow_new_routes: destroy_outcome.allow_new_routes,
+            },
+        ) {
             update_weight(&mut weights[operator_index], 0.25);
             continue;
+        }
+
+        if !destroy_outcome.allow_new_routes {
+            compact_routes(instance, matrix, &mut candidate_solution);
         }
 
         let candidate_metrics = evaluate_solution(instance, matrix, &candidate_solution);
@@ -131,7 +153,7 @@ pub fn solve(
             best_solution = candidate_solution;
         }
 
-        temperature = (temperature * 0.997).max(0.5);
+        temperature = (temperature * 0.9985).max(0.5);
     }
 
     Ok(SolveOutcome {
@@ -187,29 +209,46 @@ fn apply_destroy(
     operator: DestroyOperator,
     remove_count: usize,
     rng: &mut StdRng,
-) -> Vec<usize> {
-    let removed_nodes = if instance.enforces_precedence() {
+) -> DestroyOutcome {
+    let (removed_nodes, allow_new_routes) = if instance.enforces_precedence() {
         match operator {
-            DestroyOperator::Random => {
-                random_request_removal(instance, solution, remove_count, rng)
-            }
-            DestroyOperator::Worst => {
-                worst_request_removal(instance, matrix, solution, remove_count)
-            }
-            DestroyOperator::Shaw => {
-                shaw_request_removal(instance, matrix, solution, remove_count, rng)
-            }
+            DestroyOperator::Random => (
+                random_request_removal(instance, solution, remove_count, rng),
+                true,
+            ),
+            DestroyOperator::Worst => (
+                worst_request_removal(instance, matrix, solution, remove_count),
+                true,
+            ),
+            DestroyOperator::Shaw => (
+                shaw_request_removal(instance, matrix, solution, remove_count, rng),
+                true,
+            ),
+            DestroyOperator::RouteReduction => (
+                route_reduction_removal(instance, matrix, solution, remove_count, rng),
+                false,
+            ),
         }
     } else {
         match operator {
-            DestroyOperator::Random => random_removal(solution, remove_count, rng),
-            DestroyOperator::Worst => worst_removal(solution, matrix, remove_count),
-            DestroyOperator::Shaw => shaw_removal(solution, instance, matrix, remove_count, rng),
+            DestroyOperator::Random => (random_removal(solution, remove_count, rng), true),
+            DestroyOperator::Worst => (worst_removal(solution, matrix, remove_count), true),
+            DestroyOperator::Shaw => (
+                shaw_removal(solution, instance, matrix, remove_count, rng),
+                true,
+            ),
+            DestroyOperator::RouteReduction => (
+                route_reduction_removal(instance, matrix, solution, remove_count, rng),
+                false,
+            ),
         }
     };
 
     solution.remove_nodes(&removed_nodes);
-    removed_nodes
+    DestroyOutcome {
+        removed_nodes,
+        allow_new_routes,
+    }
 }
 
 fn random_removal(solution: &SolutionState, remove_count: usize, rng: &mut StdRng) -> Vec<usize> {
@@ -387,6 +426,63 @@ fn shaw_request_removal(
             .map(|(request, _)| request)
             .collect::<Vec<_>>(),
     )
+}
+
+fn route_reduction_removal(
+    instance: &Instance,
+    matrix: &DistanceMatrix,
+    solution: &mut SolutionState,
+    remove_count: usize,
+    rng: &mut StdRng,
+) -> Vec<usize> {
+    if solution.routes.len() <= 1 {
+        return Vec::new();
+    }
+
+    let mut ranked = solution
+        .routes
+        .iter()
+        .enumerate()
+        .map(|(route_index, route)| {
+            let unit_count = if instance.enforces_precedence() {
+                requests_in_route(instance, route).len()
+            } else {
+                route.stops.len()
+            };
+            let metrics = crate::evaluate::evaluate_route(instance, matrix, route);
+            (route_index, unit_count, route.stops.len(), metrics.distance)
+        })
+        .collect::<Vec<_>>();
+
+    ranked.sort_by(|left, right| {
+        left.1
+            .cmp(&right.1)
+            .then_with(|| left.2.cmp(&right.2))
+            .then_with(|| left.3.total_cmp(&right.3))
+    });
+
+    let shortlist = ranked
+        .into_iter()
+        .take(usize::min(3, solution.routes.len()))
+        .collect::<Vec<_>>();
+    let Some((route_index, _, _, _)) = shortlist.choose(rng).copied() else {
+        return Vec::new();
+    };
+
+    let removed_nodes = solution.routes[route_index].stops.clone();
+    solution.routes.remove(route_index);
+    let support_remove_count = usize::min(3, usize::max(1, remove_count / 4));
+    let mut additional_nodes = if instance.enforces_precedence() {
+        worst_request_removal(instance, matrix, solution, support_remove_count)
+    } else {
+        worst_removal(solution, matrix, support_remove_count)
+    };
+
+    let mut combined = removed_nodes;
+    combined.append(&mut additional_nodes);
+    combined.sort_unstable();
+    combined.dedup();
+    combined
 }
 
 fn request_pairs_in_solution(instance: &Instance, solution: &SolutionState) -> Vec<RequestPair> {
