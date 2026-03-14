@@ -1,66 +1,76 @@
 # pdcvrptw
 
-Pickup and Delivery Capacitated Vehicle Routing Problem with Time Window を題材に、
+このリポジトリは、**Li-Lim PDPTW 100-case benchmark** を対象に
 
-- `instances/` の生成
-- `PyVRP` によるベンチマーク解の作成
+- ベンチマークインスタンスの import
+- `OR-Tools` による strict 解の作成
 - Rust ソルバーの実装
-- 両者の結果比較
+- 参照解 / OR-Tools / Rust の比較
+- OR-Tools と Rust の直接比較
+- 訪問順可視化とスコア比較グラフの生成
 
-を一通り再現できるリポジトリです。
+を再現するためのものです。
 
-## 問題設定
+以前の synthetic instance workflow は削除し、今後の評価は Li-Lim に統一しています。
 
-- 10 instances
-- 稼働時間は 8:00 - 18:00
-- 時間枠は `morning` / `afternoon` / `none` の 3 種類で、大部分は `none`
-- 50 requests = 100 service nodes
-- ノードの位置は 20 か所の location catalog から選択
-- 移動コストはユークリッド距離の整数丸め
-- キャパシティは 6
-- トラック数は所与
-- マルチデポ
+## Li-Lim で使う制約と評価
 
-## この実装で扱うバリアント
+この実装では Li-Lim benchmark の意味論に合わせて、次を前提に評価します。
 
-PyVRP と Rust を同一条件で比較するため、各 request は
+- single depot
+- pickup-delivery sibling precedence を厳密に適用
+- 同一 request の pickup / delivery は同一ルートで処理
+- ルート開始時積載量は `0`
+- 距離と移動時間は double precision Euclidean
+- 目的関数は `min vehicles -> min distance`
 
-- `pickup` ノード 1 個
-- `delivery` ノード 1 個
+つまり、**time windows / capacity / precedence / same-route pairing** をすべて満たしたうえで、まず使用車両数、次に距離を比較します。
 
-で表現し、容量評価は signed-demand 方式で行います。
+## PyVRP について
 
-- `pickup` は正の需要
-- `delivery` は負の需要
-- ルート開始時積載量は、そのルート内の全 `delivery` 需要の合計
+`PyVRP` の公開 API には Li-Lim の sibling precedence と same-request load transfer をそのまま表現する仕組みがないため、このリポジトリでは **relaxed model** を解いてから strict evaluator で再評価しています。
 
-とし、容量制約と時間枠制約を両ソルバで同じ評価器に通して比較します。
+そのため、
 
-注: PyVRP の公開 API に明示的な pickup-delivery pair 制約が見当たらないため、本リポジトリでは pair precedence ではなく benchmark-compatible な multi-depot signed-demand PDCVRPTW として整理しています。
+- `PyVRP` の内部モデルでは feasible
+- ただし Li-Lim の strict evaluator では infeasible
+
+というケースが発生します。
+
+strict な比較用ベースラインとしては、`OR-Tools` 側で
+
+- `AddPickupAndDelivery`
+- same-route pairing
+- pickup-before-delivery precedence
+- capacity
+- time windows
+
+をそのままモデル化しています。
+
+そのため、**公式の結果比較と可視化では PyVRP を除外**し、`reference / OR-Tools / Rust` の 3 者と `OR-Tools vs Rust` の直接比較だけを出力します。`scripts/solve_with_pyvrp.py` は検証用に残していますが、標準パイプラインには含めていません。
 
 ## ディレクトリ構成
 
-- `instances/`: 生成済みの 10 インスタンス
-- `scripts/generate_instances.py`: インスタンス生成
-- `scripts/solve_with_pyvrp.py`: PyVRP での解生成
-- `scripts/compare_results.py`: 共通評価器による比較
-- `scripts/visualize_results.py`: 訪問可視化とスコア棒グラフの生成
-- `scripts/import_lilim_100.py`: Li-Lim 100-case の import と参照解の正規化
-- `scripts/solve_lilim_100_with_pyvrp.py`: Li-Lim 100-case を PyVRP の緩和モデルで解く
-- `scripts/compare_lilim_100.py`: Li-Lim 参照解、PyVRP、Rust の 3 者比較
-- `scripts/visualize_lilim_100.py`: Li-Lim の訪問順可視化
+- `instances/li_lim_100/`: import 済み Li-Lim 100-case instances
+- `scripts/import_lilim_100.py`: ベンチマーク import と参照解の正規化
+- `scripts/solve_with_ortools.py`: Li-Lim を OR-Tools strict model で解く
+- `scripts/solve_with_pyvrp.py`: Li-Lim を PyVRP relaxed model で解く任意の補助スクリプト
+- `scripts/compare_results.py`: 参照解 / OR-Tools / Rust の比較と OR-Tools vs Rust 直接比較
+- `scripts/visualize_results.py`: Li-Lim の訪問順可視化とスコア比較グラフ
+- `scripts/run_pipeline.sh`: import から比較・可視化までの一括実行
 - `src/`: Rust ソルバー
-- `results/pyvrp/`: PyVRP の解
-- `results/rust/`: Rust の解
-- `results/comparison/`: 比較結果
-- `results/visualization/`: ルート可視化と棒グラフ
-- `results/li_lim_100/`: Li-Lim 100-case の参照解、PyVRP 解、Rust 解、比較結果、可視化
+- `results/li_lim_100/reference/`: 正規化した参照解
+- `results/li_lim_100/ortools/`: OR-Tools strict 解
+- `results/li_lim_100/rust/`: Rust 解
+- `results/li_lim_100/comparison/`: 比較結果
+- `results/li_lim_100/visualization/`: 可視化結果
 
 ## 依存関係
 
 - Python 3.12+
 - `pyvrp==0.13.3`
 - `matplotlib`
+- `ortools`
 - Rust 1.75+
 
 Python 依存は下記で入ります。
@@ -71,21 +81,41 @@ python -m pip install -r requirements.txt
 
 ## 実行方法
 
-インスタンス生成から比較までを一気に回す場合:
+SINTEF 公開ベンチマークのミラーを手元に用意して、一括実行する場合:
 
 ```bash
-bash scripts/run_pipeline.sh
+gh repo clone zhu-he/pdptw-data /tmp/pdptw-data -- --depth 1
+bash scripts/run_pipeline.sh /tmp/pdptw-data/100
+```
+
+必要なら iteration 数と OR-Tools 実行時間は上書きできます。
+
+```bash
+LILIM_ITERATIONS=400 LILIM_ORTOOLS_SECONDS=10.0 \
+  bash scripts/run_pipeline.sh /tmp/pdptw-data/100
 ```
 
 個別に実行する場合:
 
 ```bash
-python scripts/generate_instances.py --output-dir instances
-python scripts/solve_with_pyvrp.py --instances-dir instances --output-dir results/pyvrp
-cargo run --release -- solve --instances-dir instances --output-dir results/rust
-python scripts/compare_results.py --instances-dir instances --pyvrp-dir results/pyvrp --rust-dir results/rust --output-dir results/comparison
-python scripts/visualize_results.py --instances-dir instances --pyvrp-dir results/pyvrp --rust-dir results/rust --comparison-summary results/comparison/summary.json --output-dir results/visualization
+python scripts/import_lilim_100.py --source-dir /tmp/pdptw-data/100
+python scripts/solve_with_ortools.py
+cargo run --release -- solve
+python scripts/compare_results.py
+python scripts/visualize_results.py
 ```
+
+PyVRP relaxed 解を個別に確認したい場合だけ、別途
+
+```bash
+python scripts/solve_with_pyvrp.py
+```
+
+を実行してください。比較レポートには使いません。
+
+`python scripts/solve_with_ortools.py` はデフォルトで `instances/li_lim_100` を読み、`results/li_lim_100/ortools` に strict 解を出力します。
+
+`cargo run --release -- solve` はデフォルトで `instances/li_lim_100` を読み、`results/li_lim_100/rust` に出力します。
 
 ## Rust 実装の方針
 
@@ -93,39 +123,13 @@ python scripts/visualize_results.py --instances-dir instances --pyvrp-dir result
 - struct で責務分離
 - 貪欲法による初期解構築
 - ALNS による改善
-- 挿入・削除候補の距離差分評価による高速化
+- Li-Lim では request pair 単位の destroy / repair を使用
 
-`results/comparison/summary.md` に比較サマリ、`results/visualization/route_visits_overview.png` に全インスタンス訪問可視化、`results/visualization/score_comparison.png` にスコア比較棒グラフが出力されます。
+## 出力
 
-## Li-Lim 100-case benchmark
+- 比較サマリ: `results/li_lim_100/comparison/summary.md`
+- 比較 JSON/CSV: `results/li_lim_100/comparison/summary.{json,csv}`
+- 訪問順可視化: `results/li_lim_100/visualization/instances/*.png`
+- スコア比較グラフ: `results/li_lim_100/visualization/score_comparison.png`
 
-Li-Lim benchmark は synthetic instance と意味論が異なります。
-
-- single depot
-- pickup-delivery sibling precedence を厳密に適用
-- ルート開始時積載量は 0
-- 距離と移動時間は double precision Euclidean
-- 目的関数は `min vehicles -> min distance`
-
-`PyVRP` の公開 API には Li-Lim の sibling precedence と same-request load transfer をそのまま表現する仕組みがないため、Li-Lim では緩和モデルを解いてから strict evaluator で再評価します。したがって、`PyVRP` は自身のモデルでは feasible でも、Li-Lim の厳密評価では infeasible になる場合があります。
-
-データは SINTEF 公開ベンチマークのミラーを使って取得できます。たとえば:
-
-```bash
-gh repo clone zhu-he/pdptw-data /tmp/pdptw-data -- --depth 1
-bash scripts/run_lilim_100_pipeline.sh /tmp/pdptw-data/100
-```
-
-必要なら iteration 数は `LILIM_ITERATIONS=400`、PyVRP 実行時間は `LILIM_PYVRP_RUNTIME=5.0` のように上書きできます。
-
-個別に実行する場合:
-
-```bash
-python scripts/import_lilim_100.py --source-dir /tmp/pdptw-data/100 --output-dir instances/li_lim_100 --reference-dir results/li_lim_100/reference
-python scripts/solve_lilim_100_with_pyvrp.py --instances-dir instances/li_lim_100 --output-dir results/li_lim_100/pyvrp --runtime-limit 2.5
-cargo run --release -- solve --instances-dir instances/li_lim_100 --output-dir results/li_lim_100/rust --iterations 100
-python scripts/compare_lilim_100.py --instances-dir instances/li_lim_100 --reference-dir results/li_lim_100/reference --pyvrp-dir results/li_lim_100/pyvrp --rust-dir results/li_lim_100/rust --output-dir results/li_lim_100/comparison
-python scripts/visualize_lilim_100.py --instances-dir instances/li_lim_100 --reference-dir results/li_lim_100/reference --pyvrp-dir results/li_lim_100/pyvrp --rust-dir results/li_lim_100/rust --comparison-summary results/li_lim_100/comparison/summary.json --output-dir results/li_lim_100/visualization
-```
-
-比較サマリは `results/li_lim_100/comparison/summary.md`、訪問順可視化は `results/li_lim_100/visualization/instances/*.png` に出力されます。
+集計結果は `results/li_lim_100/comparison/summary.md` に、`OR-Tools` と `Rust` の strict feasibility / 使用車両数 / 距離ギャップに加えて、`OR-Tools vs Rust` の直接比較もまとまります。

@@ -1,0 +1,452 @@
+{
+  "solutions": [
+    {
+      "instance": "lc101",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 10,
+      "comparison_distance": 828.94,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc102",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 10,
+      "comparison_distance": 828.94,
+      "runtime_seconds": 5.004
+    },
+    {
+      "instance": "lc103",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 10,
+      "comparison_distance": 827.86,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc104",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 9,
+      "comparison_distance": 1155.31,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc105",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 10,
+      "comparison_distance": 828.94,
+      "runtime_seconds": 4.999
+    },
+    {
+      "instance": "lc106",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 10,
+      "comparison_distance": 828.94,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc107",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 10,
+      "comparison_distance": 828.94,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc108",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 10,
+      "comparison_distance": 826.44,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc109",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 10,
+      "comparison_distance": 905.14,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc201",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 591.56,
+      "runtime_seconds": 5.001
+    },
+    {
+      "instance": "lc202",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 591.56,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc203",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 591.17,
+      "runtime_seconds": 5.001
+    },
+    {
+      "instance": "lc204",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 644.34,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc205",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 588.88,
+      "runtime_seconds": 5.001
+    },
+    {
+      "instance": "lc206",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 588.49,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc207",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 588.29,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lc208",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 591.77,
+      "runtime_seconds": 5.002
+    },
+    {
+      "instance": "lr101",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 20,
+      "comparison_distance": 1662.09,
+      "runtime_seconds": 5.035
+    },
+    {
+      "instance": "lr102",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 18,
+      "comparison_distance": 1571.62,
+      "runtime_seconds": 5.001
+    },
+    {
+      "instance": "lr103",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 15,
+      "comparison_distance": 1458.61,
+      "runtime_seconds": 5.036
+    },
+    {
+      "instance": "lr104",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 11,
+      "comparison_distance": 1158.06,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr105",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 14,
+      "comparison_distance": 1377.11,
+      "runtime_seconds": 5.001
+    },
+    {
+      "instance": "lr106",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 12,
+      "comparison_distance": 1272.78,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr107",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 11,
+      "comparison_distance": 1187.77,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr108",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 10,
+      "comparison_distance": 1028.63,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr109",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 14,
+      "comparison_distance": 1458.5,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr110",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 12,
+      "comparison_distance": 1269.82,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr111",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 12,
+      "comparison_distance": 1197.24,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr112",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 10,
+      "comparison_distance": 1148.84,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr201",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1348.88,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr202",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1484.89,
+      "runtime_seconds": 5.015
+    },
+    {
+      "instance": "lr203",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1168.82,
+      "runtime_seconds": 5.001
+    },
+    {
+      "instance": "lr204",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 1106.99,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr205",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1343.32,
+      "runtime_seconds": 5.001
+    },
+    {
+      "instance": "lr206",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 1035.28,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr207",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1169.75,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr208",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 947.49,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr209",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1159.62,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr210",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 5,
+      "comparison_distance": 1238.34,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lr211",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 3,
+      "comparison_distance": 1116.77,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc101",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 16,
+      "comparison_distance": 1749.03,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc102",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 15,
+      "comparison_distance": 1675.59,
+      "runtime_seconds": 4.999
+    },
+    {
+      "instance": "lrc103",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 11,
+      "comparison_distance": 1279.94,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc104",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 11,
+      "comparison_distance": 1170.62,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc105",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 14,
+      "comparison_distance": 1653.71,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc106",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 14,
+      "comparison_distance": 1589.64,
+      "runtime_seconds": 5.021
+    },
+    {
+      "instance": "lrc107",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 12,
+      "comparison_distance": 1285.93,
+      "runtime_seconds": 5.001
+    },
+    {
+      "instance": "lrc108",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 12,
+      "comparison_distance": 1309.01,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc201",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 5,
+      "comparison_distance": 1498.25,
+      "runtime_seconds": 5.003
+    },
+    {
+      "instance": "lrc202",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1463.41,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc203",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1643.75,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc204",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 909.18,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc205",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1302.2,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc206",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1595.94,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc207",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 5,
+      "comparison_distance": 1715.62,
+      "runtime_seconds": 5.0
+    },
+    {
+      "instance": "lrc208",
+      "reported_feasible": true,
+      "strict_feasible": true,
+      "route_count": 4,
+      "comparison_distance": 1155.05,
+      "runtime_seconds": 5.0
+    }
+  ]
+}
