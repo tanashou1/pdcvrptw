@@ -1,0 +1,2572 @@
+{
+  "name": "lr102",
+  "seed": 0,
+  "planning_horizon": {
+    "start": 0,
+    "end": 230
+  },
+  "capacity": 200,
+  "vehicles_per_depot": {
+    "D0": 25
+  },
+  "depots": [
+    {
+      "id": "D0",
+      "x": 35,
+      "y": 35,
+      "tw": {
+        "start": 0,
+        "end": 230
+      }
+    }
+  ],
+  "location_catalog": [
+    {
+      "id": "L001",
+      "x": 41,
+      "y": 49,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L002",
+      "x": 35,
+      "y": 17,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L003",
+      "x": 55,
+      "y": 45,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L004",
+      "x": 55,
+      "y": 20,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L005",
+      "x": 15,
+      "y": 30,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L006",
+      "x": 25,
+      "y": 30,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L007",
+      "x": 20,
+      "y": 50,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L008",
+      "x": 10,
+      "y": 43,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L009",
+      "x": 55,
+      "y": 60,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L010",
+      "x": 30,
+      "y": 60,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L011",
+      "x": 20,
+      "y": 65,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L012",
+      "x": 50,
+      "y": 35,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L013",
+      "x": 30,
+      "y": 25,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L014",
+      "x": 15,
+      "y": 10,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L015",
+      "x": 30,
+      "y": 5,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L016",
+      "x": 10,
+      "y": 20,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L017",
+      "x": 5,
+      "y": 30,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L018",
+      "x": 20,
+      "y": 40,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L019",
+      "x": 15,
+      "y": 60,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L020",
+      "x": 45,
+      "y": 65,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L021",
+      "x": 45,
+      "y": 20,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L022",
+      "x": 45,
+      "y": 10,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L023",
+      "x": 55,
+      "y": 5,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L024",
+      "x": 65,
+      "y": 35,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L025",
+      "x": 65,
+      "y": 20,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L026",
+      "x": 45,
+      "y": 30,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L027",
+      "x": 35,
+      "y": 40,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L028",
+      "x": 41,
+      "y": 37,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L029",
+      "x": 64,
+      "y": 42,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L030",
+      "x": 40,
+      "y": 60,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L031",
+      "x": 31,
+      "y": 52,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L032",
+      "x": 35,
+      "y": 69,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L033",
+      "x": 53,
+      "y": 52,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L034",
+      "x": 65,
+      "y": 55,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L035",
+      "x": 63,
+      "y": 65,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L036",
+      "x": 2,
+      "y": 60,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L037",
+      "x": 20,
+      "y": 20,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L038",
+      "x": 5,
+      "y": 5,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L039",
+      "x": 60,
+      "y": 12,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L040",
+      "x": 40,
+      "y": 25,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L041",
+      "x": 42,
+      "y": 7,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L042",
+      "x": 24,
+      "y": 12,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L043",
+      "x": 23,
+      "y": 3,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L044",
+      "x": 11,
+      "y": 14,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L045",
+      "x": 6,
+      "y": 38,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L046",
+      "x": 2,
+      "y": 48,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L047",
+      "x": 8,
+      "y": 56,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L048",
+      "x": 13,
+      "y": 52,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L049",
+      "x": 6,
+      "y": 68,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L050",
+      "x": 47,
+      "y": 47,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L051",
+      "x": 49,
+      "y": 58,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L052",
+      "x": 27,
+      "y": 43,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L053",
+      "x": 37,
+      "y": 31,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L054",
+      "x": 57,
+      "y": 29,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L055",
+      "x": 63,
+      "y": 23,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L056",
+      "x": 53,
+      "y": 12,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L057",
+      "x": 32,
+      "y": 12,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L058",
+      "x": 36,
+      "y": 26,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L059",
+      "x": 21,
+      "y": 24,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L060",
+      "x": 17,
+      "y": 34,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L061",
+      "x": 12,
+      "y": 24,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L062",
+      "x": 24,
+      "y": 58,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L063",
+      "x": 27,
+      "y": 69,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L064",
+      "x": 15,
+      "y": 77,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L065",
+      "x": 62,
+      "y": 77,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L066",
+      "x": 49,
+      "y": 73,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L067",
+      "x": 67,
+      "y": 5,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L068",
+      "x": 56,
+      "y": 39,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L069",
+      "x": 37,
+      "y": 47,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L070",
+      "x": 37,
+      "y": 56,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L071",
+      "x": 57,
+      "y": 68,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L072",
+      "x": 47,
+      "y": 16,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L073",
+      "x": 44,
+      "y": 17,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L074",
+      "x": 46,
+      "y": 13,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L075",
+      "x": 49,
+      "y": 11,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L076",
+      "x": 49,
+      "y": 42,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L077",
+      "x": 53,
+      "y": 43,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L078",
+      "x": 61,
+      "y": 52,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L079",
+      "x": 57,
+      "y": 48,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L080",
+      "x": 56,
+      "y": 37,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L081",
+      "x": 55,
+      "y": 54,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L082",
+      "x": 15,
+      "y": 47,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L083",
+      "x": 14,
+      "y": 37,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L084",
+      "x": 11,
+      "y": 31,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L085",
+      "x": 16,
+      "y": 22,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L086",
+      "x": 4,
+      "y": 18,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L087",
+      "x": 28,
+      "y": 18,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L088",
+      "x": 26,
+      "y": 52,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L089",
+      "x": 26,
+      "y": 35,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L090",
+      "x": 31,
+      "y": 67,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L091",
+      "x": 15,
+      "y": 19,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L092",
+      "x": 22,
+      "y": 22,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L093",
+      "x": 18,
+      "y": 24,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L094",
+      "x": 26,
+      "y": 27,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L095",
+      "x": 25,
+      "y": 24,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L096",
+      "x": 22,
+      "y": 27,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L097",
+      "x": 25,
+      "y": 21,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L098",
+      "x": 19,
+      "y": 21,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L099",
+      "x": 20,
+      "y": 26,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L100",
+      "x": 18,
+      "y": 18,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L101",
+      "x": 35,
+      "y": 40,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L102",
+      "x": 21,
+      "y": 24,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L103",
+      "x": 45,
+      "y": 10,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L104",
+      "x": 2,
+      "y": 60,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L105",
+      "x": 13,
+      "y": 52,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L106",
+      "x": 55,
+      "y": 45,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L107",
+      "x": 17,
+      "y": 34,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L108",
+      "x": 49,
+      "y": 73,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L109",
+      "x": 30,
+      "y": 60,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L110",
+      "x": 67,
+      "y": 5,
+      "home_depot_id": "D0"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "T001",
+      "request_id": "R050",
+      "kind": "delivery",
+      "x": 41,
+      "y": 49,
+      "demand": -13,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 204
+      },
+      "location_id": "L001",
+      "time_window_label": "benchmark",
+      "source_index": 1,
+      "sibling_source_index": 50
+    },
+    {
+      "id": "T002",
+      "request_id": "R014",
+      "kind": "delivery",
+      "x": 35,
+      "y": 17,
+      "demand": -20,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 202
+      },
+      "location_id": "L002",
+      "time_window_label": "benchmark",
+      "source_index": 2,
+      "sibling_source_index": 14
+    },
+    {
+      "id": "T003",
+      "request_id": "R003",
+      "kind": "pickup",
+      "x": 55,
+      "y": 45,
+      "demand": 13,
+      "service_duration": 0,
+      "tw": {
+        "start": 0,
+        "end": 197
+      },
+      "location_id": "L003",
+      "time_window_label": "benchmark",
+      "source_index": 3,
+      "sibling_source_index": 106
+    },
+    {
+      "id": "T004",
+      "request_id": "R004",
+      "kind": "pickup",
+      "x": 55,
+      "y": 20,
+      "demand": 19,
+      "service_duration": 10,
+      "tw": {
+        "start": 149,
+        "end": 159
+      },
+      "location_id": "L004",
+      "time_window_label": "benchmark",
+      "source_index": 4,
+      "sibling_source_index": 25
+    },
+    {
+      "id": "T005",
+      "request_id": "R005",
+      "kind": "pickup",
+      "x": 15,
+      "y": 30,
+      "demand": 26,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 199
+      },
+      "location_id": "L005",
+      "time_window_label": "benchmark",
+      "source_index": 5,
+      "sibling_source_index": 89
+    },
+    {
+      "id": "T006",
+      "request_id": "R099",
+      "kind": "delivery",
+      "x": 25,
+      "y": 30,
+      "demand": -9,
+      "service_duration": 10,
+      "tw": {
+        "start": 99,
+        "end": 109
+      },
+      "location_id": "L006",
+      "time_window_label": "benchmark",
+      "source_index": 6,
+      "sibling_source_index": 99
+    },
+    {
+      "id": "T007",
+      "request_id": "R007",
+      "kind": "pickup",
+      "x": 20,
+      "y": 50,
+      "demand": 5,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 198
+      },
+      "location_id": "L007",
+      "time_window_label": "benchmark",
+      "source_index": 7,
+      "sibling_source_index": 19
+    },
+    {
+      "id": "T008",
+      "request_id": "R062",
+      "kind": "delivery",
+      "x": 10,
+      "y": 43,
+      "demand": -19,
+      "service_duration": 10,
+      "tw": {
+        "start": 95,
+        "end": 105
+      },
+      "location_id": "L008",
+      "time_window_label": "benchmark",
+      "source_index": 8,
+      "sibling_source_index": 62
+    },
+    {
+      "id": "T009",
+      "request_id": "R030",
+      "kind": "delivery",
+      "x": 55,
+      "y": 60,
+      "demand": -21,
+      "service_duration": 10,
+      "tw": {
+        "start": 97,
+        "end": 107
+      },
+      "location_id": "L009",
+      "time_window_label": "benchmark",
+      "source_index": 9,
+      "sibling_source_index": 30
+    },
+    {
+      "id": "T010",
+      "request_id": "R010",
+      "kind": "pickup",
+      "x": 30,
+      "y": 60,
+      "demand": 16,
+      "service_duration": 0,
+      "tw": {
+        "start": 124,
+        "end": 134
+      },
+      "location_id": "L010",
+      "time_window_label": "benchmark",
+      "source_index": 10,
+      "sibling_source_index": 109
+    },
+    {
+      "id": "T011",
+      "request_id": "R052",
+      "kind": "delivery",
+      "x": 20,
+      "y": 65,
+      "demand": -9,
+      "service_duration": 10,
+      "tw": {
+        "start": 67,
+        "end": 77
+      },
+      "location_id": "L011",
+      "time_window_label": "benchmark",
+      "source_index": 11,
+      "sibling_source_index": 52
+    },
+    {
+      "id": "T012",
+      "request_id": "R073",
+      "kind": "delivery",
+      "x": 50,
+      "y": 35,
+      "demand": -9,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 205
+      },
+      "location_id": "L012",
+      "time_window_label": "benchmark",
+      "source_index": 12,
+      "sibling_source_index": 73
+    },
+    {
+      "id": "T013",
+      "request_id": "R087",
+      "kind": "delivery",
+      "x": 30,
+      "y": 25,
+      "demand": -26,
+      "service_duration": 10,
+      "tw": {
+        "start": 159,
+        "end": 169
+      },
+      "location_id": "L013",
+      "time_window_label": "benchmark",
+      "source_index": 13,
+      "sibling_source_index": 87
+    },
+    {
+      "id": "T014",
+      "request_id": "R014",
+      "kind": "pickup",
+      "x": 15,
+      "y": 10,
+      "demand": 20,
+      "service_duration": 10,
+      "tw": {
+        "start": 32,
+        "end": 42
+      },
+      "location_id": "L014",
+      "time_window_label": "benchmark",
+      "source_index": 14,
+      "sibling_source_index": 2
+    },
+    {
+      "id": "T015",
+      "request_id": "R042",
+      "kind": "delivery",
+      "x": 30,
+      "y": 5,
+      "demand": -5,
+      "service_duration": 10,
+      "tw": {
+        "start": 61,
+        "end": 71
+      },
+      "location_id": "L015",
+      "time_window_label": "benchmark",
+      "source_index": 15,
+      "sibling_source_index": 42
+    },
+    {
+      "id": "T016",
+      "request_id": "R085",
+      "kind": "delivery",
+      "x": 10,
+      "y": 20,
+      "demand": -41,
+      "service_duration": 10,
+      "tw": {
+        "start": 75,
+        "end": 85
+      },
+      "location_id": "L016",
+      "time_window_label": "benchmark",
+      "source_index": 16,
+      "sibling_source_index": 85
+    },
+    {
+      "id": "T017",
+      "request_id": "R017",
+      "kind": "pickup",
+      "x": 5,
+      "y": 30,
+      "demand": 2,
+      "service_duration": 10,
+      "tw": {
+        "start": 157,
+        "end": 167
+      },
+      "location_id": "L017",
+      "time_window_label": "benchmark",
+      "source_index": 17,
+      "sibling_source_index": 93
+    },
+    {
+      "id": "T018",
+      "request_id": "R047",
+      "kind": "delivery",
+      "x": 20,
+      "y": 40,
+      "demand": -27,
+      "service_duration": 10,
+      "tw": {
+        "start": 87,
+        "end": 97
+      },
+      "location_id": "L018",
+      "time_window_label": "benchmark",
+      "source_index": 18,
+      "sibling_source_index": 47
+    },
+    {
+      "id": "T019",
+      "request_id": "R007",
+      "kind": "delivery",
+      "x": 15,
+      "y": 60,
+      "demand": -5,
+      "service_duration": 10,
+      "tw": {
+        "start": 76,
+        "end": 86
+      },
+      "location_id": "L019",
+      "time_window_label": "benchmark",
+      "source_index": 19,
+      "sibling_source_index": 7
+    },
+    {
+      "id": "T020",
+      "request_id": "R071",
+      "kind": "delivery",
+      "x": 45,
+      "y": 65,
+      "demand": -15,
+      "service_duration": 10,
+      "tw": {
+        "start": 126,
+        "end": 136
+      },
+      "location_id": "L020",
+      "time_window_label": "benchmark",
+      "source_index": 20,
+      "sibling_source_index": 71
+    },
+    {
+      "id": "T021",
+      "request_id": "R041",
+      "kind": "delivery",
+      "x": 45,
+      "y": 20,
+      "demand": -5,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 201
+      },
+      "location_id": "L021",
+      "time_window_label": "benchmark",
+      "source_index": 21,
+      "sibling_source_index": 41
+    },
+    {
+      "id": "T022",
+      "request_id": "R022",
+      "kind": "pickup",
+      "x": 45,
+      "y": 10,
+      "demand": 18,
+      "service_duration": 0,
+      "tw": {
+        "start": 97,
+        "end": 107
+      },
+      "location_id": "L022",
+      "time_window_label": "benchmark",
+      "source_index": 22,
+      "sibling_source_index": 103
+    },
+    {
+      "id": "T023",
+      "request_id": "R023",
+      "kind": "pickup",
+      "x": 55,
+      "y": 5,
+      "demand": 29,
+      "service_duration": 10,
+      "tw": {
+        "start": 68,
+        "end": 78
+      },
+      "location_id": "L023",
+      "time_window_label": "benchmark",
+      "source_index": 23,
+      "sibling_source_index": 26
+    },
+    {
+      "id": "T024",
+      "request_id": "R072",
+      "kind": "delivery",
+      "x": 65,
+      "y": 35,
+      "demand": -25,
+      "service_duration": 10,
+      "tw": {
+        "start": 153,
+        "end": 163
+      },
+      "location_id": "L024",
+      "time_window_label": "benchmark",
+      "source_index": 24,
+      "sibling_source_index": 72
+    },
+    {
+      "id": "T025",
+      "request_id": "R004",
+      "kind": "delivery",
+      "x": 65,
+      "y": 20,
+      "demand": -19,
+      "service_duration": 10,
+      "tw": {
+        "start": 172,
+        "end": 182
+      },
+      "location_id": "L025",
+      "time_window_label": "benchmark",
+      "source_index": 25,
+      "sibling_source_index": 4
+    },
+    {
+      "id": "T026",
+      "request_id": "R023",
+      "kind": "delivery",
+      "x": 45,
+      "y": 30,
+      "demand": -29,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 208
+      },
+      "location_id": "L026",
+      "time_window_label": "benchmark",
+      "source_index": 26,
+      "sibling_source_index": 23
+    },
+    {
+      "id": "T027",
+      "request_id": "R027",
+      "kind": "pickup",
+      "x": 35,
+      "y": 40,
+      "demand": 16,
+      "service_duration": 0,
+      "tw": {
+        "start": 37,
+        "end": 47
+      },
+      "location_id": "L027",
+      "time_window_label": "benchmark",
+      "source_index": 27,
+      "sibling_source_index": 101
+    },
+    {
+      "id": "T028",
+      "request_id": "R028",
+      "kind": "pickup",
+      "x": 41,
+      "y": 37,
+      "demand": 16,
+      "service_duration": 10,
+      "tw": {
+        "start": 39,
+        "end": 49
+      },
+      "location_id": "L028",
+      "time_window_label": "benchmark",
+      "source_index": 28,
+      "sibling_source_index": 29
+    },
+    {
+      "id": "T029",
+      "request_id": "R028",
+      "kind": "delivery",
+      "x": 64,
+      "y": 42,
+      "demand": -16,
+      "service_duration": 10,
+      "tw": {
+        "start": 63,
+        "end": 73
+      },
+      "location_id": "L029",
+      "time_window_label": "benchmark",
+      "source_index": 29,
+      "sibling_source_index": 28
+    },
+    {
+      "id": "T030",
+      "request_id": "R030",
+      "kind": "pickup",
+      "x": 40,
+      "y": 60,
+      "demand": 21,
+      "service_duration": 10,
+      "tw": {
+        "start": 71,
+        "end": 81
+      },
+      "location_id": "L030",
+      "time_window_label": "benchmark",
+      "source_index": 30,
+      "sibling_source_index": 9
+    },
+    {
+      "id": "T031",
+      "request_id": "R090",
+      "kind": "delivery",
+      "x": 31,
+      "y": 52,
+      "demand": -3,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 202
+      },
+      "location_id": "L031",
+      "time_window_label": "benchmark",
+      "source_index": 31,
+      "sibling_source_index": 90
+    },
+    {
+      "id": "T032",
+      "request_id": "R032",
+      "kind": "pickup",
+      "x": 35,
+      "y": 69,
+      "demand": 23,
+      "service_duration": 10,
+      "tw": {
+        "start": 141,
+        "end": 151
+      },
+      "location_id": "L032",
+      "time_window_label": "benchmark",
+      "source_index": 32,
+      "sibling_source_index": 70
+    },
+    {
+      "id": "T033",
+      "request_id": "R033",
+      "kind": "pickup",
+      "x": 53,
+      "y": 52,
+      "demand": 11,
+      "service_duration": 10,
+      "tw": {
+        "start": 37,
+        "end": 47
+      },
+      "location_id": "L033",
+      "time_window_label": "benchmark",
+      "source_index": 33,
+      "sibling_source_index": 51
+    },
+    {
+      "id": "T034",
+      "request_id": "R078",
+      "kind": "delivery",
+      "x": 65,
+      "y": 55,
+      "demand": -3,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 183
+      },
+      "location_id": "L034",
+      "time_window_label": "benchmark",
+      "source_index": 34,
+      "sibling_source_index": 78
+    },
+    {
+      "id": "T035",
+      "request_id": "R035",
+      "kind": "pickup",
+      "x": 63,
+      "y": 65,
+      "demand": 8,
+      "service_duration": 10,
+      "tw": {
+        "start": 143,
+        "end": 153
+      },
+      "location_id": "L035",
+      "time_window_label": "benchmark",
+      "source_index": 35,
+      "sibling_source_index": 77
+    },
+    {
+      "id": "T036",
+      "request_id": "R036",
+      "kind": "pickup",
+      "x": 2,
+      "y": 60,
+      "demand": 5,
+      "service_duration": 0,
+      "tw": {
+        "start": 41,
+        "end": 51
+      },
+      "location_id": "L036",
+      "time_window_label": "benchmark",
+      "source_index": 36,
+      "sibling_source_index": 104
+    },
+    {
+      "id": "T037",
+      "request_id": "R091",
+      "kind": "delivery",
+      "x": 20,
+      "y": 20,
+      "demand": -1,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 198
+      },
+      "location_id": "L037",
+      "time_window_label": "benchmark",
+      "source_index": 37,
+      "sibling_source_index": 91
+    },
+    {
+      "id": "T038",
+      "request_id": "R044",
+      "kind": "delivery",
+      "x": 5,
+      "y": 5,
+      "demand": -18,
+      "service_duration": 10,
+      "tw": {
+        "start": 83,
+        "end": 93
+      },
+      "location_id": "L038",
+      "time_window_label": "benchmark",
+      "source_index": 38,
+      "sibling_source_index": 44
+    },
+    {
+      "id": "T039",
+      "request_id": "R039",
+      "kind": "pickup",
+      "x": 60,
+      "y": 12,
+      "demand": 31,
+      "service_duration": 10,
+      "tw": {
+        "start": 44,
+        "end": 54
+      },
+      "location_id": "L039",
+      "time_window_label": "benchmark",
+      "source_index": 39,
+      "sibling_source_index": 55
+    },
+    {
+      "id": "T040",
+      "request_id": "R040",
+      "kind": "pickup",
+      "x": 40,
+      "y": 25,
+      "demand": 9,
+      "service_duration": 10,
+      "tw": {
+        "start": 85,
+        "end": 95
+      },
+      "location_id": "L040",
+      "time_window_label": "benchmark",
+      "source_index": 40,
+      "sibling_source_index": 53
+    },
+    {
+      "id": "T041",
+      "request_id": "R041",
+      "kind": "pickup",
+      "x": 42,
+      "y": 7,
+      "demand": 5,
+      "service_duration": 10,
+      "tw": {
+        "start": 97,
+        "end": 107
+      },
+      "location_id": "L041",
+      "time_window_label": "benchmark",
+      "source_index": 41,
+      "sibling_source_index": 21
+    },
+    {
+      "id": "T042",
+      "request_id": "R042",
+      "kind": "pickup",
+      "x": 24,
+      "y": 12,
+      "demand": 5,
+      "service_duration": 10,
+      "tw": {
+        "start": 31,
+        "end": 41
+      },
+      "location_id": "L042",
+      "time_window_label": "benchmark",
+      "source_index": 42,
+      "sibling_source_index": 15
+    },
+    {
+      "id": "T043",
+      "request_id": "R043",
+      "kind": "pickup",
+      "x": 23,
+      "y": 3,
+      "demand": 7,
+      "service_duration": 10,
+      "tw": {
+        "start": 132,
+        "end": 142
+      },
+      "location_id": "L043",
+      "time_window_label": "benchmark",
+      "source_index": 43,
+      "sibling_source_index": 58
+    },
+    {
+      "id": "T044",
+      "request_id": "R044",
+      "kind": "pickup",
+      "x": 11,
+      "y": 14,
+      "demand": 18,
+      "service_duration": 10,
+      "tw": {
+        "start": 69,
+        "end": 79
+      },
+      "location_id": "L044",
+      "time_window_label": "benchmark",
+      "source_index": 44,
+      "sibling_source_index": 38
+    },
+    {
+      "id": "T045",
+      "request_id": "R045",
+      "kind": "pickup",
+      "x": 6,
+      "y": 38,
+      "demand": 16,
+      "service_duration": 10,
+      "tw": {
+        "start": 32,
+        "end": 42
+      },
+      "location_id": "L045",
+      "time_window_label": "benchmark",
+      "source_index": 45,
+      "sibling_source_index": 84
+    },
+    {
+      "id": "T046",
+      "request_id": "R088",
+      "kind": "delivery",
+      "x": 2,
+      "y": 48,
+      "demand": -9,
+      "service_duration": 10,
+      "tw": {
+        "start": 117,
+        "end": 127
+      },
+      "location_id": "L046",
+      "time_window_label": "benchmark",
+      "source_index": 46,
+      "sibling_source_index": 88
+    },
+    {
+      "id": "T047",
+      "request_id": "R047",
+      "kind": "pickup",
+      "x": 8,
+      "y": 56,
+      "demand": 27,
+      "service_duration": 10,
+      "tw": {
+        "start": 51,
+        "end": 61
+      },
+      "location_id": "L047",
+      "time_window_label": "benchmark",
+      "source_index": 47,
+      "sibling_source_index": 18
+    },
+    {
+      "id": "T048",
+      "request_id": "R048",
+      "kind": "pickup",
+      "x": 13,
+      "y": 52,
+      "demand": 36,
+      "service_duration": 0,
+      "tw": {
+        "start": 0,
+        "end": 192
+      },
+      "location_id": "L048",
+      "time_window_label": "benchmark",
+      "source_index": 48,
+      "sibling_source_index": 105
+    },
+    {
+      "id": "T049",
+      "request_id": "R049",
+      "kind": "pickup",
+      "x": 6,
+      "y": 68,
+      "demand": 30,
+      "service_duration": 10,
+      "tw": {
+        "start": 108,
+        "end": 118
+      },
+      "location_id": "L049",
+      "time_window_label": "benchmark",
+      "source_index": 49,
+      "sibling_source_index": 82
+    },
+    {
+      "id": "T050",
+      "request_id": "R050",
+      "kind": "pickup",
+      "x": 47,
+      "y": 47,
+      "demand": 13,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 203
+      },
+      "location_id": "L050",
+      "time_window_label": "benchmark",
+      "source_index": 50,
+      "sibling_source_index": 1
+    },
+    {
+      "id": "T051",
+      "request_id": "R033",
+      "kind": "delivery",
+      "x": 49,
+      "y": 58,
+      "demand": -11,
+      "service_duration": 10,
+      "tw": {
+        "start": 88,
+        "end": 98
+      },
+      "location_id": "L051",
+      "time_window_label": "benchmark",
+      "source_index": 51,
+      "sibling_source_index": 33
+    },
+    {
+      "id": "T052",
+      "request_id": "R052",
+      "kind": "pickup",
+      "x": 27,
+      "y": 43,
+      "demand": 9,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 208
+      },
+      "location_id": "L052",
+      "time_window_label": "benchmark",
+      "source_index": 52,
+      "sibling_source_index": 11
+    },
+    {
+      "id": "T053",
+      "request_id": "R040",
+      "kind": "delivery",
+      "x": 37,
+      "y": 31,
+      "demand": -9,
+      "service_duration": 10,
+      "tw": {
+        "start": 95,
+        "end": 105
+      },
+      "location_id": "L053",
+      "time_window_label": "benchmark",
+      "source_index": 53,
+      "sibling_source_index": 40
+    },
+    {
+      "id": "T054",
+      "request_id": "R054",
+      "kind": "pickup",
+      "x": 57,
+      "y": 29,
+      "demand": 18,
+      "service_duration": 10,
+      "tw": {
+        "start": 140,
+        "end": 150
+      },
+      "location_id": "L054",
+      "time_window_label": "benchmark",
+      "source_index": 54,
+      "sibling_source_index": 80
+    },
+    {
+      "id": "T055",
+      "request_id": "R039",
+      "kind": "delivery",
+      "x": 63,
+      "y": 23,
+      "demand": -31,
+      "service_duration": 10,
+      "tw": {
+        "start": 136,
+        "end": 146
+      },
+      "location_id": "L055",
+      "time_window_label": "benchmark",
+      "source_index": 55,
+      "sibling_source_index": 39
+    },
+    {
+      "id": "T056",
+      "request_id": "R075",
+      "kind": "delivery",
+      "x": 53,
+      "y": 12,
+      "demand": -18,
+      "service_duration": 10,
+      "tw": {
+        "start": 130,
+        "end": 140
+      },
+      "location_id": "L056",
+      "time_window_label": "benchmark",
+      "source_index": 56,
+      "sibling_source_index": 75
+    },
+    {
+      "id": "T057",
+      "request_id": "R057",
+      "kind": "pickup",
+      "x": 32,
+      "y": 12,
+      "demand": 7,
+      "service_duration": 10,
+      "tw": {
+        "start": 101,
+        "end": 111
+      },
+      "location_id": "L057",
+      "time_window_label": "benchmark",
+      "source_index": 57,
+      "sibling_source_index": 97
+    },
+    {
+      "id": "T058",
+      "request_id": "R043",
+      "kind": "delivery",
+      "x": 36,
+      "y": 26,
+      "demand": -7,
+      "service_duration": 10,
+      "tw": {
+        "start": 200,
+        "end": 210
+      },
+      "location_id": "L058",
+      "time_window_label": "benchmark",
+      "source_index": 58,
+      "sibling_source_index": 43
+    },
+    {
+      "id": "T059",
+      "request_id": "R059",
+      "kind": "pickup",
+      "x": 21,
+      "y": 24,
+      "demand": 28,
+      "service_duration": 0,
+      "tw": {
+        "start": 0,
+        "end": 202
+      },
+      "location_id": "L059",
+      "time_window_label": "benchmark",
+      "source_index": 59,
+      "sibling_source_index": 102
+    },
+    {
+      "id": "T060",
+      "request_id": "R060",
+      "kind": "pickup",
+      "x": 17,
+      "y": 34,
+      "demand": 3,
+      "service_duration": 0,
+      "tw": {
+        "start": 162,
+        "end": 172
+      },
+      "location_id": "L060",
+      "time_window_label": "benchmark",
+      "source_index": 60,
+      "sibling_source_index": 107
+    },
+    {
+      "id": "T061",
+      "request_id": "R083",
+      "kind": "delivery",
+      "x": 12,
+      "y": 24,
+      "demand": -11,
+      "service_duration": 10,
+      "tw": {
+        "start": 76,
+        "end": 86
+      },
+      "location_id": "L061",
+      "time_window_label": "benchmark",
+      "source_index": 61,
+      "sibling_source_index": 83
+    },
+    {
+      "id": "T062",
+      "request_id": "R062",
+      "kind": "pickup",
+      "x": 24,
+      "y": 58,
+      "demand": 19,
+      "service_duration": 10,
+      "tw": {
+        "start": 58,
+        "end": 68
+      },
+      "location_id": "L062",
+      "time_window_label": "benchmark",
+      "source_index": 62,
+      "sibling_source_index": 8
+    },
+    {
+      "id": "T063",
+      "request_id": "R063",
+      "kind": "pickup",
+      "x": 27,
+      "y": 69,
+      "demand": 10,
+      "service_duration": 10,
+      "tw": {
+        "start": 34,
+        "end": 44
+      },
+      "location_id": "L063",
+      "time_window_label": "benchmark",
+      "source_index": 63,
+      "sibling_source_index": 64
+    },
+    {
+      "id": "T064",
+      "request_id": "R063",
+      "kind": "delivery",
+      "x": 15,
+      "y": 77,
+      "demand": -10,
+      "service_duration": 10,
+      "tw": {
+        "start": 73,
+        "end": 83
+      },
+      "location_id": "L064",
+      "time_window_label": "benchmark",
+      "source_index": 64,
+      "sibling_source_index": 63
+    },
+    {
+      "id": "T065",
+      "request_id": "R065",
+      "kind": "pickup",
+      "x": 62,
+      "y": 77,
+      "demand": 20,
+      "service_duration": 10,
+      "tw": {
+        "start": 51,
+        "end": 61
+      },
+      "location_id": "L065",
+      "time_window_label": "benchmark",
+      "source_index": 65,
+      "sibling_source_index": 81
+    },
+    {
+      "id": "T066",
+      "request_id": "R066",
+      "kind": "pickup",
+      "x": 49,
+      "y": 73,
+      "demand": 25,
+      "service_duration": 0,
+      "tw": {
+        "start": 127,
+        "end": 137
+      },
+      "location_id": "L066",
+      "time_window_label": "benchmark",
+      "source_index": 66,
+      "sibling_source_index": 108
+    },
+    {
+      "id": "T067",
+      "request_id": "R067",
+      "kind": "pickup",
+      "x": 67,
+      "y": 5,
+      "demand": 25,
+      "service_duration": 0,
+      "tw": {
+        "start": 83,
+        "end": 93
+      },
+      "location_id": "L067",
+      "time_window_label": "benchmark",
+      "source_index": 67,
+      "sibling_source_index": 110
+    },
+    {
+      "id": "T068",
+      "request_id": "R079",
+      "kind": "delivery",
+      "x": 56,
+      "y": 39,
+      "demand": -23,
+      "service_duration": 10,
+      "tw": {
+        "start": 142,
+        "end": 152
+      },
+      "location_id": "L068",
+      "time_window_label": "benchmark",
+      "source_index": 68,
+      "sibling_source_index": 79
+    },
+    {
+      "id": "T069",
+      "request_id": "R069",
+      "kind": "pickup",
+      "x": 37,
+      "y": 47,
+      "demand": 6,
+      "service_duration": 10,
+      "tw": {
+        "start": 50,
+        "end": 60
+      },
+      "location_id": "L069",
+      "time_window_label": "benchmark",
+      "source_index": 69,
+      "sibling_source_index": 76
+    },
+    {
+      "id": "T070",
+      "request_id": "R032",
+      "kind": "delivery",
+      "x": 37,
+      "y": 56,
+      "demand": -23,
+      "service_duration": 10,
+      "tw": {
+        "start": 182,
+        "end": 192
+      },
+      "location_id": "L070",
+      "time_window_label": "benchmark",
+      "source_index": 70,
+      "sibling_source_index": 32
+    },
+    {
+      "id": "T071",
+      "request_id": "R071",
+      "kind": "pickup",
+      "x": 57,
+      "y": 68,
+      "demand": 15,
+      "service_duration": 10,
+      "tw": {
+        "start": 77,
+        "end": 87
+      },
+      "location_id": "L071",
+      "time_window_label": "benchmark",
+      "source_index": 71,
+      "sibling_source_index": 20
+    },
+    {
+      "id": "T072",
+      "request_id": "R072",
+      "kind": "pickup",
+      "x": 47,
+      "y": 16,
+      "demand": 25,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 197
+      },
+      "location_id": "L072",
+      "time_window_label": "benchmark",
+      "source_index": 72,
+      "sibling_source_index": 24
+    },
+    {
+      "id": "T073",
+      "request_id": "R073",
+      "kind": "pickup",
+      "x": 44,
+      "y": 17,
+      "demand": 9,
+      "service_duration": 10,
+      "tw": {
+        "start": 78,
+        "end": 88
+      },
+      "location_id": "L073",
+      "time_window_label": "benchmark",
+      "source_index": 73,
+      "sibling_source_index": 12
+    },
+    {
+      "id": "T074",
+      "request_id": "R095",
+      "kind": "delivery",
+      "x": 46,
+      "y": 13,
+      "demand": -20,
+      "service_duration": 10,
+      "tw": {
+        "start": 149,
+        "end": 159
+      },
+      "location_id": "L074",
+      "time_window_label": "benchmark",
+      "source_index": 74,
+      "sibling_source_index": 95
+    },
+    {
+      "id": "T075",
+      "request_id": "R075",
+      "kind": "pickup",
+      "x": 49,
+      "y": 11,
+      "demand": 18,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 192
+      },
+      "location_id": "L075",
+      "time_window_label": "benchmark",
+      "source_index": 75,
+      "sibling_source_index": 56
+    },
+    {
+      "id": "T076",
+      "request_id": "R069",
+      "kind": "delivery",
+      "x": 49,
+      "y": 42,
+      "demand": -6,
+      "service_duration": 10,
+      "tw": {
+        "start": 73,
+        "end": 83
+      },
+      "location_id": "L076",
+      "time_window_label": "benchmark",
+      "source_index": 76,
+      "sibling_source_index": 69
+    },
+    {
+      "id": "T077",
+      "request_id": "R035",
+      "kind": "delivery",
+      "x": 53,
+      "y": 43,
+      "demand": -8,
+      "service_duration": 10,
+      "tw": {
+        "start": 179,
+        "end": 189
+      },
+      "location_id": "L077",
+      "time_window_label": "benchmark",
+      "source_index": 77,
+      "sibling_source_index": 35
+    },
+    {
+      "id": "T078",
+      "request_id": "R078",
+      "kind": "pickup",
+      "x": 61,
+      "y": 52,
+      "demand": 3,
+      "service_duration": 10,
+      "tw": {
+        "start": 96,
+        "end": 106
+      },
+      "location_id": "L078",
+      "time_window_label": "benchmark",
+      "source_index": 78,
+      "sibling_source_index": 34
+    },
+    {
+      "id": "T079",
+      "request_id": "R079",
+      "kind": "pickup",
+      "x": 57,
+      "y": 48,
+      "demand": 23,
+      "service_duration": 10,
+      "tw": {
+        "start": 92,
+        "end": 102
+      },
+      "location_id": "L079",
+      "time_window_label": "benchmark",
+      "source_index": 79,
+      "sibling_source_index": 68
+    },
+    {
+      "id": "T080",
+      "request_id": "R054",
+      "kind": "delivery",
+      "x": 56,
+      "y": 37,
+      "demand": -18,
+      "service_duration": 10,
+      "tw": {
+        "start": 182,
+        "end": 192
+      },
+      "location_id": "L080",
+      "time_window_label": "benchmark",
+      "source_index": 80,
+      "sibling_source_index": 54
+    },
+    {
+      "id": "T081",
+      "request_id": "R065",
+      "kind": "delivery",
+      "x": 55,
+      "y": 54,
+      "demand": -20,
+      "service_duration": 10,
+      "tw": {
+        "start": 94,
+        "end": 104
+      },
+      "location_id": "L081",
+      "time_window_label": "benchmark",
+      "source_index": 81,
+      "sibling_source_index": 65
+    },
+    {
+      "id": "T082",
+      "request_id": "R049",
+      "kind": "delivery",
+      "x": 15,
+      "y": 47,
+      "demand": -30,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 196
+      },
+      "location_id": "L082",
+      "time_window_label": "benchmark",
+      "source_index": 82,
+      "sibling_source_index": 49
+    },
+    {
+      "id": "T083",
+      "request_id": "R083",
+      "kind": "pickup",
+      "x": 14,
+      "y": 37,
+      "demand": 11,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 198
+      },
+      "location_id": "L083",
+      "time_window_label": "benchmark",
+      "source_index": 83,
+      "sibling_source_index": 61
+    },
+    {
+      "id": "T084",
+      "request_id": "R045",
+      "kind": "delivery",
+      "x": 11,
+      "y": 31,
+      "demand": -16,
+      "service_duration": 10,
+      "tw": {
+        "start": 101,
+        "end": 111
+      },
+      "location_id": "L084",
+      "time_window_label": "benchmark",
+      "source_index": 84,
+      "sibling_source_index": 45
+    },
+    {
+      "id": "T085",
+      "request_id": "R085",
+      "kind": "pickup",
+      "x": 16,
+      "y": 22,
+      "demand": 41,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 196
+      },
+      "location_id": "L085",
+      "time_window_label": "benchmark",
+      "source_index": 85,
+      "sibling_source_index": 16
+    },
+    {
+      "id": "T086",
+      "request_id": "R086",
+      "kind": "pickup",
+      "x": 4,
+      "y": 18,
+      "demand": 35,
+      "service_duration": 10,
+      "tw": {
+        "start": 94,
+        "end": 104
+      },
+      "location_id": "L086",
+      "time_window_label": "benchmark",
+      "source_index": 86,
+      "sibling_source_index": 100
+    },
+    {
+      "id": "T087",
+      "request_id": "R087",
+      "kind": "pickup",
+      "x": 28,
+      "y": 18,
+      "demand": 26,
+      "service_duration": 10,
+      "tw": {
+        "start": 93,
+        "end": 103
+      },
+      "location_id": "L087",
+      "time_window_label": "benchmark",
+      "source_index": 87,
+      "sibling_source_index": 13
+    },
+    {
+      "id": "T088",
+      "request_id": "R088",
+      "kind": "pickup",
+      "x": 26,
+      "y": 52,
+      "demand": 9,
+      "service_duration": 10,
+      "tw": {
+        "start": 74,
+        "end": 84
+      },
+      "location_id": "L088",
+      "time_window_label": "benchmark",
+      "source_index": 88,
+      "sibling_source_index": 46
+    },
+    {
+      "id": "T089",
+      "request_id": "R005",
+      "kind": "delivery",
+      "x": 26,
+      "y": 35,
+      "demand": -26,
+      "service_duration": 10,
+      "tw": {
+        "start": 176,
+        "end": 186
+      },
+      "location_id": "L089",
+      "time_window_label": "benchmark",
+      "source_index": 89,
+      "sibling_source_index": 5
+    },
+    {
+      "id": "T090",
+      "request_id": "R090",
+      "kind": "pickup",
+      "x": 31,
+      "y": 67,
+      "demand": 3,
+      "service_duration": 10,
+      "tw": {
+        "start": 95,
+        "end": 105
+      },
+      "location_id": "L090",
+      "time_window_label": "benchmark",
+      "source_index": 90,
+      "sibling_source_index": 31
+    },
+    {
+      "id": "T091",
+      "request_id": "R091",
+      "kind": "pickup",
+      "x": 15,
+      "y": 19,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 194
+      },
+      "location_id": "L091",
+      "time_window_label": "benchmark",
+      "source_index": 91,
+      "sibling_source_index": 37
+    },
+    {
+      "id": "T092",
+      "request_id": "R092",
+      "kind": "pickup",
+      "x": 22,
+      "y": 22,
+      "demand": 2,
+      "service_duration": 10,
+      "tw": {
+        "start": 18,
+        "end": 28
+      },
+      "location_id": "L092",
+      "time_window_label": "benchmark",
+      "source_index": 92,
+      "sibling_source_index": 98
+    },
+    {
+      "id": "T093",
+      "request_id": "R017",
+      "kind": "delivery",
+      "x": 18,
+      "y": 24,
+      "demand": -2,
+      "service_duration": 10,
+      "tw": {
+        "start": 188,
+        "end": 198
+      },
+      "location_id": "L093",
+      "time_window_label": "benchmark",
+      "source_index": 93,
+      "sibling_source_index": 17
+    },
+    {
+      "id": "T094",
+      "request_id": "R094",
+      "kind": "pickup",
+      "x": 26,
+      "y": 27,
+      "demand": 27,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 207
+      },
+      "location_id": "L094",
+      "time_window_label": "benchmark",
+      "source_index": 94,
+      "sibling_source_index": 96
+    },
+    {
+      "id": "T095",
+      "request_id": "R095",
+      "kind": "pickup",
+      "x": 25,
+      "y": 24,
+      "demand": 20,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 205
+      },
+      "location_id": "L095",
+      "time_window_label": "benchmark",
+      "source_index": 95,
+      "sibling_source_index": 74
+    },
+    {
+      "id": "T096",
+      "request_id": "R094",
+      "kind": "delivery",
+      "x": 22,
+      "y": 27,
+      "demand": -27,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 204
+      },
+      "location_id": "L096",
+      "time_window_label": "benchmark",
+      "source_index": 96,
+      "sibling_source_index": 94
+    },
+    {
+      "id": "T097",
+      "request_id": "R057",
+      "kind": "delivery",
+      "x": 25,
+      "y": 21,
+      "demand": -7,
+      "service_duration": 10,
+      "tw": {
+        "start": 133,
+        "end": 143
+      },
+      "location_id": "L097",
+      "time_window_label": "benchmark",
+      "source_index": 97,
+      "sibling_source_index": 57
+    },
+    {
+      "id": "T098",
+      "request_id": "R092",
+      "kind": "delivery",
+      "x": 19,
+      "y": 21,
+      "demand": -2,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 198
+      },
+      "location_id": "L098",
+      "time_window_label": "benchmark",
+      "source_index": 98,
+      "sibling_source_index": 92
+    },
+    {
+      "id": "T099",
+      "request_id": "R099",
+      "kind": "pickup",
+      "x": 20,
+      "y": 26,
+      "demand": 9,
+      "service_duration": 10,
+      "tw": {
+        "start": 83,
+        "end": 93
+      },
+      "location_id": "L099",
+      "time_window_label": "benchmark",
+      "source_index": 99,
+      "sibling_source_index": 6
+    },
+    {
+      "id": "T100",
+      "request_id": "R086",
+      "kind": "delivery",
+      "x": 18,
+      "y": 18,
+      "demand": -35,
+      "service_duration": 10,
+      "tw": {
+        "start": 185,
+        "end": 195
+      },
+      "location_id": "L100",
+      "time_window_label": "benchmark",
+      "source_index": 100,
+      "sibling_source_index": 86
+    },
+    {
+      "id": "T101",
+      "request_id": "R027",
+      "kind": "delivery",
+      "x": 35,
+      "y": 40,
+      "demand": -16,
+      "service_duration": 10,
+      "tw": {
+        "start": 37,
+        "end": 47
+      },
+      "location_id": "L101",
+      "time_window_label": "benchmark",
+      "source_index": 101,
+      "sibling_source_index": 27
+    },
+    {
+      "id": "T102",
+      "request_id": "R059",
+      "kind": "delivery",
+      "x": 21,
+      "y": 24,
+      "demand": -28,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 202
+      },
+      "location_id": "L102",
+      "time_window_label": "benchmark",
+      "source_index": 102,
+      "sibling_source_index": 59
+    },
+    {
+      "id": "T103",
+      "request_id": "R022",
+      "kind": "delivery",
+      "x": 45,
+      "y": 10,
+      "demand": -18,
+      "service_duration": 10,
+      "tw": {
+        "start": 97,
+        "end": 107
+      },
+      "location_id": "L103",
+      "time_window_label": "benchmark",
+      "source_index": 103,
+      "sibling_source_index": 22
+    },
+    {
+      "id": "T104",
+      "request_id": "R036",
+      "kind": "delivery",
+      "x": 2,
+      "y": 60,
+      "demand": -5,
+      "service_duration": 10,
+      "tw": {
+        "start": 41,
+        "end": 51
+      },
+      "location_id": "L104",
+      "time_window_label": "benchmark",
+      "source_index": 104,
+      "sibling_source_index": 36
+    },
+    {
+      "id": "T105",
+      "request_id": "R048",
+      "kind": "delivery",
+      "x": 13,
+      "y": 52,
+      "demand": -36,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 192
+      },
+      "location_id": "L105",
+      "time_window_label": "benchmark",
+      "source_index": 105,
+      "sibling_source_index": 48
+    },
+    {
+      "id": "T106",
+      "request_id": "R003",
+      "kind": "delivery",
+      "x": 55,
+      "y": 45,
+      "demand": -13,
+      "service_duration": 10,
+      "tw": {
+        "start": 0,
+        "end": 197
+      },
+      "location_id": "L106",
+      "time_window_label": "benchmark",
+      "source_index": 106,
+      "sibling_source_index": 3
+    },
+    {
+      "id": "T107",
+      "request_id": "R060",
+      "kind": "delivery",
+      "x": 17,
+      "y": 34,
+      "demand": -3,
+      "service_duration": 10,
+      "tw": {
+        "start": 162,
+        "end": 172
+      },
+      "location_id": "L107",
+      "time_window_label": "benchmark",
+      "source_index": 107,
+      "sibling_source_index": 60
+    },
+    {
+      "id": "T108",
+      "request_id": "R066",
+      "kind": "delivery",
+      "x": 49,
+      "y": 73,
+      "demand": -25,
+      "service_duration": 10,
+      "tw": {
+        "start": 127,
+        "end": 137
+      },
+      "location_id": "L108",
+      "time_window_label": "benchmark",
+      "source_index": 108,
+      "sibling_source_index": 66
+    },
+    {
+      "id": "T109",
+      "request_id": "R010",
+      "kind": "delivery",
+      "x": 30,
+      "y": 60,
+      "demand": -16,
+      "service_duration": 10,
+      "tw": {
+        "start": 124,
+        "end": 134
+      },
+      "location_id": "L109",
+      "time_window_label": "benchmark",
+      "source_index": 109,
+      "sibling_source_index": 10
+    },
+    {
+      "id": "T110",
+      "request_id": "R067",
+      "kind": "delivery",
+      "x": 67,
+      "y": 5,
+      "demand": -25,
+      "service_duration": 10,
+      "tw": {
+        "start": 83,
+        "end": 93
+      },
+      "location_id": "L110",
+      "time_window_label": "benchmark",
+      "source_index": 110,
+      "sibling_source_index": 67
+    }
+  ],
+  "metadata": {
+    "request_count": 55,
+    "node_count": 110,
+    "location_count": 110,
+    "vehicle_count": 25,
+    "variant": "li_lim_pdptw",
+    "benchmark_group": "li_lim_100",
+    "distance_metric": "euclidean_double",
+    "load_profile": "zero_start",
+    "objective_mode": "vehicles_then_distance",
+    "enforce_precedence": true,
+    "time_window_distribution": {
+      "benchmark": 110
+    }
+  }
+}

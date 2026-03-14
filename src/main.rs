@@ -22,8 +22,8 @@ struct SolveCommand {
 #[derive(Debug, Serialize)]
 struct SummaryRecord {
     instance: String,
-    initial_objective: i64,
-    best_objective: i64,
+    initial_objective: f64,
+    best_objective: f64,
     route_count: usize,
     feasible: bool,
 }
@@ -72,7 +72,7 @@ fn solve_all(instances_dir: &Path, output_dir: &Path, iterations: usize, seed: u
         )?;
 
         println!(
-            "[rust] {}: objective={} routes={} feasible={}",
+            "[rust] {}: objective={:.2} routes={} feasible={}",
             serialized.instance, serialized.objective, serialized.route_count, serialized.feasible
         );
 

@@ -20,7 +20,7 @@ pub struct RouteOutput {
 pub struct SolverMetadata {
     pub iterations: usize,
     pub seed: u64,
-    pub initial_objective: i64,
+    pub initial_objective: f64,
     pub operator_weights: Vec<OperatorWeight>,
 }
 
@@ -28,7 +28,7 @@ pub struct SolverMetadata {
 pub struct SerializedSolution {
     pub instance: String,
     pub solver: String,
-    pub objective: i64,
+    pub objective: f64,
     pub route_count: usize,
     pub feasible: bool,
     pub routes: Vec<RouteOutput>,
@@ -42,7 +42,7 @@ pub fn solution_to_json(
     evaluation: SolutionMetrics,
     iterations: usize,
     seed: u64,
-    initial_objective: i64,
+    initial_objective: f64,
     operator_weights: Vec<OperatorWeight>,
 ) -> SerializedSolution {
     let routes = solution

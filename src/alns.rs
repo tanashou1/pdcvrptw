@@ -7,7 +7,7 @@ use serde::Serialize;
 use crate::construction::{build_initial_solution, repair_nodes};
 use crate::distance::DistanceMatrix;
 use crate::evaluate::evaluate_solution;
-use crate::instance::Instance;
+use crate::instance::{Instance, RequestPair};
 use crate::solution::SolutionState;
 
 #[derive(Debug, Clone)]
@@ -24,7 +24,7 @@ pub struct OperatorWeight {
 
 #[derive(Debug, Clone)]
 pub struct SolveOutcome {
-    pub initial_objective: i64,
+    pub initial_objective: f64,
     pub best_solution: SolutionState,
     pub operator_weights: Vec<OperatorWeight>,
 }
@@ -63,18 +63,19 @@ pub fn solve(
     }
 
     let mut current_solution = initial_solution.clone();
-    let mut current_objective = initial_metrics.objective;
+    let mut current_score = initial_metrics.search_objective;
     let mut best_solution = initial_solution;
-    let mut best_objective = current_objective;
+    let mut best_score = current_score;
     let mut weights = vec![1.0_f64; DestroyOperator::all().len()];
-    let mut temperature = (current_objective.max(1) as f64) * 0.05;
+    let mut temperature = current_score.max(1.0) * 0.05;
     let mut rng = StdRng::seed_from_u64(params.seed);
 
     for _ in 0..params.iterations {
         let operator_index = select_operator(&weights, &mut rng);
         let operator = DestroyOperator::all()[operator_index];
         let mut candidate_solution = current_solution.clone();
-        let remove_count = removal_count(candidate_solution.all_nodes().len(), &mut rng);
+        let unit_count = removal_unit_count(instance, &candidate_solution);
+        let remove_count = removal_count(unit_count, &mut rng);
         let removed_nodes = apply_destroy(
             instance,
             matrix,
@@ -99,18 +100,18 @@ pub fn solve(
             continue;
         }
 
-        let candidate_objective = candidate_metrics.objective;
-        let delta = candidate_objective - current_objective;
-        let accepted = if delta <= 0 {
+        let candidate_score = candidate_metrics.search_objective;
+        let delta = candidate_score - current_score;
+        let accepted = if delta <= 0.0 {
             true
         } else {
-            let acceptance_probability = (-(delta as f64) / temperature.max(1.0)).exp();
+            let acceptance_probability = (-(delta) / temperature.max(1.0)).exp();
             rng.gen::<f64>() < acceptance_probability
         };
 
-        let reward = if candidate_objective < best_objective {
+        let reward = if candidate_score < best_score {
             8.0
-        } else if candidate_objective < current_objective {
+        } else if candidate_score < current_score {
             4.0
         } else if accepted {
             1.5
@@ -121,12 +122,12 @@ pub fn solve(
         update_weight(&mut weights[operator_index], reward);
 
         if accepted {
-            current_objective = candidate_objective;
+            current_score = candidate_score;
             current_solution = candidate_solution.clone();
         }
 
-        if candidate_objective < best_objective {
-            best_objective = candidate_objective;
+        if candidate_score < best_score {
+            best_score = candidate_score;
             best_solution = candidate_solution;
         }
 
@@ -165,10 +166,18 @@ fn update_weight(weight: &mut f64, reward: f64) {
     *weight = (0.85 * *weight) + (0.15 * reward);
 }
 
-fn removal_count(node_count: usize, rng: &mut StdRng) -> usize {
-    let upper = usize::min(12, node_count.max(1));
+fn removal_count(unit_count: usize, rng: &mut StdRng) -> usize {
+    let upper = usize::min(12, unit_count.max(1));
     let lower = usize::min(4, upper);
     rng.gen_range(lower..=upper)
+}
+
+fn removal_unit_count(instance: &Instance, solution: &SolutionState) -> usize {
+    if instance.enforces_precedence() {
+        request_pairs_in_solution(instance, solution).len()
+    } else {
+        solution.all_nodes().len()
+    }
 }
 
 fn apply_destroy(
@@ -179,11 +188,26 @@ fn apply_destroy(
     remove_count: usize,
     rng: &mut StdRng,
 ) -> Vec<usize> {
-    let removed_nodes = match operator {
-        DestroyOperator::Random => random_removal(solution, remove_count, rng),
-        DestroyOperator::Worst => worst_removal(solution, matrix, remove_count),
-        DestroyOperator::Shaw => shaw_removal(solution, instance, matrix, remove_count, rng),
+    let removed_nodes = if instance.enforces_precedence() {
+        match operator {
+            DestroyOperator::Random => {
+                random_request_removal(instance, solution, remove_count, rng)
+            }
+            DestroyOperator::Worst => {
+                worst_request_removal(instance, matrix, solution, remove_count)
+            }
+            DestroyOperator::Shaw => {
+                shaw_request_removal(instance, matrix, solution, remove_count, rng)
+            }
+        }
+    } else {
+        match operator {
+            DestroyOperator::Random => random_removal(solution, remove_count, rng),
+            DestroyOperator::Worst => worst_removal(solution, matrix, remove_count),
+            DestroyOperator::Shaw => shaw_removal(solution, instance, matrix, remove_count, rng),
+        }
     };
+
     solution.remove_nodes(&removed_nodes);
     removed_nodes
 }
@@ -193,6 +217,18 @@ fn random_removal(solution: &SolutionState, remove_count: usize, rng: &mut StdRn
     nodes.shuffle(rng);
     nodes.truncate(remove_count);
     nodes
+}
+
+fn random_request_removal(
+    instance: &Instance,
+    solution: &SolutionState,
+    remove_count: usize,
+    rng: &mut StdRng,
+) -> Vec<usize> {
+    let mut requests = request_pairs_in_solution(instance, solution);
+    requests.shuffle(rng);
+    requests.truncate(remove_count);
+    flatten_requests(&requests)
 }
 
 fn worst_removal(
@@ -225,12 +261,45 @@ fn worst_removal(
         }
     }
 
-    candidates.sort_by(|left, right| right.1.cmp(&left.1));
+    candidates.sort_by(|left, right| right.1.total_cmp(&left.1));
     candidates
         .into_iter()
         .take(remove_count)
         .map(|(node_idx, _)| node_idx)
         .collect()
+}
+
+fn worst_request_removal(
+    instance: &Instance,
+    matrix: &DistanceMatrix,
+    solution: &SolutionState,
+    remove_count: usize,
+) -> Vec<usize> {
+    let mut candidates = Vec::new();
+
+    for route in &solution.routes {
+        let route_distance = crate::evaluate::evaluate_route(instance, matrix, route).distance;
+
+        for request in requests_in_route(instance, route) {
+            let mut candidate = route.clone();
+            candidate.stops.retain(|node_idx| {
+                *node_idx != request.pickup_idx && *node_idx != request.delivery_idx
+            });
+
+            let candidate_distance =
+                crate::evaluate::evaluate_route(instance, matrix, &candidate).distance;
+            candidates.push((request, route_distance - candidate_distance));
+        }
+    }
+
+    candidates.sort_by(|left, right| right.1.total_cmp(&left.1));
+    flatten_requests(
+        &candidates
+            .into_iter()
+            .take(remove_count)
+            .map(|(request, _)| request)
+            .collect::<Vec<_>>(),
+    )
 }
 
 fn shaw_removal(
@@ -254,17 +323,84 @@ fn shaw_removal(
                 matrix.node_location(seed_node_idx),
                 matrix.node_location(node_idx),
             );
-            let time_window_gap =
-                (seed_node.tw.start - node.tw.start).abs() + (seed_node.tw.end - node.tw.end).abs();
-            let demand_gap = (seed_node.demand - node.demand).abs() as i64 * 10;
+            let time_window_gap = (seed_node.tw.start - node.tw.start).abs() as f64
+                + (seed_node.tw.end - node.tw.end).abs() as f64;
+            let demand_gap = (seed_node.demand - node.demand).abs() as f64 * 10.0;
             (node_idx, geography + time_window_gap + demand_gap)
         })
         .collect::<Vec<_>>();
 
-    ranked.sort_by_key(|(_, score)| *score);
+    ranked.sort_by(|left, right| left.1.total_cmp(&right.1));
     ranked
         .into_iter()
         .take(remove_count)
         .map(|(node_idx, _)| node_idx)
+        .collect()
+}
+
+fn shaw_request_removal(
+    instance: &Instance,
+    matrix: &DistanceMatrix,
+    solution: &SolutionState,
+    remove_count: usize,
+    rng: &mut StdRng,
+) -> Vec<usize> {
+    let requests = request_pairs_in_solution(instance, solution);
+    let Some(seed_request) = requests.choose(rng).cloned() else {
+        return Vec::new();
+    };
+
+    let seed_pickup = &instance.nodes[seed_request.pickup_idx];
+    let seed_delivery = &instance.nodes[seed_request.delivery_idx];
+    let mut ranked = requests
+        .into_iter()
+        .map(|request| {
+            let pickup = &instance.nodes[request.pickup_idx];
+            let delivery = &instance.nodes[request.delivery_idx];
+            let pickup_distance = matrix.distance(
+                matrix.node_location(seed_request.pickup_idx),
+                matrix.node_location(request.pickup_idx),
+            );
+            let delivery_distance = matrix.distance(
+                matrix.node_location(seed_request.delivery_idx),
+                matrix.node_location(request.delivery_idx),
+            );
+            let time_gap = (seed_pickup.tw.start - pickup.tw.start).abs() as f64
+                + (seed_pickup.tw.end - pickup.tw.end).abs() as f64
+                + (seed_delivery.tw.start - delivery.tw.start).abs() as f64
+                + (seed_delivery.tw.end - delivery.tw.end).abs() as f64;
+            let demand_gap = (seed_pickup.demand - pickup.demand).abs() as f64
+                + (seed_delivery.demand - delivery.demand).abs() as f64;
+
+            (
+                request,
+                pickup_distance + delivery_distance + time_gap + demand_gap * 10.0,
+            )
+        })
+        .collect::<Vec<_>>();
+
+    ranked.sort_by(|left, right| left.1.total_cmp(&right.1));
+    flatten_requests(
+        &ranked
+            .into_iter()
+            .take(remove_count)
+            .map(|(request, _)| request)
+            .collect::<Vec<_>>(),
+    )
+}
+
+fn request_pairs_in_solution(instance: &Instance, solution: &SolutionState) -> Vec<RequestPair> {
+    let all_nodes = solution.all_nodes();
+    instance.request_pairs_from_nodes(&all_nodes)
+}
+
+fn requests_in_route(instance: &Instance, route: &crate::solution::Route) -> Vec<RequestPair> {
+    instance.request_pairs_from_nodes(&route.stops)
+}
+
+fn flatten_requests(requests: &[RequestPair]) -> Vec<usize> {
+    requests
+        .iter()
+        .flat_map(|request| [request.pickup_idx, request.delivery_idx])
         .collect()
 }

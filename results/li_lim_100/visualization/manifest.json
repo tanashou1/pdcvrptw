@@ -1,0 +1,229 @@
+{
+  "instance_figures": [
+    {
+      "instance": "lc101",
+      "path": "results/li_lim_100/visualization/instances/lc101.png"
+    },
+    {
+      "instance": "lc102",
+      "path": "results/li_lim_100/visualization/instances/lc102.png"
+    },
+    {
+      "instance": "lc103",
+      "path": "results/li_lim_100/visualization/instances/lc103.png"
+    },
+    {
+      "instance": "lc104",
+      "path": "results/li_lim_100/visualization/instances/lc104.png"
+    },
+    {
+      "instance": "lc105",
+      "path": "results/li_lim_100/visualization/instances/lc105.png"
+    },
+    {
+      "instance": "lc106",
+      "path": "results/li_lim_100/visualization/instances/lc106.png"
+    },
+    {
+      "instance": "lc107",
+      "path": "results/li_lim_100/visualization/instances/lc107.png"
+    },
+    {
+      "instance": "lc108",
+      "path": "results/li_lim_100/visualization/instances/lc108.png"
+    },
+    {
+      "instance": "lc109",
+      "path": "results/li_lim_100/visualization/instances/lc109.png"
+    },
+    {
+      "instance": "lc201",
+      "path": "results/li_lim_100/visualization/instances/lc201.png"
+    },
+    {
+      "instance": "lc202",
+      "path": "results/li_lim_100/visualization/instances/lc202.png"
+    },
+    {
+      "instance": "lc203",
+      "path": "results/li_lim_100/visualization/instances/lc203.png"
+    },
+    {
+      "instance": "lc204",
+      "path": "results/li_lim_100/visualization/instances/lc204.png"
+    },
+    {
+      "instance": "lc205",
+      "path": "results/li_lim_100/visualization/instances/lc205.png"
+    },
+    {
+      "instance": "lc206",
+      "path": "results/li_lim_100/visualization/instances/lc206.png"
+    },
+    {
+      "instance": "lc207",
+      "path": "results/li_lim_100/visualization/instances/lc207.png"
+    },
+    {
+      "instance": "lc208",
+      "path": "results/li_lim_100/visualization/instances/lc208.png"
+    },
+    {
+      "instance": "lr101",
+      "path": "results/li_lim_100/visualization/instances/lr101.png"
+    },
+    {
+      "instance": "lr102",
+      "path": "results/li_lim_100/visualization/instances/lr102.png"
+    },
+    {
+      "instance": "lr103",
+      "path": "results/li_lim_100/visualization/instances/lr103.png"
+    },
+    {
+      "instance": "lr104",
+      "path": "results/li_lim_100/visualization/instances/lr104.png"
+    },
+    {
+      "instance": "lr105",
+      "path": "results/li_lim_100/visualization/instances/lr105.png"
+    },
+    {
+      "instance": "lr106",
+      "path": "results/li_lim_100/visualization/instances/lr106.png"
+    },
+    {
+      "instance": "lr107",
+      "path": "results/li_lim_100/visualization/instances/lr107.png"
+    },
+    {
+      "instance": "lr108",
+      "path": "results/li_lim_100/visualization/instances/lr108.png"
+    },
+    {
+      "instance": "lr109",
+      "path": "results/li_lim_100/visualization/instances/lr109.png"
+    },
+    {
+      "instance": "lr110",
+      "path": "results/li_lim_100/visualization/instances/lr110.png"
+    },
+    {
+      "instance": "lr111",
+      "path": "results/li_lim_100/visualization/instances/lr111.png"
+    },
+    {
+      "instance": "lr112",
+      "path": "results/li_lim_100/visualization/instances/lr112.png"
+    },
+    {
+      "instance": "lr201",
+      "path": "results/li_lim_100/visualization/instances/lr201.png"
+    },
+    {
+      "instance": "lr202",
+      "path": "results/li_lim_100/visualization/instances/lr202.png"
+    },
+    {
+      "instance": "lr203",
+      "path": "results/li_lim_100/visualization/instances/lr203.png"
+    },
+    {
+      "instance": "lr204",
+      "path": "results/li_lim_100/visualization/instances/lr204.png"
+    },
+    {
+      "instance": "lr205",
+      "path": "results/li_lim_100/visualization/instances/lr205.png"
+    },
+    {
+      "instance": "lr206",
+      "path": "results/li_lim_100/visualization/instances/lr206.png"
+    },
+    {
+      "instance": "lr207",
+      "path": "results/li_lim_100/visualization/instances/lr207.png"
+    },
+    {
+      "instance": "lr208",
+      "path": "results/li_lim_100/visualization/instances/lr208.png"
+    },
+    {
+      "instance": "lr209",
+      "path": "results/li_lim_100/visualization/instances/lr209.png"
+    },
+    {
+      "instance": "lr210",
+      "path": "results/li_lim_100/visualization/instances/lr210.png"
+    },
+    {
+      "instance": "lr211",
+      "path": "results/li_lim_100/visualization/instances/lr211.png"
+    },
+    {
+      "instance": "lrc101",
+      "path": "results/li_lim_100/visualization/instances/lrc101.png"
+    },
+    {
+      "instance": "lrc102",
+      "path": "results/li_lim_100/visualization/instances/lrc102.png"
+    },
+    {
+      "instance": "lrc103",
+      "path": "results/li_lim_100/visualization/instances/lrc103.png"
+    },
+    {
+      "instance": "lrc104",
+      "path": "results/li_lim_100/visualization/instances/lrc104.png"
+    },
+    {
+      "instance": "lrc105",
+      "path": "results/li_lim_100/visualization/instances/lrc105.png"
+    },
+    {
+      "instance": "lrc106",
+      "path": "results/li_lim_100/visualization/instances/lrc106.png"
+    },
+    {
+      "instance": "lrc107",
+      "path": "results/li_lim_100/visualization/instances/lrc107.png"
+    },
+    {
+      "instance": "lrc108",
+      "path": "results/li_lim_100/visualization/instances/lrc108.png"
+    },
+    {
+      "instance": "lrc201",
+      "path": "results/li_lim_100/visualization/instances/lrc201.png"
+    },
+    {
+      "instance": "lrc202",
+      "path": "results/li_lim_100/visualization/instances/lrc202.png"
+    },
+    {
+      "instance": "lrc203",
+      "path": "results/li_lim_100/visualization/instances/lrc203.png"
+    },
+    {
+      "instance": "lrc204",
+      "path": "results/li_lim_100/visualization/instances/lrc204.png"
+    },
+    {
+      "instance": "lrc205",
+      "path": "results/li_lim_100/visualization/instances/lrc205.png"
+    },
+    {
+      "instance": "lrc206",
+      "path": "results/li_lim_100/visualization/instances/lrc206.png"
+    },
+    {
+      "instance": "lrc207",
+      "path": "results/li_lim_100/visualization/instances/lrc207.png"
+    },
+    {
+      "instance": "lrc208",
+      "path": "results/li_lim_100/visualization/instances/lrc208.png"
+    }
+  ],
+  "comparison_summary": "results/li_lim_100/comparison/summary.json"
+}

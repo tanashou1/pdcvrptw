@@ -3,7 +3,7 @@
   "solver": "pyvrp",
   "solver_version": "0.13.3",
   "seed": 2026031320,
-  "runtime_seconds": 2.513834111000051,
+  "runtime_seconds": 2.5207662429993434,
   "reported_cost": 460,
   "reported_feasible": true,
   "route_count": 10,
@@ -1071,13 +1071,17 @@
   ],
   "evaluation": {
     "objective": 460,
+    "search_objective": 460.0,
     "total_distance": 460,
+    "comparison_distance": 460,
     "route_count": 10,
+    "objective_mode": "distance_only",
     "visited_nodes": 100,
     "unique_served_nodes": 100,
     "feasible": true,
     "duplicate_nodes": [],
     "missing_nodes": [],
+    "precedence_violations": [],
     "vehicle_usage": {
       "D0": 4,
       "D1": 4,
@@ -1102,11 +1106,13 @@
           "P037"
         ],
         "distance": 54,
+        "comparison_distance": 54,
         "start_load": 6,
         "max_load": 6,
         "end_time": 652,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D018",
@@ -1220,11 +1226,13 @@
           "P019"
         ],
         "distance": 66,
+        "comparison_distance": 66,
         "start_load": 3,
         "max_load": 6,
         "end_time": 633,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "P023",
@@ -1316,11 +1324,13 @@
           "P018"
         ],
         "distance": 28,
+        "comparison_distance": 28,
         "start_load": 6,
         "max_load": 6,
         "end_time": 804,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D034",
@@ -1426,11 +1436,13 @@
           "P025"
         ],
         "distance": 44,
+        "comparison_distance": 44,
         "start_load": 3,
         "max_load": 6,
         "end_time": 829,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "P022",
@@ -1523,11 +1535,13 @@
           "P030"
         ],
         "distance": 52,
+        "comparison_distance": 52,
         "start_load": 6,
         "max_load": 6,
         "end_time": 813,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D030",
@@ -1641,11 +1655,13 @@
           "D010"
         ],
         "distance": 22,
+        "comparison_distance": 22,
         "start_load": 5,
         "max_load": 6,
         "end_time": 846,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "P031",
@@ -1737,11 +1753,13 @@
           "P049"
         ],
         "distance": 47,
+        "comparison_distance": 47,
         "start_load": 6,
         "max_load": 6,
         "end_time": 606,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D007",
@@ -1847,11 +1865,13 @@
           "P011"
         ],
         "distance": 56,
+        "comparison_distance": 56,
         "start_load": 5,
         "max_load": 5,
         "end_time": 604,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D026",
@@ -1940,11 +1960,13 @@
           "D038"
         ],
         "distance": 46,
+        "comparison_distance": 46,
         "start_load": 5,
         "max_load": 6,
         "end_time": 840,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D012",
@@ -2027,11 +2049,13 @@
           "P012"
         ],
         "distance": 45,
+        "comparison_distance": 45,
         "start_load": 5,
         "max_load": 5,
         "end_time": 866,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D003",
