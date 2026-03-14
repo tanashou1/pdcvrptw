@@ -9,8 +9,11 @@ use crate::construction::{
 };
 use crate::distance::DistanceMatrix;
 use crate::evaluate::evaluate_solution;
+use crate::exact_route::{intensify_small_route_order, optimize_all_small_routes};
 use crate::instance::{Instance, RequestPair};
 use crate::solution::SolutionState;
+
+const SMALL_ROUTE_DP_INTERVAL: usize = 100;
 
 #[derive(Debug, Clone)]
 pub struct SolveParams {
@@ -80,7 +83,7 @@ pub fn solve(
     let mut temperature = current_score.max(1.0) * 0.05;
     let mut rng = StdRng::seed_from_u64(params.seed);
 
-    for _ in 0..params.iterations {
+    for iteration in 0..params.iterations {
         let operator_index = select_operator(&weights, &mut rng);
         let operator = DestroyOperator::all()[operator_index];
         let mut candidate_solution = current_solution.clone();
@@ -153,8 +156,26 @@ pub fn solve(
             best_solution = candidate_solution;
         }
 
+        if should_run_small_route_dp(iteration) {
+            let mut intensified_best = best_solution.clone();
+            if intensify_small_route_order(instance, matrix, &mut intensified_best, &mut rng) {
+                let intensified_metrics = evaluate_solution(instance, matrix, &intensified_best);
+                if intensified_metrics.feasible && intensified_metrics.search_objective < best_score
+                {
+                    best_score = intensified_metrics.search_objective;
+                    best_solution = intensified_best.clone();
+                    if best_score < current_score {
+                        current_score = best_score;
+                        current_solution = intensified_best;
+                    }
+                }
+            }
+        }
+
         temperature = (temperature * 0.9985).max(0.5);
     }
+
+    optimize_all_small_routes(instance, matrix, &mut best_solution);
 
     Ok(SolveOutcome {
         initial_objective: initial_metrics.objective,
@@ -186,6 +207,10 @@ fn select_operator(weights: &[f64], rng: &mut StdRng) -> usize {
 
 fn update_weight(weight: &mut f64, reward: f64) {
     *weight = (0.85 * *weight) + (0.15 * reward);
+}
+
+fn should_run_small_route_dp(iteration: usize) -> bool {
+    (iteration + 1) % SMALL_ROUTE_DP_INTERVAL == 0
 }
 
 fn removal_count(unit_count: usize, rng: &mut StdRng) -> usize {
