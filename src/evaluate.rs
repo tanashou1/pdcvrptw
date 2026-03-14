@@ -9,10 +9,10 @@ use crate::solution::{Route, SolutionState};
 #[derive(Debug, Clone, Serialize)]
 pub struct StopVisit {
     pub node_id: String,
-    pub arrival: i64,
-    pub start_service: i64,
-    pub departure: i64,
-    pub wait_duration: i64,
+    pub arrival: f64,
+    pub start_service: f64,
+    pub departure: f64,
+    pub wait_duration: f64,
     pub load_after_service: i32,
 }
 
@@ -20,25 +20,31 @@ pub struct StopVisit {
 pub struct RouteMetrics {
     pub depot_id: String,
     pub node_ids: Vec<String>,
-    pub distance: i64,
+    pub distance: f64,
+    pub comparison_distance: f64,
     pub start_load: i32,
     pub max_load: i32,
-    pub end_time: i64,
+    pub end_time: f64,
     pub feasible: bool,
     pub violations: Vec<String>,
+    pub precedence_violations: Vec<String>,
     pub stops: Vec<StopVisit>,
 }
 
 #[derive(Debug, Clone, Serialize)]
 pub struct SolutionMetrics {
-    pub objective: i64,
-    pub total_distance: i64,
+    pub objective: f64,
+    pub search_objective: f64,
+    pub total_distance: f64,
+    pub comparison_distance: f64,
     pub route_count: usize,
+    pub objective_mode: String,
     pub visited_nodes: usize,
     pub unique_served_nodes: usize,
     pub feasible: bool,
     pub duplicate_nodes: Vec<String>,
     pub missing_nodes: Vec<String>,
+    pub precedence_violations: Vec<String>,
     pub vehicle_usage: BTreeMap<String, usize>,
     pub vehicle_violations: Vec<String>,
     pub routes: Vec<RouteMetrics>,
@@ -50,22 +56,39 @@ pub fn evaluate_route(instance: &Instance, matrix: &DistanceMatrix, route: &Rout
     let mut violations = BTreeSet::new();
     let mut feasible = true;
 
-    let start_load = route
-        .stops
-        .iter()
-        .map(|&node_idx| (-instance.nodes[node_idx].demand).max(0))
-        .sum::<i32>();
+    let start_load = if instance.uses_balanced_start_load() {
+        route
+            .stops
+            .iter()
+            .map(|&node_idx| (-instance.nodes[node_idx].demand).max(0))
+            .sum::<i32>()
+    } else {
+        0
+    };
 
     if start_load > instance.capacity {
         feasible = false;
         violations.insert(format!("{}:initial_capacity", depot.id));
     }
 
+    let precedence_violations = if instance.enforces_precedence() {
+        route_precedence_violations(instance, route)
+    } else {
+        Vec::new()
+    };
+
+    if !precedence_violations.is_empty() {
+        feasible = false;
+        for violation in &precedence_violations {
+            violations.insert(violation.clone());
+        }
+    }
+
     let mut current_load = start_load;
     let mut max_load = start_load;
-    let mut current_time = depot.tw.start;
+    let mut current_time = depot.tw.start as f64;
     let mut current_location = depot_location;
-    let mut total_distance = 0_i64;
+    let mut total_distance = 0.0_f64;
     let mut visits = Vec::with_capacity(route.stops.len());
 
     for &node_idx in &route.stops {
@@ -73,10 +96,10 @@ pub fn evaluate_route(instance: &Instance, matrix: &DistanceMatrix, route: &Rout
         let node_location = matrix.node_location(node_idx);
         let travel = matrix.distance(current_location, node_location);
         let arrival = current_time + travel;
-        let start_service = arrival.max(node.tw.start);
+        let start_service = arrival.max(node.tw.start as f64);
         let wait_duration = start_service - arrival;
 
-        if start_service > node.tw.end {
+        if start_service > node.tw.end as f64 {
             feasible = false;
             violations.insert(format!("{}:time_window", node.id));
         }
@@ -89,14 +112,14 @@ pub fn evaluate_route(instance: &Instance, matrix: &DistanceMatrix, route: &Rout
             violations.insert(format!("{}:capacity", node.id));
         }
 
-        let departure = start_service + node.service_duration;
+        let departure = start_service + node.service_duration as f64;
         total_distance += travel;
         visits.push(StopVisit {
             node_id: node.id.clone(),
-            arrival,
-            start_service,
-            departure,
-            wait_duration,
+            arrival: serialise_time(instance, arrival),
+            start_service: serialise_time(instance, start_service),
+            departure: serialise_time(instance, departure),
+            wait_duration: serialise_time(instance, wait_duration),
             load_after_service: current_load,
         });
 
@@ -108,7 +131,7 @@ pub fn evaluate_route(instance: &Instance, matrix: &DistanceMatrix, route: &Rout
     total_distance += return_distance;
     let end_time = current_time + return_distance;
 
-    if end_time > depot.tw.end {
+    if end_time > depot.tw.end as f64 {
         feasible = false;
         violations.insert(format!("{}:depot_close", depot.id));
     }
@@ -120,12 +143,14 @@ pub fn evaluate_route(instance: &Instance, matrix: &DistanceMatrix, route: &Rout
             .iter()
             .map(|&node_idx| instance.nodes[node_idx].id.clone())
             .collect(),
-        distance: total_distance,
+        distance: instance.serialise_distance(total_distance),
+        comparison_distance: instance.comparison_distance(total_distance),
         start_load,
         max_load,
-        end_time,
+        end_time: serialise_time(instance, end_time),
         feasible,
         violations: violations.into_iter().collect(),
+        precedence_violations,
         stops: visits,
     }
 }
@@ -135,7 +160,7 @@ pub fn evaluate_solution(
     matrix: &DistanceMatrix,
     solution: &SolutionState,
 ) -> SolutionMetrics {
-    let mut objective = 0_i64;
+    let mut total_distance = 0.0_f64;
     let mut feasible = true;
     let mut route_metrics = Vec::with_capacity(solution.routes.len());
     let mut visit_counts = instance
@@ -148,10 +173,11 @@ pub fn evaluate_solution(
         .iter()
         .map(|depot| (depot.id.clone(), 0_usize))
         .collect::<BTreeMap<_, _>>();
+    let mut precedence_violations = Vec::new();
 
     for route in &solution.routes {
         let metrics = evaluate_route(instance, matrix, route);
-        objective += metrics.distance;
+        total_distance += metrics.distance;
         feasible &= metrics.feasible;
 
         if let Some(used) = vehicle_usage.get_mut(&instance.depots[route.depot_idx].id) {
@@ -166,6 +192,7 @@ pub fn evaluate_solution(
             }
         }
 
+        precedence_violations.extend(metrics.precedence_violations.clone());
         route_metrics.push(metrics);
     }
 
@@ -191,6 +218,7 @@ pub fn evaluate_solution(
     feasible &= duplicate_nodes.is_empty();
     feasible &= missing_nodes.is_empty();
     feasible &= vehicle_violations.is_empty();
+    feasible &= precedence_violations.is_empty();
 
     let visited_nodes = solution
         .routes
@@ -198,19 +226,65 @@ pub fn evaluate_solution(
         .map(|route| route.stops.len())
         .sum::<usize>();
     let unique_served_nodes = visit_counts.values().filter(|&&count| count > 0).count();
+    let comparison_distance = instance.comparison_distance(total_distance);
+    let serialised_distance = instance.serialise_distance(total_distance);
 
     SolutionMetrics {
-        objective,
-        total_distance: objective,
+        objective: comparison_distance,
+        search_objective: instance.search_score(solution.routes.len(), total_distance),
+        total_distance: serialised_distance,
+        comparison_distance,
         route_count: solution.routes.len(),
+        objective_mode: instance.objective_mode().to_string(),
         visited_nodes,
         unique_served_nodes,
         feasible,
         duplicate_nodes,
         missing_nodes,
+        precedence_violations: precedence_violations
+            .into_iter()
+            .collect::<BTreeSet<_>>()
+            .into_iter()
+            .collect(),
         vehicle_usage,
         vehicle_violations,
         routes: route_metrics,
+    }
+}
+
+fn route_precedence_violations(instance: &Instance, route: &Route) -> Vec<String> {
+    let mut request_positions = BTreeMap::<String, (Option<usize>, Option<usize>)>::new();
+
+    for (position, &node_idx) in route.stops.iter().enumerate() {
+        let node = &instance.nodes[node_idx];
+        let entry = request_positions
+            .entry(node.request_id.clone())
+            .or_insert((None, None));
+
+        match node.kind {
+            crate::instance::NodeKind::Pickup => entry.0 = Some(position),
+            crate::instance::NodeKind::Delivery => entry.1 = Some(position),
+        }
+    }
+
+    let mut violations = Vec::new();
+    for (request_id, (pickup_position, delivery_position)) in request_positions {
+        match (pickup_position, delivery_position) {
+            (Some(pickup), Some(delivery)) if pickup < delivery => {}
+            (Some(_), Some(_)) => violations.push(format!("{request_id}:precedence")),
+            _ => violations.push(format!("{request_id}:pair_split")),
+        }
+    }
+
+    violations.sort();
+    violations
+}
+
+fn serialise_time(instance: &Instance, value: f64) -> f64 {
+    if instance.uses_double_distance() {
+        (value * 1_000_000.0).round() / 1_000_000.0
+    } else {
+        value.round()
     }
 }
 
@@ -270,6 +344,9 @@ mod tests {
                 "vehicle_count": 2,
                 "variant": "test",
                 "distance_metric": "euclidean_int_half_up",
+                "load_profile": "balanced_start",
+                "objective_mode": "distance_only",
+                "enforce_precedence": false,
                 "time_window_distribution": { "none": 2 }
               }
             }
@@ -289,7 +366,7 @@ mod tests {
 
         let metrics = evaluate_route(&instance, &matrix, &route);
         assert!(metrics.feasible);
-        assert_eq!(metrics.distance, 20);
+        assert_eq!(metrics.distance, 20.0);
         assert_eq!(metrics.start_load, 1);
     }
 
@@ -307,5 +384,24 @@ mod tests {
         let metrics = evaluate_solution(&instance, &matrix, &solution);
         assert!(!metrics.feasible);
         assert_eq!(metrics.duplicate_nodes, vec!["P000".to_string()]);
+    }
+
+    #[test]
+    fn precedence_violation_is_detected() {
+        let mut instance = sample_instance();
+        instance.metadata.enforce_precedence = true;
+        instance.metadata.load_profile = "zero_start".to_string();
+        let matrix = DistanceMatrix::build(&instance);
+        let route = Route {
+            depot_idx: 0,
+            stops: vec![1, 0],
+        };
+
+        let metrics = evaluate_route(&instance, &matrix, &route);
+        assert!(!metrics.feasible);
+        assert_eq!(
+            metrics.precedence_violations,
+            vec!["R000:precedence".to_string()]
+        );
     }
 }

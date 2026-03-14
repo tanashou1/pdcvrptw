@@ -186,7 +186,11 @@ def generate_instance(
             "location_count": location_count,
             "vehicle_count": vehicle_count,
             "variant": "multi_depot_signed_demand_pdcvrptw",
+            "benchmark_group": "synthetic",
             "distance_metric": "euclidean_int_half_up",
+            "load_profile": "balanced_start",
+            "objective_mode": "distance_only",
+            "enforce_precedence": False,
             "time_window_distribution": time_window_counts,
         },
     }

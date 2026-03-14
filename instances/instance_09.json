@@ -1670,7 +1670,11 @@
     "location_count": 20,
     "vehicle_count": 18,
     "variant": "multi_depot_signed_demand_pdcvrptw",
+    "benchmark_group": "synthetic",
     "distance_metric": "euclidean_int_half_up",
+    "load_profile": "balanced_start",
+    "objective_mode": "distance_only",
+    "enforce_precedence": false,
     "time_window_distribution": {
       "none": 78,
       "morning": 7,

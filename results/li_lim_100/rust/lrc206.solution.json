@@ -1,0 +1,1173 @@
+{
+  "instance": "lrc206",
+  "solver": "rust-alns",
+  "objective": 1230.3,
+  "route_count": 5,
+  "feasible": true,
+  "routes": [
+    {
+      "route_index": 0,
+      "depot_id": "D0",
+      "node_ids": [
+        "T064",
+        "T050",
+        "T034",
+        "T032",
+        "T101",
+        "T026",
+        "T089",
+        "T020",
+        "T024",
+        "T048",
+        "T025",
+        "T077",
+        "T058",
+        "T074"
+      ]
+    },
+    {
+      "route_index": 1,
+      "depot_id": "D0",
+      "node_ids": [
+        "T065",
+        "T083",
+        "T092",
+        "T095",
+        "T062",
+        "T031",
+        "T029",
+        "T027",
+        "T028",
+        "T030",
+        "T033",
+        "T063",
+        "T085",
+        "T051",
+        "T076",
+        "T018",
+        "T021",
+        "T023",
+        "T019",
+        "T049",
+        "T022",
+        "T057",
+        "T099",
+        "T087",
+        "T097",
+        "T009",
+        "T010",
+        "T013",
+        "T017",
+        "T060",
+        "T055",
+        "T100",
+        "T070",
+        "T068"
+      ]
+    },
+    {
+      "route_index": 2,
+      "depot_id": "D0",
+      "node_ids": [
+        "T061",
+        "T042",
+        "T044",
+        "T102",
+        "T039",
+        "T038",
+        "T036",
+        "T040",
+        "T041",
+        "T088",
+        "T053",
+        "T078",
+        "T073",
+        "T079",
+        "T007",
+        "T006",
+        "T008",
+        "T046",
+        "T004",
+        "T003",
+        "T001",
+        "T043",
+        "T035",
+        "T037",
+        "T054",
+        "T096",
+        "T093",
+        "T080"
+      ]
+    },
+    {
+      "route_index": 3,
+      "depot_id": "D0",
+      "node_ids": [
+        "T069",
+        "T098",
+        "T082",
+        "T012",
+        "T014",
+        "T047",
+        "T016",
+        "T015",
+        "T011",
+        "T059",
+        "T075",
+        "T086",
+        "T052",
+        "T084",
+        "T067",
+        "T094",
+        "T081",
+        "T056",
+        "T066",
+        "T090"
+      ]
+    },
+    {
+      "route_index": 4,
+      "depot_id": "D0",
+      "node_ids": [
+        "T002",
+        "T005",
+        "T045",
+        "T072",
+        "T071",
+        "T091"
+      ]
+    }
+  ],
+  "evaluation": {
+    "objective": 1230.3,
+    "search_objective": 5001230.297018,
+    "total_distance": 1230.297018,
+    "comparison_distance": 1230.3,
+    "route_count": 5,
+    "objective_mode": "vehicles_then_distance",
+    "visited_nodes": 102,
+    "unique_served_nodes": 102,
+    "feasible": true,
+    "duplicate_nodes": [],
+    "missing_nodes": [],
+    "precedence_violations": [],
+    "vehicle_usage": {
+      "D0": 5
+    },
+    "vehicle_violations": [],
+    "routes": [
+      {
+        "depot_id": "D0",
+        "node_ids": [
+          "T064",
+          "T050",
+          "T034",
+          "T032",
+          "T101",
+          "T026",
+          "T089",
+          "T020",
+          "T024",
+          "T048",
+          "T025",
+          "T077",
+          "T058",
+          "T074"
+        ],
+        "distance": 230.724079,
+        "comparison_distance": 230.72,
+        "start_load": 0,
+        "max_load": 60,
+        "end_time": 851.727677,
+        "feasible": true,
+        "violations": [],
+        "precedence_violations": [],
+        "stops": [
+          {
+            "node_id": "T064",
+            "arrival": 20.615528,
+            "start_service": 131.0,
+            "departure": 141.0,
+            "wait_duration": 110.384472,
+            "load_after_service": 17
+          },
+          {
+            "node_id": "T050",
+            "arrival": 168.45906,
+            "start_service": 447.0,
+            "departure": 457.0,
+            "wait_duration": 278.54094,
+            "load_after_service": 0
+          },
+          {
+            "node_id": "T034",
+            "arrival": 470.0,
+            "start_service": 470.0,
+            "departure": 480.0,
+            "wait_duration": 0.0,
+            "load_after_service": 30
+          },
+          {
+            "node_id": "T032",
+            "arrival": 485.385165,
+            "start_service": 561.0,
+            "departure": 561.0,
+            "wait_duration": 75.614835,
+            "load_after_service": 40
+          },
+          {
+            "node_id": "T101",
+            "arrival": 561.0,
+            "start_service": 561.0,
+            "departure": 571.0,
+            "wait_duration": 0.0,
+            "load_after_service": 30
+          },
+          {
+            "node_id": "T026",
+            "arrival": 579.0,
+            "start_service": 579.0,
+            "departure": 589.0,
+            "wait_duration": 0.0,
+            "load_after_service": 60
+          },
+          {
+            "node_id": "T089",
+            "arrival": 626.536649,
+            "start_service": 653.0,
+            "departure": 663.0,
+            "wait_duration": 26.463351,
+            "load_after_service": 30
+          },
+          {
+            "node_id": "T020",
+            "arrival": 689.925824,
+            "start_service": 689.925824,
+            "departure": 699.925824,
+            "wait_duration": 0.0,
+            "load_after_service": 40
+          },
+          {
+            "node_id": "T024",
+            "arrival": 703.925824,
+            "start_service": 703.925824,
+            "departure": 713.925824,
+            "wait_duration": 0.0,
+            "load_after_service": 30
+          },
+          {
+            "node_id": "T048",
+            "arrival": 724.696154,
+            "start_service": 724.696154,
+            "departure": 734.696154,
+            "wait_duration": 0.0,
+            "load_after_service": 40
+          },
+          {
+            "node_id": "T025",
+            "arrival": 741.696154,
+            "start_service": 741.696154,
+            "departure": 751.696154,
+            "wait_duration": 0.0,
+            "load_after_service": 10
+          },
+          {
+            "node_id": "T077",
+            "arrival": 763.861679,
+            "start_service": 763.861679,
+            "departure": 773.861679,
+            "wait_duration": 0.0,
+            "load_after_service": 17
+          },
+          {
+            "node_id": "T058",
+            "arrival": 784.491825,
+            "start_service": 784.491825,
+            "departure": 794.491825,
+            "wait_duration": 0.0,
+            "load_after_service": 7
+          },
+          {
+            "node_id": "T074",
+            "arrival": 805.672164,
+            "start_service": 805.672164,
+            "departure": 815.672164,
+            "wait_duration": 0.0,
+            "load_after_service": 0
+          }
+        ]
+      },
+      {
+        "depot_id": "D0",
+        "node_ids": [
+          "T065",
+          "T083",
+          "T092",
+          "T095",
+          "T062",
+          "T031",
+          "T029",
+          "T027",
+          "T028",
+          "T030",
+          "T033",
+          "T063",
+          "T085",
+          "T051",
+          "T076",
+          "T018",
+          "T021",
+          "T023",
+          "T019",
+          "T049",
+          "T022",
+          "T057",
+          "T099",
+          "T087",
+          "T097",
+          "T009",
+          "T010",
+          "T013",
+          "T017",
+          "T060",
+          "T055",
+          "T100",
+          "T070",
+          "T068"
+        ],
+        "distance": 341.709686,
+        "comparison_distance": 341.71,
+        "start_load": 0,
+        "max_load": 121,
+        "end_time": 771.052037,
+        "feasible": true,
+        "violations": [],
+        "precedence_violations": [],
+        "stops": [
+          {
+            "node_id": "T065",
+            "arrival": 11.18034,
+            "start_service": 11.18034,
+            "departure": 21.18034,
+            "wait_duration": 0.0,
+            "load_after_service": 16
+          },
+          {
+            "node_id": "T083",
+            "arrival": 30.399884,
+            "start_service": 45.0,
+            "departure": 55.0,
+            "wait_duration": 14.600116,
+            "load_after_service": 30
+          },
+          {
+            "node_id": "T092",
+            "arrival": 75.0,
+            "start_service": 75.0,
+            "departure": 85.0,
+            "wait_duration": 0.0,
+            "load_after_service": 44
+          },
+          {
+            "node_id": "T095",
+            "arrival": 91.708204,
+            "start_service": 91.708204,
+            "departure": 101.708204,
+            "wait_duration": 0.0,
+            "load_after_service": 28
+          },
+          {
+            "node_id": "T062",
+            "arrival": 110.927748,
+            "start_service": 110.927748,
+            "departure": 120.927748,
+            "wait_duration": 0.0,
+            "load_after_service": 31
+          },
+          {
+            "node_id": "T031",
+            "arrival": 143.927748,
+            "start_service": 143.927748,
+            "departure": 153.927748,
+            "wait_duration": 0.0,
+            "load_after_service": 51
+          },
+          {
+            "node_id": "T029",
+            "arrival": 155.927748,
+            "start_service": 155.927748,
+            "departure": 165.927748,
+            "wait_duration": 0.0,
+            "load_after_service": 37
+          },
+          {
+            "node_id": "T027",
+            "arrival": 170.927748,
+            "start_service": 170.927748,
+            "departure": 180.927748,
+            "wait_duration": 0.0,
+            "load_after_service": 23
+          },
+          {
+            "node_id": "T028",
+            "arrival": 186.7587,
+            "start_service": 186.7587,
+            "departure": 196.7587,
+            "wait_duration": 0.0,
+            "load_after_service": 33
+          },
+          {
+            "node_id": "T030",
+            "arrival": 200.7587,
+            "start_service": 200.7587,
+            "departure": 210.7587,
+            "wait_duration": 0.0,
+            "load_after_service": 43
+          },
+          {
+            "node_id": "T033",
+            "arrival": 216.589652,
+            "start_service": 216.589652,
+            "departure": 226.589652,
+            "wait_duration": 0.0,
+            "load_after_service": 53
+          },
+          {
+            "node_id": "T063",
+            "arrival": 247.20518,
+            "start_service": 247.20518,
+            "departure": 257.20518,
+            "wait_duration": 0.0,
+            "load_after_service": 59
+          },
+          {
+            "node_id": "T085",
+            "arrival": 260.810732,
+            "start_service": 284.0,
+            "departure": 294.0,
+            "wait_duration": 23.189268,
+            "load_after_service": 49
+          },
+          {
+            "node_id": "T051",
+            "arrival": 302.544004,
+            "start_service": 302.544004,
+            "departure": 312.544004,
+            "wait_duration": 0.0,
+            "load_after_service": 68
+          },
+          {
+            "node_id": "T076",
+            "arrival": 321.977985,
+            "start_service": 321.977985,
+            "departure": 331.977985,
+            "wait_duration": 0.0,
+            "load_after_service": 99
+          },
+          {
+            "node_id": "T018",
+            "arrival": 349.442234,
+            "start_service": 349.442234,
+            "departure": 359.442234,
+            "wait_duration": 0.0,
+            "load_after_service": 89
+          },
+          {
+            "node_id": "T021",
+            "arrival": 363.442234,
+            "start_service": 363.442234,
+            "departure": 373.442234,
+            "wait_duration": 0.0,
+            "load_after_service": 69
+          },
+          {
+            "node_id": "T023",
+            "arrival": 375.442234,
+            "start_service": 375.442234,
+            "departure": 385.442234,
+            "wait_duration": 0.0,
+            "load_after_service": 63
+          },
+          {
+            "node_id": "T019",
+            "arrival": 391.845358,
+            "start_service": 391.845358,
+            "departure": 401.845358,
+            "wait_duration": 0.0,
+            "load_after_service": 103
+          },
+          {
+            "node_id": "T049",
+            "arrival": 403.845358,
+            "start_service": 403.845358,
+            "departure": 413.845358,
+            "wait_duration": 0.0,
+            "load_after_service": 63
+          },
+          {
+            "node_id": "T022",
+            "arrival": 417.45091,
+            "start_service": 417.45091,
+            "departure": 427.45091,
+            "wait_duration": 0.0,
+            "load_after_service": 53
+          },
+          {
+            "node_id": "T057",
+            "arrival": 441.593045,
+            "start_service": 441.593045,
+            "departure": 451.593045,
+            "wait_duration": 0.0,
+            "load_after_service": 76
+          },
+          {
+            "node_id": "T099",
+            "arrival": 462.363375,
+            "start_service": 462.363375,
+            "departure": 472.363375,
+            "wait_duration": 0.0,
+            "load_after_service": 73
+          },
+          {
+            "node_id": "T087",
+            "arrival": 490.167869,
+            "start_service": 490.167869,
+            "departure": 500.167869,
+            "wait_duration": 0.0,
+            "load_after_service": 86
+          },
+          {
+            "node_id": "T097",
+            "arrival": 510.167869,
+            "start_service": 510.167869,
+            "departure": 520.167869,
+            "wait_duration": 0.0,
+            "load_after_service": 121
+          },
+          {
+            "node_id": "T009",
+            "arrival": 538.195625,
+            "start_service": 538.195625,
+            "departure": 548.195625,
+            "wait_duration": 0.0,
+            "load_after_service": 86
+          },
+          {
+            "node_id": "T010",
+            "arrival": 553.195625,
+            "start_service": 553.195625,
+            "departure": 563.195625,
+            "wait_duration": 0.0,
+            "load_after_service": 73
+          },
+          {
+            "node_id": "T013",
+            "arrival": 570.266693,
+            "start_service": 593.0,
+            "departure": 603.0,
+            "wait_duration": 22.733307,
+            "load_after_service": 42
+          },
+          {
+            "node_id": "T017",
+            "arrival": 614.18034,
+            "start_service": 643.0,
+            "departure": 653.0,
+            "wait_duration": 28.81966,
+            "load_after_service": 62
+          },
+          {
+            "node_id": "T060",
+            "arrival": 674.213203,
+            "start_service": 674.213203,
+            "departure": 684.213203,
+            "wait_duration": 0.0,
+            "load_after_service": 79
+          },
+          {
+            "node_id": "T055",
+            "arrival": 699.213203,
+            "start_service": 699.213203,
+            "departure": 709.213203,
+            "wait_duration": 0.0,
+            "load_after_service": 60
+          },
+          {
+            "node_id": "T100",
+            "arrival": 716.284271,
+            "start_service": 716.284271,
+            "departure": 726.284271,
+            "wait_duration": 0.0,
+            "load_after_service": 37
+          },
+          {
+            "node_id": "T070",
+            "arrival": 730.756407,
+            "start_service": 730.756407,
+            "departure": 740.756407,
+            "wait_duration": 0.0,
+            "load_after_service": 17
+          },
+          {
+            "node_id": "T068",
+            "arrival": 751.052037,
+            "start_service": 751.052037,
+            "departure": 761.052037,
+            "wait_duration": 0.0,
+            "load_after_service": 0
+          }
+        ]
+      },
+      {
+        "depot_id": "D0",
+        "node_ids": [
+          "T061",
+          "T042",
+          "T044",
+          "T102",
+          "T039",
+          "T038",
+          "T036",
+          "T040",
+          "T041",
+          "T088",
+          "T053",
+          "T078",
+          "T073",
+          "T079",
+          "T007",
+          "T006",
+          "T008",
+          "T046",
+          "T004",
+          "T003",
+          "T001",
+          "T043",
+          "T035",
+          "T037",
+          "T054",
+          "T096",
+          "T093",
+          "T080"
+        ],
+        "distance": 278.978422,
+        "comparison_distance": 278.98,
+        "start_load": 0,
+        "max_load": 128,
+        "end_time": 797.57804,
+        "feasible": true,
+        "violations": [],
+        "precedence_violations": [],
+        "stops": [
+          {
+            "node_id": "T061",
+            "arrival": 15.811388,
+            "start_service": 198.0,
+            "departure": 208.0,
+            "wait_duration": 182.188612,
+            "load_after_service": 9
+          },
+          {
+            "node_id": "T042",
+            "arrival": 226.027756,
+            "start_service": 226.027756,
+            "departure": 236.027756,
+            "wait_duration": 0.0,
+            "load_after_service": 19
+          },
+          {
+            "node_id": "T044",
+            "arrival": 238.027756,
+            "start_service": 238.027756,
+            "departure": 238.027756,
+            "wait_duration": 0.0,
+            "load_after_service": 29
+          },
+          {
+            "node_id": "T102",
+            "arrival": 238.027756,
+            "start_service": 238.027756,
+            "departure": 248.027756,
+            "wait_duration": 0.0,
+            "load_after_service": 19
+          },
+          {
+            "node_id": "T039",
+            "arrival": 253.412921,
+            "start_service": 253.412921,
+            "departure": 263.412921,
+            "wait_duration": 0.0,
+            "load_after_service": 29
+          },
+          {
+            "node_id": "T038",
+            "arrival": 265.412921,
+            "start_service": 265.412921,
+            "departure": 275.412921,
+            "wait_duration": 0.0,
+            "load_after_service": 59
+          },
+          {
+            "node_id": "T036",
+            "arrival": 281.243873,
+            "start_service": 281.243873,
+            "departure": 291.243873,
+            "wait_duration": 0.0,
+            "load_after_service": 99
+          },
+          {
+            "node_id": "T040",
+            "arrival": 296.243873,
+            "start_service": 296.243873,
+            "departure": 306.243873,
+            "wait_duration": 0.0,
+            "load_after_service": 89
+          },
+          {
+            "node_id": "T041",
+            "arrival": 316.441912,
+            "start_service": 316.441912,
+            "departure": 326.441912,
+            "wait_duration": 0.0,
+            "load_after_service": 109
+          },
+          {
+            "node_id": "T088",
+            "arrival": 364.455068,
+            "start_service": 364.455068,
+            "departure": 374.455068,
+            "wait_duration": 0.0,
+            "load_after_service": 128
+          },
+          {
+            "node_id": "T053",
+            "arrival": 383.39934,
+            "start_service": 383.39934,
+            "departure": 393.39934,
+            "wait_duration": 0.0,
+            "load_after_service": 88
+          },
+          {
+            "node_id": "T078",
+            "arrival": 406.815747,
+            "start_service": 406.815747,
+            "departure": 416.815747,
+            "wait_duration": 0.0,
+            "load_after_service": 115
+          },
+          {
+            "node_id": "T073",
+            "arrival": 424.02685,
+            "start_service": 424.02685,
+            "departure": 434.02685,
+            "wait_duration": 0.0,
+            "load_after_service": 106
+          },
+          {
+            "node_id": "T079",
+            "arrival": 442.971122,
+            "start_service": 442.971122,
+            "departure": 452.971122,
+            "wait_duration": 0.0,
+            "load_after_service": 79
+          },
+          {
+            "node_id": "T007",
+            "arrival": 464.372876,
+            "start_service": 464.372876,
+            "departure": 474.372876,
+            "wait_duration": 0.0,
+            "load_after_service": 49
+          },
+          {
+            "node_id": "T006",
+            "arrival": 477.372876,
+            "start_service": 477.372876,
+            "departure": 487.372876,
+            "wait_duration": 0.0,
+            "load_after_service": 39
+          },
+          {
+            "node_id": "T008",
+            "arrival": 493.203828,
+            "start_service": 493.203828,
+            "departure": 503.203828,
+            "wait_duration": 0.0,
+            "load_after_service": 49
+          },
+          {
+            "node_id": "T046",
+            "arrival": 506.203828,
+            "start_service": 506.203828,
+            "departure": 516.203828,
+            "wait_duration": 0.0,
+            "load_after_service": 59
+          },
+          {
+            "node_id": "T004",
+            "arrival": 518.203828,
+            "start_service": 584.0,
+            "departure": 594.0,
+            "wait_duration": 65.796172,
+            "load_after_service": 99
+          },
+          {
+            "node_id": "T003",
+            "arrival": 599.385165,
+            "start_service": 599.385165,
+            "departure": 609.385165,
+            "wait_duration": 0.0,
+            "load_after_service": 89
+          },
+          {
+            "node_id": "T001",
+            "arrival": 612.385165,
+            "start_service": 613.0,
+            "departure": 623.0,
+            "wait_duration": 0.614835,
+            "load_after_service": 69
+          },
+          {
+            "node_id": "T043",
+            "arrival": 653.0,
+            "start_service": 653.0,
+            "departure": 663.0,
+            "wait_duration": 0.0,
+            "load_after_service": 89
+          },
+          {
+            "node_id": "T035",
+            "arrival": 675.0,
+            "start_service": 675.0,
+            "departure": 685.0,
+            "wait_duration": 0.0,
+            "load_after_service": 70
+          },
+          {
+            "node_id": "T037",
+            "arrival": 688.605551,
+            "start_service": 688.605551,
+            "departure": 698.605551,
+            "wait_duration": 0.0,
+            "load_after_service": 30
+          },
+          {
+            "node_id": "T054",
+            "arrival": 722.771643,
+            "start_service": 722.771643,
+            "departure": 732.771643,
+            "wait_duration": 0.0,
+            "load_after_service": 46
+          },
+          {
+            "node_id": "T096",
+            "arrival": 738.771643,
+            "start_service": 738.771643,
+            "departure": 748.771643,
+            "wait_duration": 0.0,
+            "load_after_service": 36
+          },
+          {
+            "node_id": "T093",
+            "arrival": 755.096199,
+            "start_service": 755.096199,
+            "departure": 765.096199,
+            "wait_duration": 0.0,
+            "load_after_service": 20
+          },
+          {
+            "node_id": "T080",
+            "arrival": 779.962267,
+            "start_service": 779.962267,
+            "departure": 789.962267,
+            "wait_duration": 0.0,
+            "load_after_service": 0
+          }
+        ]
+      },
+      {
+        "depot_id": "D0",
+        "node_ids": [
+          "T069",
+          "T098",
+          "T082",
+          "T012",
+          "T014",
+          "T047",
+          "T016",
+          "T015",
+          "T011",
+          "T059",
+          "T075",
+          "T086",
+          "T052",
+          "T084",
+          "T067",
+          "T094",
+          "T081",
+          "T056",
+          "T066",
+          "T090"
+        ],
+        "distance": 245.787275,
+        "comparison_distance": 245.79,
+        "start_load": 0,
+        "max_load": 118,
+        "end_time": 551.232515,
+        "feasible": true,
+        "violations": [],
+        "precedence_violations": [],
+        "stops": [
+          {
+            "node_id": "T069",
+            "arrival": 9.219544,
+            "start_service": 97.0,
+            "departure": 107.0,
+            "wait_duration": 87.780456,
+            "load_after_service": 27
+          },
+          {
+            "node_id": "T098",
+            "arrival": 112.0,
+            "start_service": 112.0,
+            "departure": 122.0,
+            "wait_duration": 0.0,
+            "load_after_service": 36
+          },
+          {
+            "node_id": "T082",
+            "arrival": 131.055385,
+            "start_service": 131.055385,
+            "departure": 141.055385,
+            "wait_duration": 0.0,
+            "load_after_service": 45
+          },
+          {
+            "node_id": "T012",
+            "arrival": 160.160358,
+            "start_service": 163.0,
+            "departure": 173.0,
+            "wait_duration": 2.839642,
+            "load_after_service": 65
+          },
+          {
+            "node_id": "T014",
+            "arrival": 176.0,
+            "start_service": 176.0,
+            "departure": 186.0,
+            "wait_duration": 0.0,
+            "load_after_service": 75
+          },
+          {
+            "node_id": "T047",
+            "arrival": 189.0,
+            "start_service": 189.0,
+            "departure": 199.0,
+            "wait_duration": 0.0,
+            "load_after_service": 85
+          },
+          {
+            "node_id": "T016",
+            "arrival": 204.385165,
+            "start_service": 204.385165,
+            "departure": 214.385165,
+            "wait_duration": 0.0,
+            "load_after_service": 58
+          },
+          {
+            "node_id": "T015",
+            "arrival": 216.385165,
+            "start_service": 216.385165,
+            "departure": 226.385165,
+            "wait_duration": 0.0,
+            "load_after_service": 78
+          },
+          {
+            "node_id": "T011",
+            "arrival": 232.385165,
+            "start_service": 232.385165,
+            "departure": 242.385165,
+            "wait_duration": 0.0,
+            "load_after_service": 118
+          },
+          {
+            "node_id": "T059",
+            "arrival": 262.484916,
+            "start_service": 262.484916,
+            "departure": 272.484916,
+            "wait_duration": 0.0,
+            "load_after_service": 78
+          },
+          {
+            "node_id": "T075",
+            "arrival": 288.296304,
+            "start_service": 288.296304,
+            "departure": 298.296304,
+            "wait_duration": 0.0,
+            "load_after_service": 94
+          },
+          {
+            "node_id": "T086",
+            "arrival": 323.135789,
+            "start_service": 323.135789,
+            "departure": 333.135789,
+            "wait_duration": 0.0,
+            "load_after_service": 85
+          },
+          {
+            "node_id": "T052",
+            "arrival": 340.346892,
+            "start_service": 340.346892,
+            "departure": 350.346892,
+            "wait_duration": 0.0,
+            "load_after_service": 88
+          },
+          {
+            "node_id": "T084",
+            "arrival": 382.362513,
+            "start_service": 382.362513,
+            "departure": 392.362513,
+            "wait_duration": 0.0,
+            "load_after_service": 78
+          },
+          {
+            "node_id": "T067",
+            "arrival": 407.127336,
+            "start_service": 407.127336,
+            "departure": 417.127336,
+            "wait_duration": 0.0,
+            "load_after_service": 62
+          },
+          {
+            "node_id": "T094",
+            "arrival": 426.34688,
+            "start_service": 426.34688,
+            "departure": 436.34688,
+            "wait_duration": 0.0,
+            "load_after_service": 59
+          },
+          {
+            "node_id": "T081",
+            "arrival": 449.153129,
+            "start_service": 449.153129,
+            "departure": 459.153129,
+            "wait_duration": 0.0,
+            "load_after_service": 39
+          },
+          {
+            "node_id": "T056",
+            "arrival": 482.174858,
+            "start_service": 497.0,
+            "departure": 507.0,
+            "wait_duration": 14.825142,
+            "load_after_service": 30
+          },
+          {
+            "node_id": "T066",
+            "arrival": 516.219544,
+            "start_service": 516.219544,
+            "departure": 526.219544,
+            "wait_duration": 0.0,
+            "load_after_service": 10
+          },
+          {
+            "node_id": "T090",
+            "arrival": 536.989874,
+            "start_service": 536.989874,
+            "departure": 546.989874,
+            "wait_duration": 0.0,
+            "load_after_service": 0
+          }
+        ]
+      },
+      {
+        "depot_id": "D0",
+        "node_ids": [
+          "T002",
+          "T005",
+          "T045",
+          "T072",
+          "T071",
+          "T091"
+        ],
+        "distance": 133.097556,
+        "comparison_distance": 133.1,
+        "start_load": 0,
+        "max_load": 50,
+        "end_time": 681.041595,
+        "feasible": true,
+        "violations": [],
+        "precedence_violations": [],
+        "stops": [
+          {
+            "node_id": "T002",
+            "arrival": 30.805844,
+            "start_service": 92.0,
+            "departure": 102.0,
+            "wait_duration": 61.194156,
+            "load_after_service": 30
+          },
+          {
+            "node_id": "T005",
+            "arrival": 112.198039,
+            "start_service": 112.198039,
+            "departure": 122.198039,
+            "wait_duration": 0.0,
+            "load_after_service": 50
+          },
+          {
+            "node_id": "T045",
+            "arrival": 125.198039,
+            "start_service": 125.198039,
+            "departure": 135.198039,
+            "wait_duration": 0.0,
+            "load_after_service": 30
+          },
+          {
+            "node_id": "T072",
+            "arrival": 181.436551,
+            "start_service": 181.436551,
+            "departure": 191.436551,
+            "wait_duration": 0.0,
+            "load_after_service": 38
+          },
+          {
+            "node_id": "T071",
+            "arrival": 201.63459,
+            "start_service": 201.63459,
+            "departure": 211.63459,
+            "wait_duration": 0.0,
+            "load_after_service": 8
+          },
+          {
+            "node_id": "T091",
+            "arrival": 232.250118,
+            "start_service": 659.0,
+            "departure": 669.0,
+            "wait_duration": 426.749882,
+            "load_after_service": 0
+          }
+        ]
+      }
+    ]
+  },
+  "metadata": {
+    "iterations": 100,
+    "seed": 95,
+    "initial_objective": 2059.93,
+    "operator_weights": [
+      {
+        "name": "random_removal",
+        "weight": 2.175947866763506
+      },
+      {
+        "name": "worst_removal",
+        "weight": 1.5296339084758
+      },
+      {
+        "name": "shaw_removal",
+        "weight": 1.7102412211006506
+      }
+    ]
+  }
+}

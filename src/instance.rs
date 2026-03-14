@@ -1,9 +1,27 @@
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 use std::fs;
 use std::path::{Path, PathBuf};
 
 use anyhow::{Context, Result};
 use serde::Deserialize;
+
+const HIERARCHICAL_OBJECTIVE_SCALE: f64 = 1_000_000.0;
+
+fn default_benchmark_group() -> String {
+    "synthetic".to_string()
+}
+
+fn default_distance_metric() -> String {
+    "euclidean_int_half_up".to_string()
+}
+
+fn default_load_profile() -> String {
+    "balanced_start".to_string()
+}
+
+fn default_objective_mode() -> String {
+    "distance_only".to_string()
+}
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct TimeWindow {
@@ -19,7 +37,7 @@ pub struct Depot {
     pub tw: TimeWindow,
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Copy, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum NodeKind {
     Pickup,
@@ -38,6 +56,10 @@ pub struct Node {
     pub tw: TimeWindow,
     pub location_id: String,
     pub time_window_label: String,
+    #[serde(default)]
+    pub source_index: Option<usize>,
+    #[serde(default)]
+    pub sibling_source_index: Option<usize>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -55,8 +77,18 @@ pub struct InstanceMetadata {
     pub location_count: usize,
     pub vehicle_count: usize,
     pub variant: String,
+    #[serde(default = "default_benchmark_group")]
+    pub benchmark_group: String,
+    #[serde(default = "default_distance_metric")]
     pub distance_metric: String,
+    #[serde(default)]
     pub time_window_distribution: BTreeMap<String, usize>,
+    #[serde(default = "default_load_profile")]
+    pub load_profile: String,
+    #[serde(default = "default_objective_mode")]
+    pub objective_mode: String,
+    #[serde(default)]
+    pub enforce_precedence: bool,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -67,9 +99,23 @@ pub struct Instance {
     pub capacity: i32,
     pub vehicles_per_depot: BTreeMap<String, usize>,
     pub depots: Vec<Depot>,
+    #[serde(default)]
     pub location_catalog: Vec<LocationCatalogEntry>,
     pub nodes: Vec<Node>,
     pub metadata: InstanceMetadata,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
+pub struct RequestPair {
+    pub request_id: String,
+    pub pickup_idx: usize,
+    pub delivery_idx: usize,
+}
+
+#[derive(Debug, Default)]
+struct PairAccumulator {
+    pickup_idx: Option<usize>,
+    delivery_idx: Option<usize>,
 }
 
 impl Instance {
@@ -87,6 +133,82 @@ impl Instance {
             .get(depot_id)
             .copied()
             .unwrap_or_default()
+    }
+
+    pub fn uses_double_distance(&self) -> bool {
+        self.metadata.distance_metric == "euclidean_double"
+    }
+
+    pub fn uses_balanced_start_load(&self) -> bool {
+        self.metadata.load_profile == "balanced_start"
+    }
+
+    pub fn enforces_precedence(&self) -> bool {
+        self.metadata.enforce_precedence
+    }
+
+    pub fn objective_mode(&self) -> &str {
+        &self.metadata.objective_mode
+    }
+
+    pub fn comparison_distance(&self, value: f64) -> f64 {
+        if self.uses_double_distance() {
+            (value * 100.0).round() / 100.0
+        } else {
+            value.round()
+        }
+    }
+
+    pub fn serialise_distance(&self, value: f64) -> f64 {
+        if self.uses_double_distance() {
+            (value * 1_000_000.0).round() / 1_000_000.0
+        } else {
+            value.round()
+        }
+    }
+
+    pub fn search_score(&self, route_count: usize, total_distance: f64) -> f64 {
+        if self.objective_mode() == "vehicles_then_distance" {
+            route_count as f64 * HIERARCHICAL_OBJECTIVE_SCALE + total_distance
+        } else {
+            total_distance
+        }
+    }
+
+    pub fn request_pairs(&self) -> Vec<RequestPair> {
+        let mut grouped = BTreeMap::<String, PairAccumulator>::new();
+
+        for (node_idx, node) in self.nodes.iter().enumerate() {
+            let entry = grouped.entry(node.request_id.clone()).or_default();
+
+            match node.kind {
+                NodeKind::Pickup => entry.pickup_idx = Some(node_idx),
+                NodeKind::Delivery => entry.delivery_idx = Some(node_idx),
+            }
+        }
+
+        grouped
+            .into_iter()
+            .filter_map(|(request_id, accumulator)| {
+                Some(RequestPair {
+                    request_id,
+                    pickup_idx: accumulator.pickup_idx?,
+                    delivery_idx: accumulator.delivery_idx?,
+                })
+            })
+            .collect()
+    }
+
+    pub fn request_pairs_from_nodes(&self, nodes: &[usize]) -> Vec<RequestPair> {
+        let selected_requests = nodes
+            .iter()
+            .map(|node_idx| self.nodes[*node_idx].request_id.clone())
+            .collect::<BTreeSet<_>>();
+
+        self.request_pairs()
+            .into_iter()
+            .filter(|pair| selected_requests.contains(&pair.request_id))
+            .collect()
     }
 }
 

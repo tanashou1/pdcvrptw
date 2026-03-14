@@ -3,7 +3,7 @@
   "solver": "pyvrp",
   "solver_version": "0.13.3",
   "seed": 2026031318,
-  "runtime_seconds": 2.5113635440002327,
+  "runtime_seconds": 2.513783217999844,
   "reported_cost": 357,
   "reported_feasible": true,
   "route_count": 11,
@@ -1097,13 +1097,17 @@
   ],
   "evaluation": {
     "objective": 357,
+    "search_objective": 357.0,
     "total_distance": 357,
+    "comparison_distance": 357,
     "route_count": 11,
+    "objective_mode": "distance_only",
     "visited_nodes": 100,
     "unique_served_nodes": 100,
     "feasible": true,
     "duplicate_nodes": [],
     "missing_nodes": [],
+    "precedence_violations": [],
     "vehicle_usage": {
       "D0": 4,
       "D1": 3,
@@ -1128,11 +1132,13 @@
           "P029"
         ],
         "distance": 44,
+        "comparison_distance": 44,
         "start_load": 6,
         "max_load": 6,
         "end_time": 639,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D015",
@@ -1246,11 +1252,13 @@
           "P032"
         ],
         "distance": 48,
+        "comparison_distance": 48,
         "start_load": 5,
         "max_load": 5,
         "end_time": 864,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D044",
@@ -1338,11 +1346,13 @@
           "P038"
         ],
         "distance": 4,
+        "comparison_distance": 4,
         "start_load": 3,
         "max_load": 5,
         "end_time": 799,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "P020",
@@ -1419,11 +1429,13 @@
           "P007"
         ],
         "distance": 42,
+        "comparison_distance": 42,
         "start_load": 6,
         "max_load": 6,
         "end_time": 803,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D002",
@@ -1539,11 +1551,13 @@
           "D041"
         ],
         "distance": 39,
+        "comparison_distance": 39,
         "start_load": 6,
         "max_load": 6,
         "end_time": 847,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D017",
@@ -1644,11 +1658,13 @@
           "D024"
         ],
         "distance": 10,
+        "comparison_distance": 10,
         "start_load": 2,
         "max_load": 3,
         "end_time": 795,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D014",
@@ -1700,11 +1716,13 @@
           "P014"
         ],
         "distance": 61,
+        "comparison_distance": 61,
         "start_load": 6,
         "max_load": 6,
         "end_time": 847,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D023",
@@ -1809,11 +1827,13 @@
           "P048"
         ],
         "distance": 10,
+        "comparison_distance": 10,
         "start_load": 3,
         "max_load": 5,
         "end_time": 830,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "P006",
@@ -1891,11 +1911,13 @@
           "P008"
         ],
         "distance": 22,
+        "comparison_distance": 22,
         "start_load": 4,
         "max_load": 4,
         "end_time": 797,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D001",
@@ -1955,11 +1977,13 @@
           "P000"
         ],
         "distance": 42,
+        "comparison_distance": 42,
         "start_load": 5,
         "max_load": 6,
         "end_time": 844,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "D011",
@@ -2066,11 +2090,13 @@
           "P035"
         ],
         "distance": 35,
+        "comparison_distance": 35,
         "start_load": 4,
         "max_load": 6,
         "end_time": 819,
         "feasible": true,
         "violations": [],
+        "precedence_violations": [],
         "stops": [
           {
             "node_id": "P040",

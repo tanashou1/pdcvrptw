@@ -4,7 +4,7 @@ use crate::instance::Instance;
 pub struct DistanceMatrix {
     size: usize,
     depot_count: usize,
-    values: Vec<i64>,
+    values: Vec<f64>,
 }
 
 impl DistanceMatrix {
@@ -14,7 +14,7 @@ impl DistanceMatrix {
         points.extend(instance.nodes.iter().map(|node| (node.x, node.y)));
 
         let size = points.len();
-        let mut values = vec![0_i64; size * size];
+        let mut values = vec![0.0_f64; size * size];
 
         for from in 0..size {
             for to in 0..size {
@@ -24,7 +24,7 @@ impl DistanceMatrix {
 
                 let (from_x, from_y) = points[from];
                 let (to_x, to_y) = points[to];
-                values[from * size + to] = rounded_distance(from_x, from_y, to_x, to_y);
+                values[from * size + to] = distance_between(instance, from_x, from_y, to_x, to_y);
             }
         }
 
@@ -35,7 +35,7 @@ impl DistanceMatrix {
         }
     }
 
-    pub fn distance(&self, from: usize, to: usize) -> i64 {
+    pub fn distance(&self, from: usize, to: usize) -> f64 {
         self.values[from * self.size + to]
     }
 
@@ -48,8 +48,14 @@ impl DistanceMatrix {
     }
 }
 
-fn rounded_distance(from_x: f64, from_y: f64, to_x: f64, to_y: f64) -> i64 {
+fn distance_between(instance: &Instance, from_x: f64, from_y: f64, to_x: f64, to_y: f64) -> f64 {
     let dx = from_x - to_x;
     let dy = from_y - to_y;
-    ((dx.hypot(dy)) + 0.5).floor() as i64
+    let exact = dx.hypot(dy);
+
+    if instance.uses_double_distance() {
+        exact
+    } else {
+        (exact + 0.5).floor()
+    }
 }
