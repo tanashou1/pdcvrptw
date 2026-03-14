@@ -225,5 +225,6 @@
       "path": "results/li_lim_100/visualization/instances/lrc208.png"
     }
   ],
+  "score_comparison_chart": "results/li_lim_100/visualization/score_comparison.png",
   "comparison_summary": "results/li_lim_100/comparison/summary.json"
 }

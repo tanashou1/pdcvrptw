@@ -100,9 +100,9 @@ fn parse_cli() -> Result<SolveCommand> {
         bail!("{}", usage());
     }
 
-    let mut instances_dir = PathBuf::from("instances");
-    let mut output_dir = PathBuf::from("results/rust");
-    let mut iterations = 800_usize;
+    let mut instances_dir = PathBuf::from("instances/li_lim_100");
+    let mut output_dir = PathBuf::from("results/li_lim_100/rust");
+    let mut iterations = 100_usize;
     let mut seed = 42_u64;
     let mut cursor = 1_usize;
 

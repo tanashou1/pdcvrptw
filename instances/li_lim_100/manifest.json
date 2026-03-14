@@ -1,3 +1,284 @@
 {
-  "instances": []
+  "instances": [
+    {
+      "name": "lc101",
+      "instance_path": "instances/li_lim_100/instance_lc101.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc102",
+      "instance_path": "instances/li_lim_100/instance_lc102.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc103",
+      "instance_path": "instances/li_lim_100/instance_lc103.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc104",
+      "instance_path": "instances/li_lim_100/instance_lc104.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc105",
+      "instance_path": "instances/li_lim_100/instance_lc105.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc106",
+      "instance_path": "instances/li_lim_100/instance_lc106.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc107",
+      "instance_path": "instances/li_lim_100/instance_lc107.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc108",
+      "instance_path": "instances/li_lim_100/instance_lc108.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc109",
+      "instance_path": "instances/li_lim_100/instance_lc109.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc201",
+      "instance_path": "instances/li_lim_100/instance_lc201.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc202",
+      "instance_path": "instances/li_lim_100/instance_lc202.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc203",
+      "instance_path": "instances/li_lim_100/instance_lc203.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc204",
+      "instance_path": "instances/li_lim_100/instance_lc204.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc205",
+      "instance_path": "instances/li_lim_100/instance_lc205.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc206",
+      "instance_path": "instances/li_lim_100/instance_lc206.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc207",
+      "instance_path": "instances/li_lim_100/instance_lc207.json",
+      "reference_available": true
+    },
+    {
+      "name": "lc208",
+      "instance_path": "instances/li_lim_100/instance_lc208.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr101",
+      "instance_path": "instances/li_lim_100/instance_lr101.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr102",
+      "instance_path": "instances/li_lim_100/instance_lr102.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr103",
+      "instance_path": "instances/li_lim_100/instance_lr103.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr104",
+      "instance_path": "instances/li_lim_100/instance_lr104.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr105",
+      "instance_path": "instances/li_lim_100/instance_lr105.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr106",
+      "instance_path": "instances/li_lim_100/instance_lr106.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr107",
+      "instance_path": "instances/li_lim_100/instance_lr107.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr108",
+      "instance_path": "instances/li_lim_100/instance_lr108.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr109",
+      "instance_path": "instances/li_lim_100/instance_lr109.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr110",
+      "instance_path": "instances/li_lim_100/instance_lr110.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr111",
+      "instance_path": "instances/li_lim_100/instance_lr111.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr112",
+      "instance_path": "instances/li_lim_100/instance_lr112.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr201",
+      "instance_path": "instances/li_lim_100/instance_lr201.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr202",
+      "instance_path": "instances/li_lim_100/instance_lr202.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr203",
+      "instance_path": "instances/li_lim_100/instance_lr203.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr204",
+      "instance_path": "instances/li_lim_100/instance_lr204.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr205",
+      "instance_path": "instances/li_lim_100/instance_lr205.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr206",
+      "instance_path": "instances/li_lim_100/instance_lr206.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr207",
+      "instance_path": "instances/li_lim_100/instance_lr207.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr208",
+      "instance_path": "instances/li_lim_100/instance_lr208.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr209",
+      "instance_path": "instances/li_lim_100/instance_lr209.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr210",
+      "instance_path": "instances/li_lim_100/instance_lr210.json",
+      "reference_available": true
+    },
+    {
+      "name": "lr211",
+      "instance_path": "instances/li_lim_100/instance_lr211.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc101",
+      "instance_path": "instances/li_lim_100/instance_lrc101.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc102",
+      "instance_path": "instances/li_lim_100/instance_lrc102.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc103",
+      "instance_path": "instances/li_lim_100/instance_lrc103.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc104",
+      "instance_path": "instances/li_lim_100/instance_lrc104.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc105",
+      "instance_path": "instances/li_lim_100/instance_lrc105.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc106",
+      "instance_path": "instances/li_lim_100/instance_lrc106.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc107",
+      "instance_path": "instances/li_lim_100/instance_lrc107.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc108",
+      "instance_path": "instances/li_lim_100/instance_lrc108.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc201",
+      "instance_path": "instances/li_lim_100/instance_lrc201.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc202",
+      "instance_path": "instances/li_lim_100/instance_lrc202.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc203",
+      "instance_path": "instances/li_lim_100/instance_lrc203.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc204",
+      "instance_path": "instances/li_lim_100/instance_lrc204.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc205",
+      "instance_path": "instances/li_lim_100/instance_lrc205.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc206",
+      "instance_path": "instances/li_lim_100/instance_lrc206.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc207",
+      "instance_path": "instances/li_lim_100/instance_lrc207.json",
+      "reference_available": true
+    },
+    {
+      "name": "lrc208",
+      "instance_path": "instances/li_lim_100/instance_lrc208.json",
+      "reference_available": true
+    }
+  ]
 }

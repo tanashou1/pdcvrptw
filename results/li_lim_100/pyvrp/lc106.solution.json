@@ -4,7 +4,7 @@
   "solver_version": "0.13.3",
   "model_note": "PyVRP public APIs do not encode Li-Lim pickup-delivery sibling precedence or same-request load transfer exactly. The produced route sequence is therefore re-evaluated with the strict Li-Lim evaluator.",
   "seed": 211,
-  "runtime_seconds": 2.5125452669999504,
+  "runtime_seconds": 2.520907085999852,
   "time_scale": 100,
   "reported_cost": 10086675,
   "reported_feasible": true,

@@ -8,7 +8,7 @@
       "comparison_distance": 897.49,
       "pair_split_count": 6,
       "precedence_count": 0,
-      "runtime_seconds": 2.521
+      "runtime_seconds": 2.6
     },
     {
       "instance": "lc102",
@@ -18,7 +18,7 @@
       "comparison_distance": 974.96,
       "pair_split_count": 11,
       "precedence_count": 5,
-      "runtime_seconds": 2.517
+      "runtime_seconds": 2.513
     },
     {
       "instance": "lc103",
@@ -28,7 +28,7 @@
       "comparison_distance": 881.67,
       "pair_split_count": 7,
       "precedence_count": 6,
-      "runtime_seconds": 2.514
+      "runtime_seconds": 2.522
     },
     {
       "instance": "lc104",
@@ -38,7 +38,7 @@
       "comparison_distance": 925.39,
       "pair_split_count": 13,
       "precedence_count": 10,
-      "runtime_seconds": 2.524
+      "runtime_seconds": 2.516
     },
     {
       "instance": "lc105",
@@ -48,7 +48,7 @@
       "comparison_distance": 939.37,
       "pair_split_count": 14,
       "precedence_count": 1,
-      "runtime_seconds": 2.515
+      "runtime_seconds": 2.52
     },
     {
       "instance": "lc106",
@@ -58,7 +58,7 @@
       "comparison_distance": 866.68,
       "pair_split_count": 1,
       "precedence_count": 0,
-      "runtime_seconds": 2.513
+      "runtime_seconds": 2.521
     },
     {
       "instance": "lc107",
@@ -68,7 +68,7 @@
       "comparison_distance": 930.38,
       "pair_split_count": 8,
       "precedence_count": 1,
-      "runtime_seconds": 2.519
+      "runtime_seconds": 2.514
     },
     {
       "instance": "lc108",
@@ -78,7 +78,7 @@
       "comparison_distance": 907.7,
       "pair_split_count": 10,
       "precedence_count": 1,
-      "runtime_seconds": 2.512
+      "runtime_seconds": 2.52
     },
     {
       "instance": "lc109",
@@ -88,7 +88,7 @@
       "comparison_distance": 883.21,
       "pair_split_count": 11,
       "precedence_count": 2,
-      "runtime_seconds": 2.512
+      "runtime_seconds": 2.522
     },
     {
       "instance": "lc201",
@@ -108,7 +108,7 @@
       "comparison_distance": 684.61,
       "pair_split_count": 10,
       "precedence_count": 3,
-      "runtime_seconds": 2.518
+      "runtime_seconds": 2.523
     },
     {
       "instance": "lc203",
@@ -118,7 +118,7 @@
       "comparison_distance": 671.8,
       "pair_split_count": 15,
       "precedence_count": 3,
-      "runtime_seconds": 2.516
+      "runtime_seconds": 2.514
     },
     {
       "instance": "lc204",
@@ -128,7 +128,7 @@
       "comparison_distance": 708.12,
       "pair_split_count": 19,
       "precedence_count": 6,
-      "runtime_seconds": 2.512
+      "runtime_seconds": 2.516
     },
     {
       "instance": "lc205",
@@ -148,7 +148,7 @@
       "comparison_distance": 588.49,
       "pair_split_count": 0,
       "precedence_count": 0,
-      "runtime_seconds": 2.513
+      "runtime_seconds": 2.511
     },
     {
       "instance": "lc207",
@@ -158,7 +158,7 @@
       "comparison_distance": 588.29,
       "pair_split_count": 0,
       "precedence_count": 0,
-      "runtime_seconds": 2.512
+      "runtime_seconds": 2.511
     },
     {
       "instance": "lc208",
@@ -168,7 +168,7 @@
       "comparison_distance": 588.32,
       "pair_split_count": 0,
       "precedence_count": 0,
-      "runtime_seconds": 2.51
+      "runtime_seconds": 2.514
     },
     {
       "instance": "lr101",
@@ -178,7 +178,7 @@
       "comparison_distance": 1706.35,
       "pair_split_count": 20,
       "precedence_count": 1,
-      "runtime_seconds": 2.516
+      "runtime_seconds": 2.514
     },
     {
       "instance": "lr102",
@@ -188,7 +188,7 @@
       "comparison_distance": 1589.43,
       "pair_split_count": 26,
       "precedence_count": 4,
-      "runtime_seconds": 2.518
+      "runtime_seconds": 2.521
     },
     {
       "instance": "lr103",
@@ -198,7 +198,7 @@
       "comparison_distance": 1285.5,
       "pair_split_count": 32,
       "precedence_count": 7,
-      "runtime_seconds": 2.519
+      "runtime_seconds": 2.516
     },
     {
       "instance": "lr104",
@@ -208,7 +208,7 @@
       "comparison_distance": 1079.17,
       "pair_split_count": 29,
       "precedence_count": 7,
-      "runtime_seconds": 2.514
+      "runtime_seconds": 2.511
     },
     {
       "instance": "lr105",
@@ -218,7 +218,7 @@
       "comparison_distance": 1506.09,
       "pair_split_count": 28,
       "precedence_count": 3,
-      "runtime_seconds": 2.518
+      "runtime_seconds": 2.514
     },
     {
       "instance": "lr106",
@@ -228,7 +228,7 @@
       "comparison_distance": 1407.16,
       "pair_split_count": 33,
       "precedence_count": 5,
-      "runtime_seconds": 2.514
+      "runtime_seconds": 2.513
     },
     {
       "instance": "lr107",
@@ -238,7 +238,7 @@
       "comparison_distance": 1155.1,
       "pair_split_count": 30,
       "precedence_count": 6,
-      "runtime_seconds": 2.516
+      "runtime_seconds": 2.514
     },
     {
       "instance": "lr108",
@@ -248,7 +248,7 @@
       "comparison_distance": 1016.79,
       "pair_split_count": 27,
       "precedence_count": 6,
-      "runtime_seconds": 2.514
+      "runtime_seconds": 2.511
     },
     {
       "instance": "lr109",
@@ -258,7 +258,7 @@
       "comparison_distance": 1264.82,
       "pair_split_count": 31,
       "precedence_count": 4,
-      "runtime_seconds": 2.514
+      "runtime_seconds": 2.52
     },
     {
       "instance": "lr110",
@@ -268,7 +268,7 @@
       "comparison_distance": 1171.71,
       "pair_split_count": 27,
       "precedence_count": 8,
-      "runtime_seconds": 2.521
+      "runtime_seconds": 2.512
     },
     {
       "instance": "lr111",
@@ -288,7 +288,7 @@
       "comparison_distance": 1065.28,
       "pair_split_count": 34,
       "precedence_count": 6,
-      "runtime_seconds": 2.514
+      "runtime_seconds": 2.512
     },
     {
       "instance": "lr201",
@@ -298,7 +298,7 @@
       "comparison_distance": 1194.18,
       "pair_split_count": 26,
       "precedence_count": 3,
-      "runtime_seconds": 2.512
+      "runtime_seconds": 2.511
     },
     {
       "instance": "lr202",
@@ -308,7 +308,7 @@
       "comparison_distance": 1200.02,
       "pair_split_count": 47,
       "precedence_count": 0,
-      "runtime_seconds": 2.531
+      "runtime_seconds": 2.516
     },
     {
       "instance": "lr203",
@@ -318,7 +318,7 @@
       "comparison_distance": 910.74,
       "pair_split_count": 38,
       "precedence_count": 5,
-      "runtime_seconds": 2.514
+      "runtime_seconds": 2.521
     },
     {
       "instance": "lr204",
@@ -328,7 +328,7 @@
       "comparison_distance": 770.8,
       "pair_split_count": 38,
       "precedence_count": 7,
-      "runtime_seconds": 2.518
+      "runtime_seconds": 2.514
     },
     {
       "instance": "lr205",
@@ -338,7 +338,7 @@
       "comparison_distance": 1031.96,
       "pair_split_count": 30,
       "precedence_count": 4,
-      "runtime_seconds": 2.512
+      "runtime_seconds": 2.513
     },
     {
       "instance": "lr206",
@@ -348,7 +348,7 @@
       "comparison_distance": 997.41,
       "pair_split_count": 40,
       "precedence_count": 4,
-      "runtime_seconds": 2.513
+      "runtime_seconds": 2.512
     },
     {
       "instance": "lr207",
@@ -358,7 +358,7 @@
       "comparison_distance": 851.58,
       "pair_split_count": 36,
       "precedence_count": 9,
-      "runtime_seconds": 2.511
+      "runtime_seconds": 2.514
     },
     {
       "instance": "lr208",
@@ -368,7 +368,7 @@
       "comparison_distance": 787.68,
       "pair_split_count": 36,
       "precedence_count": 6,
-      "runtime_seconds": 2.512
+      "runtime_seconds": 2.509
     },
     {
       "instance": "lr209",
@@ -378,7 +378,7 @@
       "comparison_distance": 944.1,
       "pair_split_count": 37,
       "precedence_count": 7,
-      "runtime_seconds": 2.517
+      "runtime_seconds": 2.513
     },
     {
       "instance": "lr210",
@@ -388,7 +388,7 @@
       "comparison_distance": 1014.82,
       "pair_split_count": 36,
       "precedence_count": 6,
-      "runtime_seconds": 2.511
+      "runtime_seconds": 2.512
     },
     {
       "instance": "lr211",
@@ -398,7 +398,7 @@
       "comparison_distance": 871.05,
       "pair_split_count": 33,
       "precedence_count": 5,
-      "runtime_seconds": 2.513
+      "runtime_seconds": 2.512
     },
     {
       "instance": "lrc101",
@@ -408,7 +408,7 @@
       "comparison_distance": 1674.01,
       "pair_split_count": 22,
       "precedence_count": 2,
-      "runtime_seconds": 2.516
+      "runtime_seconds": 2.512
     },
     {
       "instance": "lrc102",
@@ -418,7 +418,7 @@
       "comparison_distance": 1602.51,
       "pair_split_count": 26,
       "precedence_count": 9,
-      "runtime_seconds": 2.517
+      "runtime_seconds": 2.518
     },
     {
       "instance": "lrc103",
@@ -428,7 +428,7 @@
       "comparison_distance": 1432.84,
       "pair_split_count": 26,
       "precedence_count": 6,
-      "runtime_seconds": 2.513
+      "runtime_seconds": 2.514
     },
     {
       "instance": "lrc104",
@@ -438,7 +438,7 @@
       "comparison_distance": 1239.32,
       "pair_split_count": 23,
       "precedence_count": 11,
-      "runtime_seconds": 2.519
+      "runtime_seconds": 2.517
     },
     {
       "instance": "lrc105",
@@ -448,7 +448,7 @@
       "comparison_distance": 1632.97,
       "pair_split_count": 33,
       "precedence_count": 3,
-      "runtime_seconds": 2.516
+      "runtime_seconds": 2.517
     },
     {
       "instance": "lrc106",
@@ -458,7 +458,7 @@
       "comparison_distance": 1510.79,
       "pair_split_count": 30,
       "precedence_count": 3,
-      "runtime_seconds": 2.512
+      "runtime_seconds": 2.517
     },
     {
       "instance": "lrc107",
@@ -468,7 +468,7 @@
       "comparison_distance": 1377.2,
       "pair_split_count": 28,
       "precedence_count": 4,
-      "runtime_seconds": 2.512
+      "runtime_seconds": 2.517
     },
     {
       "instance": "lrc108",
@@ -478,7 +478,7 @@
       "comparison_distance": 1320.36,
       "pair_split_count": 26,
       "precedence_count": 12,
-      "runtime_seconds": 2.515
+      "runtime_seconds": 2.514
     },
     {
       "instance": "lrc201",
@@ -488,7 +488,7 @@
       "comparison_distance": 1466.73,
       "pair_split_count": 37,
       "precedence_count": 3,
-      "runtime_seconds": 2.52
+      "runtime_seconds": 2.513
     },
     {
       "instance": "lrc202",
@@ -498,7 +498,7 @@
       "comparison_distance": 1205.14,
       "pair_split_count": 39,
       "precedence_count": 3,
-      "runtime_seconds": 2.516
+      "runtime_seconds": 2.52
     },
     {
       "instance": "lrc203",
@@ -508,7 +508,7 @@
       "comparison_distance": 1010.28,
       "pair_split_count": 33,
       "precedence_count": 6,
-      "runtime_seconds": 2.513
+      "runtime_seconds": 2.512
     },
     {
       "instance": "lrc204",
@@ -518,7 +518,7 @@
       "comparison_distance": 929.3,
       "pair_split_count": 27,
       "precedence_count": 7,
-      "runtime_seconds": 2.512
+      "runtime_seconds": 2.513
     },
     {
       "instance": "lrc205",
@@ -528,7 +528,7 @@
       "comparison_distance": 1305.34,
       "pair_split_count": 35,
       "precedence_count": 3,
-      "runtime_seconds": 2.511
+      "runtime_seconds": 2.513
     },
     {
       "instance": "lrc206",
@@ -538,7 +538,7 @@
       "comparison_distance": 1181.23,
       "pair_split_count": 37,
       "precedence_count": 5,
-      "runtime_seconds": 2.513
+      "runtime_seconds": 2.512
     },
     {
       "instance": "lrc207",
@@ -558,7 +558,7 @@
       "comparison_distance": 910.46,
       "pair_split_count": 37,
       "precedence_count": 5,
-      "runtime_seconds": 2.514
+      "runtime_seconds": 2.513
     }
   ]
 }
