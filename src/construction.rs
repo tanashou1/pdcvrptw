@@ -3,8 +3,10 @@ use std::cmp::Ordering;
 use anyhow::{bail, Result};
 
 use crate::distance::DistanceMatrix;
-use crate::evaluate::evaluate_route;
 use crate::instance::{Instance, RequestPair};
+use crate::route_eval::{
+    evaluate_insertion, evaluate_pair_insertion, summarize_route, RouteEvaluationCache,
+};
 use crate::solution::{Route, SolutionState};
 
 #[derive(Debug, Clone, Copy)]
@@ -273,13 +275,11 @@ fn feasible_insertions(
     let current_route_count = solution.routes.len();
 
     for (route_index, route) in solution.routes.iter().enumerate() {
-        let original_distance = evaluate_route(instance, matrix, route).distance;
+        let cache = RouteEvaluationCache::new(instance, matrix, route);
+        let original_distance = cache.summary().distance;
 
         for position in 0..=route.stops.len() {
-            let mut candidate = route.clone();
-            candidate.stops.insert(position, node_idx);
-
-            let metrics = evaluate_route(instance, matrix, &candidate);
+            let metrics = evaluate_insertion(instance, matrix, route, &cache, node_idx, position);
             if metrics.feasible {
                 choices.push(InsertionChoice {
                     route_index: Some(route_index),
@@ -313,7 +313,7 @@ fn feasible_insertions(
                 depot_idx,
                 stops: vec![node_idx],
             };
-            let metrics = evaluate_route(instance, matrix, &candidate);
+            let metrics = summarize_route(instance, matrix, &candidate);
 
             if metrics.feasible {
                 choices.push(InsertionChoice {
@@ -343,15 +343,20 @@ fn feasible_pair_insertions(
     let current_route_count = solution.routes.len();
 
     for (route_index, route) in solution.routes.iter().enumerate() {
-        let original_distance = evaluate_route(instance, matrix, route).distance;
+        let cache = RouteEvaluationCache::new(instance, matrix, route);
+        let original_distance = cache.summary().distance;
 
         for pickup_position in 0..=route.stops.len() {
             for delivery_position in (pickup_position + 1)..=(route.stops.len() + 1) {
-                let mut candidate = route.clone();
-                candidate.stops.insert(pickup_position, pair.pickup_idx);
-                candidate.stops.insert(delivery_position, pair.delivery_idx);
-
-                let metrics = evaluate_route(instance, matrix, &candidate);
+                let metrics = evaluate_pair_insertion(
+                    instance,
+                    matrix,
+                    route,
+                    &cache,
+                    pair,
+                    pickup_position,
+                    delivery_position,
+                );
                 if metrics.feasible {
                     choices.push(PairInsertionChoice {
                         route_index: Some(route_index),
@@ -387,7 +392,7 @@ fn feasible_pair_insertions(
                 depot_idx,
                 stops: vec![pair.pickup_idx, pair.delivery_idx],
             };
-            let metrics = evaluate_route(instance, matrix, &candidate);
+            let metrics = summarize_route(instance, matrix, &candidate);
 
             if metrics.feasible {
                 choices.push(PairInsertionChoice {
@@ -459,7 +464,7 @@ fn route_compaction_order(
             } else {
                 route.stops.len()
             };
-            let metrics = evaluate_route(instance, matrix, route);
+            let metrics = summarize_route(instance, matrix, route);
             (route_index, unit_count, route.stops.len(), metrics.distance)
         })
         .collect::<Vec<_>>();

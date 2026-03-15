@@ -11,6 +11,7 @@ use crate::distance::DistanceMatrix;
 use crate::evaluate::evaluate_solution;
 use crate::exact_route::{intensify_small_route_order, optimize_all_small_routes};
 use crate::instance::{Instance, RequestPair};
+use crate::route_eval::{evaluate_request_removal, summarize_route, RouteEvaluationCache};
 use crate::solution::SolutionState;
 
 const SMALL_ROUTE_DP_INTERVAL: usize = 100;
@@ -342,17 +343,15 @@ fn worst_request_removal(
     let mut candidates = Vec::new();
 
     for route in &solution.routes {
-        let route_distance = crate::evaluate::evaluate_route(instance, matrix, route).distance;
+        let cache = RouteEvaluationCache::new(instance, matrix, route);
+        let route_distance = cache.summary().distance;
 
         for request in requests_in_route(instance, route) {
-            let mut candidate = route.clone();
-            candidate.stops.retain(|node_idx| {
-                *node_idx != request.pickup_idx && *node_idx != request.delivery_idx
-            });
-
-            let candidate_distance =
-                crate::evaluate::evaluate_route(instance, matrix, &candidate).distance;
-            candidates.push((request, route_distance - candidate_distance));
+            if let Some(summary) =
+                evaluate_request_removal(instance, matrix, route, &cache, &request)
+            {
+                candidates.push((request, route_distance - summary.distance));
+            }
         }
     }
 
@@ -474,7 +473,7 @@ fn route_reduction_removal(
             } else {
                 route.stops.len()
             };
-            let metrics = crate::evaluate::evaluate_route(instance, matrix, route);
+            let metrics = summarize_route(instance, matrix, route);
             (route_index, unit_count, route.stops.len(), metrics.distance)
         })
         .collect::<Vec<_>>();

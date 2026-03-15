@@ -5,4 +5,5 @@ pub mod evaluate;
 pub mod exact_route;
 pub mod instance;
 pub mod output;
+pub mod route_eval;
 pub mod solution;
