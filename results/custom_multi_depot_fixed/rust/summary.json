@@ -1,0 +1,22 @@
+{
+  "solutions": [
+    {
+      "instance": "mdf101",
+      "initial_objective": 209.77,
+      "best_objective": 166.95,
+      "route_count": 4,
+      "feasible": true,
+      "missing_required_count": 0,
+      "missing_optional_count": 2
+    },
+    {
+      "instance": "mdf102",
+      "initial_objective": 256.59,
+      "best_objective": 164.99,
+      "route_count": 4,
+      "feasible": true,
+      "missing_required_count": 0,
+      "missing_optional_count": 1
+    }
+  ]
+}

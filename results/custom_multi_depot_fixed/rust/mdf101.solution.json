@@ -1,0 +1,278 @@
+{
+  "instance": "mdf101",
+  "solver": "rust-alns",
+  "objective": 166.95,
+  "route_count": 4,
+  "feasible": true,
+  "routes": [
+    {
+      "route_index": 0,
+      "depot_id": "D0",
+      "vehicle_id": "D0_V00",
+      "node_ids": [
+        "C001",
+        "FX_D0_V00",
+        "C009",
+        "C010"
+      ]
+    },
+    {
+      "route_index": 1,
+      "depot_id": "D0",
+      "vehicle_id": "D0_V01",
+      "node_ids": [
+        "C002",
+        "FX_D0_V01",
+        "C007"
+      ]
+    },
+    {
+      "route_index": 2,
+      "depot_id": "D1",
+      "vehicle_id": "D1_V00",
+      "node_ids": [
+        "C004",
+        "FX_D1_V00",
+        "C008"
+      ]
+    },
+    {
+      "route_index": 3,
+      "depot_id": "D2",
+      "vehicle_id": "D2_V00",
+      "node_ids": [
+        "C005",
+        "FX_D2_V00"
+      ]
+    }
+  ],
+  "evaluation": {
+    "objective": 166.95,
+    "search_objective": 2000004000166.949,
+    "total_distance": 166.948901,
+    "comparison_distance": 166.95,
+    "route_count": 4,
+    "objective_mode": "optional_then_vehicles_then_distance",
+    "visited_nodes": 12,
+    "unique_served_nodes": 12,
+    "feasible": true,
+    "duplicate_nodes": [],
+    "missing_nodes": [
+      "C003",
+      "C006"
+    ],
+    "missing_required_nodes": [],
+    "missing_optional_nodes": [
+      "C003",
+      "C006"
+    ],
+    "served_optional_nodes": 8,
+    "total_optional_nodes": 10,
+    "optional_satisfaction_rate": 0.8,
+    "precedence_violations": [],
+    "vehicle_usage": {
+      "D0": 2,
+      "D1": 1,
+      "D2": 1
+    },
+    "vehicle_violations": [],
+    "vehicle_reuse_violations": [],
+    "routes": [
+      {
+        "depot_id": "D0",
+        "vehicle_id": "D0_V00",
+        "node_ids": [
+          "C001",
+          "FX_D0_V00",
+          "C009",
+          "C010"
+        ],
+        "distance": 77.015689,
+        "comparison_distance": 77.02,
+        "start_load": 0,
+        "max_load": 3,
+        "end_time": 327.071068,
+        "feasible": true,
+        "violations": [],
+        "precedence_violations": [],
+        "stops": [
+          {
+            "node_id": "C001",
+            "arrival": 18.681542,
+            "start_service": 90.0,
+            "departure": 100.0,
+            "wait_duration": 71.318458,
+            "load_after_service": 1
+          },
+          {
+            "node_id": "FX_D0_V00",
+            "arrival": 110.049876,
+            "start_service": 200.0,
+            "departure": 220.0,
+            "wait_duration": 89.950124,
+            "load_after_service": 1
+          },
+          {
+            "node_id": "C009",
+            "arrival": 241.213203,
+            "start_service": 280.0,
+            "departure": 290.0,
+            "wait_duration": 38.786797,
+            "load_after_service": 2
+          },
+          {
+            "node_id": "C010",
+            "arrival": 297.071068,
+            "start_service": 297.071068,
+            "departure": 307.071068,
+            "wait_duration": 0.0,
+            "load_after_service": 3
+          }
+        ]
+      },
+      {
+        "depot_id": "D0",
+        "vehicle_id": "D0_V01",
+        "node_ids": [
+          "C002",
+          "FX_D0_V01",
+          "C007"
+        ],
+        "distance": 41.988128,
+        "comparison_distance": 41.99,
+        "start_load": 0,
+        "max_load": 2,
+        "end_time": 300.198039,
+        "feasible": true,
+        "violations": [],
+        "precedence_violations": [],
+        "stops": [
+          {
+            "node_id": "C002",
+            "arrival": 16.763055,
+            "start_service": 90.0,
+            "departure": 100.0,
+            "wait_duration": 73.236945,
+            "load_after_service": 1
+          },
+          {
+            "node_id": "FX_D0_V01",
+            "arrival": 106.082763,
+            "start_service": 190.0,
+            "departure": 210.0,
+            "wait_duration": 83.917237,
+            "load_after_service": 1
+          },
+          {
+            "node_id": "C007",
+            "arrival": 218.944272,
+            "start_service": 280.0,
+            "departure": 290.0,
+            "wait_duration": 61.055728,
+            "load_after_service": 2
+          }
+        ]
+      },
+      {
+        "depot_id": "D1",
+        "vehicle_id": "D1_V00",
+        "node_ids": [
+          "C004",
+          "FX_D1_V00",
+          "C008"
+        ],
+        "distance": 29.313708,
+        "comparison_distance": 29.31,
+        "start_load": 0,
+        "max_load": 2,
+        "end_time": 298.0,
+        "feasible": true,
+        "violations": [],
+        "precedence_violations": [],
+        "stops": [
+          {
+            "node_id": "C004",
+            "arrival": 7.071068,
+            "start_service": 90.0,
+            "departure": 100.0,
+            "wait_duration": 82.928932,
+            "load_after_service": 1
+          },
+          {
+            "node_id": "FX_D1_V00",
+            "arrival": 104.242641,
+            "start_service": 205.0,
+            "departure": 225.0,
+            "wait_duration": 100.757359,
+            "load_after_service": 1
+          },
+          {
+            "node_id": "C008",
+            "arrival": 235.0,
+            "start_service": 280.0,
+            "departure": 290.0,
+            "wait_duration": 45.0,
+            "load_after_service": 2
+          }
+        ]
+      },
+      {
+        "depot_id": "D2",
+        "vehicle_id": "D2_V00",
+        "node_ids": [
+          "C005",
+          "FX_D2_V00"
+        ],
+        "distance": 18.631376,
+        "comparison_distance": 18.63,
+        "start_load": 0,
+        "max_load": 1,
+        "end_time": 238.246211,
+        "feasible": true,
+        "violations": [],
+        "precedence_violations": [],
+        "stops": [
+          {
+            "node_id": "C005",
+            "arrival": 5.385165,
+            "start_service": 90.0,
+            "departure": 100.0,
+            "wait_duration": 84.614835,
+            "load_after_service": 1
+          },
+          {
+            "node_id": "FX_D2_V00",
+            "arrival": 105.0,
+            "start_service": 210.0,
+            "departure": 230.0,
+            "wait_duration": 105.0,
+            "load_after_service": 1
+          }
+        ]
+      }
+    ]
+  },
+  "metadata": {
+    "iterations": 200,
+    "seed": 42,
+    "initial_objective": 209.77,
+    "operator_weights": [
+      {
+        "name": "random_removal",
+        "weight": 2.34205580525345
+      },
+      {
+        "name": "worst_removal",
+        "weight": 2.330436607639903
+      },
+      {
+        "name": "shaw_removal",
+        "weight": 1.7210405616969369
+      },
+      {
+        "name": "route_reduction",
+        "weight": 1.4955113178854176
+      }
+    ]
+  }
+}

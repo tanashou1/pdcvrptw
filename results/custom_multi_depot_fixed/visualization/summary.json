@@ -1,0 +1,35 @@
+{
+  "instances": [
+    {
+      "instance": "mdf101",
+      "vehicle_count": 4,
+      "route_count": 4,
+      "fixed_total": 4,
+      "fixed_vehicle_ok": 4,
+      "fixed_time_ok": 4,
+      "optional_total": 10,
+      "optional_served": 8,
+      "optional_missing": 2,
+      "missing_optional_nodes": [
+        "C003",
+        "C006"
+      ],
+      "feasible": true
+    },
+    {
+      "instance": "mdf102",
+      "vehicle_count": 4,
+      "route_count": 4,
+      "fixed_total": 4,
+      "fixed_vehicle_ok": 4,
+      "fixed_time_ok": 4,
+      "optional_total": 9,
+      "optional_served": 8,
+      "optional_missing": 1,
+      "missing_optional_nodes": [
+        "C105"
+      ],
+      "feasible": true
+    }
+  ]
+}

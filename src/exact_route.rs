@@ -205,6 +205,7 @@ impl<'a> SmallRouteOptimizer<'a> {
         let ordered_local_indices = reconstruct_path(&labels, best_label_idx);
         Some(Route {
             depot_idx: self.route.depot_idx,
+            vehicle_idx: self.route.vehicle_idx,
             stops: ordered_local_indices
                 .into_iter()
                 .map(|local_idx| self.route.stops[local_idx])
@@ -278,6 +279,10 @@ pub fn intensify_small_route_order(
         .enumerate()
         .filter(|(_, route)| {
             (MIN_SMALL_ROUTE_STOPS..=MAX_SMALL_ROUTE_STOPS).contains(&route.stops.len())
+                && route
+                    .stops
+                    .iter()
+                    .all(|node_idx| !instance.node_is_fixed(*node_idx))
         })
         .map(|(route_index, route)| {
             let metrics = evaluate_route(instance, matrix, route);
@@ -321,6 +326,10 @@ pub fn optimize_all_small_routes(
         .enumerate()
         .filter(|(_, route)| {
             (MIN_SMALL_ROUTE_STOPS..=MAX_SMALL_ROUTE_STOPS).contains(&route.stops.len())
+                && route
+                    .stops
+                    .iter()
+                    .all(|node_idx| !instance.node_is_fixed(*node_idx))
         })
         .map(|(route_index, route)| {
             let metrics = evaluate_route(instance, matrix, route);
@@ -427,7 +436,7 @@ mod tests {
     use crate::solution::{Route, SolutionState};
 
     fn precedence_instance() -> Instance {
-        serde_json::from_str(
+        serde_json::from_str::<Instance>(
             r#"
             {
               "name": "small-route",
@@ -504,6 +513,8 @@ mod tests {
             "#,
         )
         .unwrap()
+        .normalized()
+        .unwrap()
     }
 
     #[test]
@@ -512,6 +523,7 @@ mod tests {
         let matrix = DistanceMatrix::build(&instance);
         let route = Route {
             depot_idx: 0,
+            vehicle_idx: 0,
             stops: vec![2, 3, 0, 1],
         };
 
@@ -533,8 +545,10 @@ mod tests {
         let mut solution = SolutionState {
             routes: vec![Route {
                 depot_idx: 0,
+                vehicle_idx: 0,
                 stops: vec![2, 3, 0, 1],
             }],
+            ..SolutionState::default()
         };
 
         assert!(optimize_all_small_routes(&instance, &matrix, &mut solution));

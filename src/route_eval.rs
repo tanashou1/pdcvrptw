@@ -298,7 +298,7 @@ mod tests {
     use crate::solution::Route;
 
     fn non_precedence_instance() -> Instance {
-        serde_json::from_str(
+        serde_json::from_str::<Instance>(
             r#"
             {
               "name": "route_eval_non_precedence",
@@ -375,10 +375,12 @@ mod tests {
             "#,
         )
         .unwrap()
+        .normalized()
+        .unwrap()
     }
 
     fn precedence_instance() -> Instance {
-        serde_json::from_str(
+        serde_json::from_str::<Instance>(
             r#"
             {
               "name": "route_eval_precedence",
@@ -455,6 +457,8 @@ mod tests {
             "#,
         )
         .unwrap()
+        .normalized()
+        .unwrap()
     }
 
     fn request_pair(request_id: &str, pickup_idx: usize, delivery_idx: usize) -> RequestPair {
@@ -478,6 +482,7 @@ mod tests {
         let matrix = DistanceMatrix::build(&instance);
         let route = Route {
             depot_idx: 0,
+            vehicle_idx: 0,
             stops: vec![0, 1, 2],
         };
 
@@ -492,6 +497,7 @@ mod tests {
         let matrix = DistanceMatrix::build(&instance);
         let route = Route {
             depot_idx: 0,
+            vehicle_idx: 0,
             stops: vec![0, 1, 2],
         };
         let cache = RouteEvaluationCache::new(&instance, &matrix, &route);
@@ -511,6 +517,7 @@ mod tests {
         let matrix = DistanceMatrix::build(&instance);
         let route = Route {
             depot_idx: 0,
+            vehicle_idx: 0,
             stops: vec![0, 1],
         };
         let cache = RouteEvaluationCache::new(&instance, &matrix, &route);
@@ -542,6 +549,7 @@ mod tests {
         let matrix = DistanceMatrix::build(&instance);
         let route = Route {
             depot_idx: 0,
+            vehicle_idx: 0,
             stops: vec![0, 2, 1, 3],
         };
         let cache = RouteEvaluationCache::new(&instance, &matrix, &route);

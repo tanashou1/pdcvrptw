@@ -52,7 +52,10 @@ strict な比較用ベースラインとしては、`OR-Tools` 側で
 ## ディレクトリ構成
 
 - `instances/li_lim_100/`: import 済み Li-Lim 100-case instances
+- `instances/custom_multi_depot_fixed/`: マルチデポ・車両固定タスク付きの custom instances
 - `scripts/import_lilim_100.py`: ベンチマーク import と参照解の正規化
+- `scripts/generate_custom_multi_depot_fixed.py`: マルチデポ + 固定タスク + optional task の custom instance 生成
+- `scripts/visualize_custom_multi_depot_fixed.py`: custom multi-depot fixed-task instance の機能確認用可視化
 - `scripts/solve_with_ortools.py`: Li-Lim を OR-Tools strict model で解く
 - `scripts/solve_with_pyvrp.py`: Li-Lim を PyVRP relaxed model で解く任意の補助スクリプト
 - `scripts/compare_results.py`: 参照解 / OR-Tools / Rust の比較と OR-Tools vs Rust 直接比較
@@ -117,6 +120,37 @@ python scripts/solve_with_pyvrp.py
 
 `cargo run --release -- solve` はデフォルトで `instances/li_lim_100` を読み、`results/li_lim_100/rust` に出力します。
 
+custom multi-depot fixed-task instances を生成して解く場合:
+
+```bash
+python scripts/generate_custom_multi_depot_fixed.py
+cargo run --release -- solve \
+  --instances-dir instances/custom_multi_depot_fixed \
+  --output-dir results/custom_multi_depot_fixed/rust
+python scripts/visualize_custom_multi_depot_fixed.py \
+  --instances-dir instances/custom_multi_depot_fixed \
+  --solution-dir results/custom_multi_depot_fixed/rust \
+  --output-dir results/custom_multi_depot_fixed/visualization
+```
+
+## custom instance 拡張
+
+Li-Lim benchmark 自体は single-depot 前提ですが、このリポジトリの instance schema には custom 向けに次を追加しています。
+
+- `vehicles`: 明示的な車両定義。各 route は depot だけでなく vehicle にも結び付く
+- `nodes[].required`: `false` の task は未割り当てのままでも可
+- `nodes[].fixed_vehicle_id`: 特定 vehicle に固定される task
+
+固定タスクは **`fixed_vehicle_id` を持ち、time window が特定時刻に固定された node** として表現します。Rust solver はこれらの task を初期 route に seed し、その vehicle から外れないように扱います。`required = false` の task は `optional_then_vehicles_then_distance` 目的の下で、できるだけ多く割り当てつつ、割り当てられないものは `missing_optional_nodes` としてレポートします。
+
+`scripts/visualize_custom_multi_depot_fixed.py` はこの機能確認のために、
+
+- vehicle ごとの route を色分けした multi-depot map
+- fixed task が指定時刻に入っていることを示す vehicle timeline
+- fixed-task 遵守数と optional 未割り当て数の summary chart
+
+を出力します。
+
 ## Rust 実装の方針
 
 - 小さな関数に分割
@@ -125,6 +159,7 @@ python scripts/solve_with_pyvrp.py
 - ALNS による改善
 - Li-Lim では request pair 単位の destroy / repair を使用
 - 訪問ノード数が 20 以下のルートは、subset × last の exact DP で順序を定期的に polish
+- custom instances では vehicle 固定 task を seed し、optional task の未割り当てを許容
 
 ## 出力
 
@@ -132,5 +167,7 @@ python scripts/solve_with_pyvrp.py
 - 比較 JSON/CSV: `results/li_lim_100/comparison/summary.{json,csv}`
 - 訪問順可視化: `results/li_lim_100/visualization/instances/*.png`
 - スコア比較グラフ: `results/li_lim_100/visualization/score_comparison.png`
+- custom 機能可視化: `results/custom_multi_depot_fixed/visualization/instances/*.png`
+- custom summary chart: `results/custom_multi_depot_fixed/visualization/feature_summary.png`
 
 集計結果は `results/li_lim_100/comparison/summary.md` に、`OR-Tools` と `Rust` の strict feasibility / 使用車両数 / 距離ギャップに加えて、`OR-Tools vs Rust` の直接比較もまとまります。

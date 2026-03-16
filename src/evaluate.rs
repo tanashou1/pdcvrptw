@@ -19,6 +19,7 @@ pub struct StopVisit {
 #[derive(Debug, Clone, Serialize)]
 pub struct RouteMetrics {
     pub depot_id: String,
+    pub vehicle_id: String,
     pub node_ids: Vec<String>,
     pub distance: f64,
     pub comparison_distance: f64,
@@ -44,17 +45,29 @@ pub struct SolutionMetrics {
     pub feasible: bool,
     pub duplicate_nodes: Vec<String>,
     pub missing_nodes: Vec<String>,
+    pub missing_required_nodes: Vec<String>,
+    pub missing_optional_nodes: Vec<String>,
+    pub served_optional_nodes: usize,
+    pub total_optional_nodes: usize,
+    pub optional_satisfaction_rate: f64,
     pub precedence_violations: Vec<String>,
     pub vehicle_usage: BTreeMap<String, usize>,
     pub vehicle_violations: Vec<String>,
+    pub vehicle_reuse_violations: Vec<String>,
     pub routes: Vec<RouteMetrics>,
 }
 
 pub fn evaluate_route(instance: &Instance, matrix: &DistanceMatrix, route: &Route) -> RouteMetrics {
     let depot = &instance.depots[route.depot_idx];
+    let vehicle = instance.vehicle(route.vehicle_idx);
     let depot_location = matrix.depot_location(route.depot_idx);
     let mut violations = BTreeSet::new();
     let mut feasible = true;
+
+    if vehicle.depot_id != depot.id {
+        feasible = false;
+        violations.insert(format!("{}:vehicle_depot_mismatch", vehicle.id));
+    }
 
     let start_load = if instance.uses_balanced_start_load() {
         route
@@ -94,6 +107,14 @@ pub fn evaluate_route(instance: &Instance, matrix: &DistanceMatrix, route: &Rout
     for &node_idx in &route.stops {
         let node = &instance.nodes[node_idx];
         let node_location = matrix.node_location(node_idx);
+
+        if let Some(fixed_vehicle_id) = &node.fixed_vehicle_id {
+            if fixed_vehicle_id != &vehicle.id {
+                feasible = false;
+                violations.insert(format!("{}:fixed_vehicle", node.id));
+            }
+        }
+
         let travel = matrix.distance(current_location, node_location);
         let arrival = current_time + travel;
         let start_service = arrival.max(node.tw.start as f64);
@@ -138,6 +159,7 @@ pub fn evaluate_route(instance: &Instance, matrix: &DistanceMatrix, route: &Rout
 
     RouteMetrics {
         depot_id: depot.id.clone(),
+        vehicle_id: vehicle.id.clone(),
         node_ids: route
             .stops
             .iter()
@@ -173,6 +195,11 @@ pub fn evaluate_solution(
         .iter()
         .map(|depot| (depot.id.clone(), 0_usize))
         .collect::<BTreeMap<_, _>>();
+    let mut vehicle_route_usage = instance
+        .vehicles
+        .iter()
+        .map(|vehicle| (vehicle.id.clone(), 0_usize))
+        .collect::<BTreeMap<_, _>>();
     let mut precedence_violations = Vec::new();
 
     for route in &solution.routes {
@@ -181,6 +208,9 @@ pub fn evaluate_solution(
         feasible &= metrics.feasible;
 
         if let Some(used) = vehicle_usage.get_mut(&instance.depots[route.depot_idx].id) {
+            *used += 1;
+        }
+        if let Some(used) = vehicle_route_usage.get_mut(&instance.vehicle(route.vehicle_idx).id) {
             *used += 1;
         }
 
@@ -200,10 +230,38 @@ pub fn evaluate_solution(
         .iter()
         .filter_map(|(node_id, &count)| (count > 1).then(|| node_id.clone()))
         .collect::<Vec<_>>();
-    let missing_nodes = visit_counts
+    let missing_required_nodes = instance
+        .nodes
         .iter()
-        .filter_map(|(node_id, &count)| (count == 0).then(|| node_id.clone()))
+        .filter_map(|node| {
+            (node.required && visit_counts.get(&node.id).copied().unwrap_or_default() == 0)
+                .then(|| node.id.clone())
+        })
         .collect::<Vec<_>>();
+    let missing_optional_nodes = instance
+        .nodes
+        .iter()
+        .filter_map(|node| {
+            (!node.required && visit_counts.get(&node.id).copied().unwrap_or_default() == 0)
+                .then(|| node.id.clone())
+        })
+        .collect::<Vec<_>>();
+    let mut missing_nodes = missing_required_nodes.clone();
+    missing_nodes.extend(missing_optional_nodes.clone());
+
+    let total_optional_nodes = instance.nodes.iter().filter(|node| !node.required).count();
+    let served_optional_nodes = instance
+        .nodes
+        .iter()
+        .filter(|node| {
+            !node.required && visit_counts.get(&node.id).copied().unwrap_or_default() > 0
+        })
+        .count();
+    let optional_satisfaction_rate = if total_optional_nodes == 0 {
+        1.0
+    } else {
+        served_optional_nodes as f64 / total_optional_nodes as f64
+    };
 
     let mut vehicle_violations = Vec::new();
     for (depot_idx, depot) in instance.depots.iter().enumerate() {
@@ -215,9 +273,17 @@ pub fn evaluate_solution(
         }
     }
 
+    let vehicle_reuse_violations = vehicle_route_usage
+        .iter()
+        .filter_map(|(vehicle_id, &count)| {
+            (count > 1).then(|| format!("{}:{}>1", vehicle_id, count))
+        })
+        .collect::<Vec<_>>();
+
     feasible &= duplicate_nodes.is_empty();
-    feasible &= missing_nodes.is_empty();
+    feasible &= missing_required_nodes.is_empty();
     feasible &= vehicle_violations.is_empty();
+    feasible &= vehicle_reuse_violations.is_empty();
     feasible &= precedence_violations.is_empty();
 
     let visited_nodes = solution
@@ -231,7 +297,12 @@ pub fn evaluate_solution(
 
     SolutionMetrics {
         objective: comparison_distance,
-        search_objective: instance.search_score(solution.routes.len(), total_distance),
+        search_objective: instance.search_score(
+            solution.routes.len(),
+            total_distance,
+            missing_required_nodes.len(),
+            missing_optional_nodes.len(),
+        ),
         total_distance: serialised_distance,
         comparison_distance,
         route_count: solution.routes.len(),
@@ -241,6 +312,11 @@ pub fn evaluate_solution(
         feasible,
         duplicate_nodes,
         missing_nodes,
+        missing_required_nodes,
+        missing_optional_nodes,
+        served_optional_nodes,
+        total_optional_nodes,
+        optional_satisfaction_rate,
         precedence_violations: precedence_violations
             .into_iter()
             .collect::<BTreeSet<_>>()
@@ -248,6 +324,7 @@ pub fn evaluate_solution(
             .collect(),
         vehicle_usage,
         vehicle_violations,
+        vehicle_reuse_violations,
         routes: route_metrics,
     }
 }
@@ -296,7 +373,7 @@ mod tests {
     use crate::solution::{Route, SolutionState};
 
     fn sample_instance() -> Instance {
-        serde_json::from_str(
+        serde_json::from_str::<Instance>(
             r#"
             {
               "name": "sample",
@@ -353,6 +430,8 @@ mod tests {
             "#,
         )
         .expect("sample instance should deserialize")
+        .normalized()
+        .expect("sample instance should normalize")
     }
 
     #[test]
@@ -361,6 +440,7 @@ mod tests {
         let matrix = DistanceMatrix::build(&instance);
         let route = Route {
             depot_idx: 0,
+            vehicle_idx: 0,
             stops: vec![1, 0],
         };
 
@@ -377,8 +457,10 @@ mod tests {
         let solution = SolutionState {
             routes: vec![Route {
                 depot_idx: 0,
+                vehicle_idx: 0,
                 stops: vec![0, 0],
             }],
+            ..SolutionState::default()
         };
 
         let metrics = evaluate_solution(&instance, &matrix, &solution);
@@ -394,6 +476,7 @@ mod tests {
         let matrix = DistanceMatrix::build(&instance);
         let route = Route {
             depot_idx: 0,
+            vehicle_idx: 0,
             stops: vec![1, 0],
         };
 
@@ -403,5 +486,29 @@ mod tests {
             metrics.precedence_violations,
             vec!["R000:precedence".to_string()]
         );
+    }
+
+    #[test]
+    fn missing_optional_nodes_remain_feasible() {
+        let mut instance = sample_instance();
+        instance.metadata.objective_mode = "optional_then_vehicles_then_distance".to_string();
+        instance.nodes[1].required = false;
+        let matrix = DistanceMatrix::build(&instance);
+        let solution = SolutionState {
+            routes: vec![Route {
+                depot_idx: 0,
+                vehicle_idx: 0,
+                stops: vec![0],
+            }],
+            ..SolutionState::default()
+        };
+
+        let metrics = evaluate_solution(&instance, &matrix, &solution);
+        assert!(metrics.feasible);
+        assert_eq!(metrics.missing_required_nodes, Vec::<String>::new());
+        assert_eq!(metrics.missing_optional_nodes, vec!["D000".to_string()]);
+        assert_eq!(metrics.total_optional_nodes, 1);
+        assert_eq!(metrics.served_optional_nodes, 0);
+        assert_eq!(metrics.optional_satisfaction_rate, 0.0);
     }
 }

@@ -26,6 +26,8 @@ struct SummaryRecord {
     best_objective: f64,
     route_count: usize,
     feasible: bool,
+    missing_required_count: usize,
+    missing_optional_count: usize,
 }
 
 #[derive(Debug, Serialize)]
@@ -72,8 +74,12 @@ fn solve_all(instances_dir: &Path, output_dir: &Path, iterations: usize, seed: u
         )?;
 
         println!(
-            "[rust] {}: objective={:.2} routes={} feasible={}",
-            serialized.instance, serialized.objective, serialized.route_count, serialized.feasible
+            "[rust] {}: objective={:.2} routes={} feasible={} missing_optional={}",
+            serialized.instance,
+            serialized.objective,
+            serialized.route_count,
+            serialized.feasible,
+            serialized.evaluation.missing_optional_nodes.len()
         );
 
         summary.push(SummaryRecord {
@@ -82,6 +88,8 @@ fn solve_all(instances_dir: &Path, output_dir: &Path, iterations: usize, seed: u
             best_objective: serialized.objective,
             route_count: serialized.route_count,
             feasible: serialized.feasible,
+            missing_required_count: serialized.evaluation.missing_required_nodes.len(),
+            missing_optional_count: serialized.evaluation.missing_optional_nodes.len(),
         });
     }
 

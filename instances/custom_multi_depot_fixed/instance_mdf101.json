@@ -1,0 +1,404 @@
+{
+  "name": "mdf101",
+  "seed": 0,
+  "planning_horizon": {
+    "start": 0,
+    "end": 480
+  },
+  "capacity": 4,
+  "vehicles_per_depot": {
+    "D0": 2,
+    "D1": 1,
+    "D2": 1
+  },
+  "depots": [
+    {
+      "id": "D0",
+      "x": 40,
+      "y": 50,
+      "tw": {
+        "start": 0,
+        "end": 480
+      }
+    },
+    {
+      "id": "D1",
+      "x": 10,
+      "y": 40,
+      "tw": {
+        "start": 0,
+        "end": 480
+      }
+    },
+    {
+      "id": "D2",
+      "x": 20,
+      "y": 80,
+      "tw": {
+        "start": 0,
+        "end": 480
+      }
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "D0_V00",
+      "depot_id": "D0"
+    },
+    {
+      "id": "D0_V01",
+      "depot_id": "D0"
+    },
+    {
+      "id": "D1_V00",
+      "depot_id": "D1"
+    },
+    {
+      "id": "D2_V00",
+      "depot_id": "D2"
+    }
+  ],
+  "location_catalog": [
+    {
+      "id": "L_FX_D0_V00",
+      "x": 46,
+      "y": 58,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L_FX_D0_V01",
+      "x": 34,
+      "y": 60,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L_FX_D1_V00",
+      "x": 8,
+      "y": 48,
+      "home_depot_id": "D1"
+    },
+    {
+      "id": "L_FX_D2_V00",
+      "x": 18,
+      "y": 88,
+      "home_depot_id": "D2"
+    },
+    {
+      "id": "L_C001",
+      "x": 45,
+      "y": 68,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L_C002",
+      "x": 35,
+      "y": 66,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L_C003",
+      "x": 8,
+      "y": 40,
+      "home_depot_id": "D1"
+    },
+    {
+      "id": "L_C004",
+      "x": 5,
+      "y": 45,
+      "home_depot_id": "D1"
+    },
+    {
+      "id": "L_C005",
+      "x": 22,
+      "y": 85,
+      "home_depot_id": "D2"
+    },
+    {
+      "id": "L_C006",
+      "x": 15,
+      "y": 75,
+      "home_depot_id": "D2"
+    },
+    {
+      "id": "L_C007",
+      "x": 30,
+      "y": 52,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L_C008",
+      "x": 2,
+      "y": 40,
+      "home_depot_id": "D1"
+    },
+    {
+      "id": "L_C009",
+      "x": 25,
+      "y": 55,
+      "home_depot_id": "D0"
+    },
+    {
+      "id": "L_C010",
+      "x": 20,
+      "y": 50,
+      "home_depot_id": "D2"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FX_D0_V00",
+      "request_id": "FX_D0_V00",
+      "kind": "pickup",
+      "x": 46,
+      "y": 58,
+      "demand": 0,
+      "service_duration": 20,
+      "tw": {
+        "start": 200,
+        "end": 200
+      },
+      "location_id": "L_FX_D0_V00",
+      "time_window_label": "fixed",
+      "required": true,
+      "fixed_vehicle_id": "D0_V00"
+    },
+    {
+      "id": "FX_D0_V01",
+      "request_id": "FX_D0_V01",
+      "kind": "pickup",
+      "x": 34,
+      "y": 60,
+      "demand": 0,
+      "service_duration": 20,
+      "tw": {
+        "start": 190,
+        "end": 190
+      },
+      "location_id": "L_FX_D0_V01",
+      "time_window_label": "fixed",
+      "required": true,
+      "fixed_vehicle_id": "D0_V01"
+    },
+    {
+      "id": "FX_D1_V00",
+      "request_id": "FX_D1_V00",
+      "kind": "pickup",
+      "x": 8,
+      "y": 48,
+      "demand": 0,
+      "service_duration": 20,
+      "tw": {
+        "start": 205,
+        "end": 205
+      },
+      "location_id": "L_FX_D1_V00",
+      "time_window_label": "fixed",
+      "required": true,
+      "fixed_vehicle_id": "D1_V00"
+    },
+    {
+      "id": "FX_D2_V00",
+      "request_id": "FX_D2_V00",
+      "kind": "pickup",
+      "x": 18,
+      "y": 88,
+      "demand": 0,
+      "service_duration": 20,
+      "tw": {
+        "start": 210,
+        "end": 210
+      },
+      "location_id": "L_FX_D2_V00",
+      "time_window_label": "fixed",
+      "required": true,
+      "fixed_vehicle_id": "D2_V00"
+    },
+    {
+      "id": "C001",
+      "request_id": "C001",
+      "kind": "pickup",
+      "x": 45,
+      "y": 68,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 90,
+        "end": 100
+      },
+      "location_id": "L_C001",
+      "time_window_label": "morning",
+      "required": false,
+      "fixed_vehicle_id": null
+    },
+    {
+      "id": "C002",
+      "request_id": "C002",
+      "kind": "pickup",
+      "x": 35,
+      "y": 66,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 90,
+        "end": 100
+      },
+      "location_id": "L_C002",
+      "time_window_label": "morning",
+      "required": false,
+      "fixed_vehicle_id": null
+    },
+    {
+      "id": "C003",
+      "request_id": "C003",
+      "kind": "pickup",
+      "x": 8,
+      "y": 40,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 90,
+        "end": 100
+      },
+      "location_id": "L_C003",
+      "time_window_label": "morning",
+      "required": false,
+      "fixed_vehicle_id": null
+    },
+    {
+      "id": "C004",
+      "request_id": "C004",
+      "kind": "pickup",
+      "x": 5,
+      "y": 45,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 90,
+        "end": 100
+      },
+      "location_id": "L_C004",
+      "time_window_label": "morning",
+      "required": false,
+      "fixed_vehicle_id": null
+    },
+    {
+      "id": "C005",
+      "request_id": "C005",
+      "kind": "pickup",
+      "x": 22,
+      "y": 85,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 90,
+        "end": 100
+      },
+      "location_id": "L_C005",
+      "time_window_label": "morning",
+      "required": false,
+      "fixed_vehicle_id": null
+    },
+    {
+      "id": "C006",
+      "request_id": "C006",
+      "kind": "pickup",
+      "x": 15,
+      "y": 75,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 90,
+        "end": 100
+      },
+      "location_id": "L_C006",
+      "time_window_label": "morning",
+      "required": false,
+      "fixed_vehicle_id": null
+    },
+    {
+      "id": "C007",
+      "request_id": "C007",
+      "kind": "pickup",
+      "x": 30,
+      "y": 52,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 280,
+        "end": 300
+      },
+      "location_id": "L_C007",
+      "time_window_label": "afternoon",
+      "required": false,
+      "fixed_vehicle_id": null
+    },
+    {
+      "id": "C008",
+      "request_id": "C008",
+      "kind": "pickup",
+      "x": 2,
+      "y": 40,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 280,
+        "end": 300
+      },
+      "location_id": "L_C008",
+      "time_window_label": "afternoon",
+      "required": false,
+      "fixed_vehicle_id": null
+    },
+    {
+      "id": "C009",
+      "request_id": "C009",
+      "kind": "pickup",
+      "x": 25,
+      "y": 55,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 280,
+        "end": 300
+      },
+      "location_id": "L_C009",
+      "time_window_label": "afternoon",
+      "required": false,
+      "fixed_vehicle_id": null
+    },
+    {
+      "id": "C010",
+      "request_id": "C010",
+      "kind": "pickup",
+      "x": 20,
+      "y": 50,
+      "demand": 1,
+      "service_duration": 10,
+      "tw": {
+        "start": 280,
+        "end": 300
+      },
+      "location_id": "L_C010",
+      "time_window_label": "afternoon",
+      "required": false,
+      "fixed_vehicle_id": null
+    }
+  ],
+  "metadata": {
+    "request_count": 14,
+    "node_count": 14,
+    "location_count": 14,
+    "vehicle_count": 4,
+    "variant": "custom_multi_depot_fixed",
+    "benchmark_group": "custom_multi_depot_fixed",
+    "distance_metric": "euclidean_double",
+    "load_profile": "zero_start",
+    "objective_mode": "optional_then_vehicles_then_distance",
+    "enforce_precedence": false,
+    "time_window_distribution": {
+      "afternoon": 4,
+      "fixed": 4,
+      "morning": 6
+    }
+  }
+}

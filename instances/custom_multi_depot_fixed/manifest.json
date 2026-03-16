@@ -1,0 +1,12 @@
+{
+  "instances": [
+    {
+      "name": "mdf101",
+      "instance_path": "instances/custom_multi_depot_fixed/instance_mdf101.json"
+    },
+    {
+      "name": "mdf102",
+      "instance_path": "instances/custom_multi_depot_fixed/instance_mdf102.json"
+    }
+  ]
+}

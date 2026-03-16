@@ -99,7 +99,12 @@ pub fn solve(
             &mut rng,
         );
 
-        if destroy_outcome.removed_nodes.is_empty() {
+        let mut pending_nodes = destroy_outcome.removed_nodes;
+        pending_nodes.extend(candidate_solution.take_unassigned_nodes());
+        pending_nodes.sort_unstable();
+        pending_nodes.dedup();
+
+        if pending_nodes.is_empty() {
             continue;
         }
 
@@ -107,7 +112,7 @@ pub fn solve(
             instance,
             matrix,
             &mut candidate_solution,
-            &destroy_outcome.removed_nodes,
+            &pending_nodes,
             RepairOptions {
                 allow_new_routes: destroy_outcome.allow_new_routes,
             },
@@ -222,9 +227,16 @@ fn removal_count(unit_count: usize, rng: &mut StdRng) -> usize {
 
 fn removal_unit_count(instance: &Instance, solution: &SolutionState) -> usize {
     if instance.enforces_precedence() {
-        request_pairs_in_solution(instance, solution).len()
+        request_pairs_in_solution(instance, solution)
+            .into_iter()
+            .filter(|request| request_is_removable(instance, request))
+            .count()
     } else {
-        solution.all_nodes().len()
+        solution
+            .all_nodes()
+            .into_iter()
+            .filter(|node_idx| node_is_removable(instance, *node_idx))
+            .count()
     }
 }
 
@@ -257,8 +269,13 @@ fn apply_destroy(
         }
     } else {
         match operator {
-            DestroyOperator::Random => (random_removal(solution, remove_count, rng), true),
-            DestroyOperator::Worst => (worst_removal(solution, matrix, remove_count), true),
+            DestroyOperator::Random => {
+                (random_removal(instance, solution, remove_count, rng), true)
+            }
+            DestroyOperator::Worst => (
+                worst_removal(instance, solution, matrix, remove_count),
+                true,
+            ),
             DestroyOperator::Shaw => (
                 shaw_removal(solution, instance, matrix, remove_count, rng),
                 true,
@@ -277,11 +294,19 @@ fn apply_destroy(
     }
 }
 
-fn random_removal(solution: &SolutionState, remove_count: usize, rng: &mut StdRng) -> Vec<usize> {
-    let mut nodes = solution.all_nodes();
+fn random_removal(
+    instance: &Instance,
+    solution: &SolutionState,
+    remove_count: usize,
+    rng: &mut StdRng,
+) -> Vec<usize> {
+    let mut nodes = solution
+        .all_nodes()
+        .into_iter()
+        .filter(|node_idx| node_is_removable(instance, *node_idx))
+        .collect::<Vec<_>>();
     nodes.shuffle(rng);
-    nodes.truncate(remove_count);
-    nodes
+    nodes.into_iter().take(remove_count).collect()
 }
 
 fn random_request_removal(
@@ -290,13 +315,17 @@ fn random_request_removal(
     remove_count: usize,
     rng: &mut StdRng,
 ) -> Vec<usize> {
-    let mut requests = request_pairs_in_solution(instance, solution);
+    let mut requests = request_pairs_in_solution(instance, solution)
+        .into_iter()
+        .filter(|request| request_is_removable(instance, request))
+        .collect::<Vec<_>>();
     requests.shuffle(rng);
     requests.truncate(remove_count);
     flatten_requests(&requests)
 }
 
 fn worst_removal(
+    instance: &Instance,
     solution: &SolutionState,
     matrix: &DistanceMatrix,
     remove_count: usize,
@@ -307,6 +336,9 @@ fn worst_removal(
         let depot_location = matrix.depot_location(route.depot_idx);
 
         for (position, &node_idx) in route.stops.iter().enumerate() {
+            if !node_is_removable(instance, node_idx) {
+                continue;
+            }
             let previous_location = if position == 0 {
                 depot_location
             } else {
@@ -347,6 +379,9 @@ fn worst_request_removal(
         let route_distance = cache.summary().distance;
 
         for request in requests_in_route(instance, route) {
+            if !request_is_removable(instance, &request) {
+                continue;
+            }
             if let Some(summary) =
                 evaluate_request_removal(instance, matrix, route, &cache, &request)
             {
@@ -372,7 +407,11 @@ fn shaw_removal(
     remove_count: usize,
     rng: &mut StdRng,
 ) -> Vec<usize> {
-    let all_nodes = solution.all_nodes();
+    let all_nodes = solution
+        .all_nodes()
+        .into_iter()
+        .filter(|node_idx| node_is_removable(instance, *node_idx))
+        .collect::<Vec<_>>();
     let Some(&seed_node_idx) = all_nodes.choose(rng) else {
         return Vec::new();
     };
@@ -408,7 +447,10 @@ fn shaw_request_removal(
     remove_count: usize,
     rng: &mut StdRng,
 ) -> Vec<usize> {
-    let requests = request_pairs_in_solution(instance, solution);
+    let requests = request_pairs_in_solution(instance, solution)
+        .into_iter()
+        .filter(|request| request_is_removable(instance, request))
+        .collect::<Vec<_>>();
     let Some(seed_request) = requests.choose(rng).cloned() else {
         return Vec::new();
     };
@@ -467,6 +509,12 @@ fn route_reduction_removal(
         .routes
         .iter()
         .enumerate()
+        .filter(|(_, route)| {
+            route
+                .stops
+                .iter()
+                .all(|node_idx| node_is_removable(instance, *node_idx))
+        })
         .map(|(route_index, route)| {
             let unit_count = if instance.enforces_precedence() {
                 requests_in_route(instance, route).len()
@@ -499,7 +547,7 @@ fn route_reduction_removal(
     let mut additional_nodes = if instance.enforces_precedence() {
         worst_request_removal(instance, matrix, solution, support_remove_count)
     } else {
-        worst_removal(solution, matrix, support_remove_count)
+        worst_removal(instance, solution, matrix, support_remove_count)
     };
 
     let mut combined = removed_nodes;
@@ -516,6 +564,15 @@ fn request_pairs_in_solution(instance: &Instance, solution: &SolutionState) -> V
 
 fn requests_in_route(instance: &Instance, route: &crate::solution::Route) -> Vec<RequestPair> {
     instance.request_pairs_from_nodes(&route.stops)
+}
+
+fn node_is_removable(instance: &Instance, node_idx: usize) -> bool {
+    !instance.node_is_fixed(node_idx)
+}
+
+fn request_is_removable(instance: &Instance, request: &RequestPair) -> bool {
+    node_is_removable(instance, request.pickup_idx)
+        && node_is_removable(instance, request.delivery_idx)
 }
 
 fn flatten_requests(requests: &[RequestPair]) -> Vec<usize> {

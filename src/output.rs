@@ -13,6 +13,7 @@ use crate::solution::SolutionState;
 pub struct RouteOutput {
     pub route_index: usize,
     pub depot_id: String,
+    pub vehicle_id: String,
     pub node_ids: Vec<String>,
 }
 
@@ -52,6 +53,7 @@ pub fn solution_to_json(
         .map(|(route_index, route)| RouteOutput {
             route_index,
             depot_id: instance.depots[route.depot_idx].id.clone(),
+            vehicle_id: instance.vehicle(route.vehicle_idx).id.clone(),
             node_ids: route
                 .stops
                 .iter()
