@@ -20,6 +20,7 @@ const SMALL_ROUTE_DP_INTERVAL: usize = 100;
 pub struct SolveParams {
     pub iterations: usize,
     pub seed: u64,
+    pub record_history: bool,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -33,6 +34,25 @@ pub struct SolveOutcome {
     pub initial_objective: f64,
     pub best_solution: SolutionState,
     pub operator_weights: Vec<OperatorWeight>,
+    pub history: Vec<IterationSnapshot>,
+}
+
+#[derive(Debug, Clone)]
+pub struct RouteCapture {
+    pub depot_idx: usize,
+    pub stops: Vec<usize>,
+}
+
+#[derive(Debug, Clone)]
+pub struct IterationSnapshot {
+    pub iteration: usize,
+    pub temperature: f64,
+    pub candidate_score: f64,
+    pub best_score: f64,
+    pub accepted: bool,
+    pub best_updated: bool,
+    pub candidate_routes: Vec<RouteCapture>,
+    pub best_routes: Vec<RouteCapture>,
 }
 
 #[derive(Debug, Copy, Clone)]
@@ -83,6 +103,12 @@ pub fn solve(
     let mut weights = vec![1.0_f64; DestroyOperator::all().len()];
     let mut temperature = current_score.max(1.0) * 0.05;
     let mut rng = StdRng::seed_from_u64(params.seed);
+    let mut history: Vec<IterationSnapshot> = Vec::new();
+    let sample_interval = if params.record_history {
+        (params.iterations / 300).max(1)
+    } else {
+        usize::MAX
+    };
 
     for iteration in 0..params.iterations {
         let operator_index = select_operator(&weights, &mut rng);
@@ -140,7 +166,9 @@ pub fn solve(
             rng.gen::<f64>() < acceptance_probability
         };
 
-        let reward = if candidate_score < best_score {
+        let best_score_updated = candidate_score < best_score;
+
+        let reward = if best_score_updated {
             8.0
         } else if candidate_score < current_score {
             4.0
@@ -152,12 +180,31 @@ pub fn solve(
 
         update_weight(&mut weights[operator_index], reward);
 
+        if params.record_history
+            && (iteration % sample_interval == 0 || best_score_updated)
+        {
+            history.push(IterationSnapshot {
+                iteration,
+                temperature,
+                candidate_score,
+                best_score: if best_score_updated { candidate_score } else { best_score },
+                accepted,
+                best_updated: best_score_updated,
+                candidate_routes: capture_routes(&candidate_solution),
+                best_routes: if best_score_updated {
+                    capture_routes(&candidate_solution)
+                } else {
+                    capture_routes(&best_solution)
+                },
+            });
+        }
+
         if accepted {
             current_score = candidate_score;
             current_solution = candidate_solution.clone();
         }
 
-        if candidate_score < best_score {
+        if best_score_updated {
             best_score = candidate_score;
             best_solution = candidate_solution;
         }
@@ -194,6 +241,7 @@ pub fn solve(
                 weight: *weight,
             })
             .collect(),
+        history,
     })
 }
 
@@ -579,5 +627,16 @@ fn flatten_requests(requests: &[RequestPair]) -> Vec<usize> {
     requests
         .iter()
         .flat_map(|request| [request.pickup_idx, request.delivery_idx])
+        .collect()
+}
+
+fn capture_routes(solution: &SolutionState) -> Vec<RouteCapture> {
+    solution
+        .routes
+        .iter()
+        .map(|route| RouteCapture {
+            depot_idx: route.depot_idx,
+            stops: route.stops.clone(),
+        })
         .collect()
 }
